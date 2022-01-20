@@ -1,0 +1,69 @@
+@font-face {
+  font-family: 'standalone-topnav-icons';
+  src: url('standalone-topnav-icons/resources/font/standalone-topnav-icons-171120211807.eot?73080047');
+  src: url('standalone-topnav-icons/resources/font/standalone-topnav-icons-171120211807.eot?73080047#iefix') format('embedded-opentype'),
+       url('standalone-topnav-icons/resources/font/standalone-topnav-icons-171120211807.woff2?73080047') format('woff2'),
+       url('standalone-topnav-icons/resources/font/standalone-topnav-icons-171120211807.woff?73080047') format('woff'),
+       url('standalone-topnav-icons/resources/font/standalone-topnav-icons-171120211807.ttf?73080047') format('truetype'),
+       url('standalone-topnav-icons/resources/font/standalone-topnav-icons-171120211807.svg?73080047#standalone-topnav-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'standalone-topnav-icons';
+    src: url('standalone-topnav-icons/resources/font/standalone-topnav-icons-171120211807.svg?73080047#standalone-topnav-icons') format('svg');
+  }
+}
+*/
+
+ .ping-pic.ping-pic__topNav .fa:before {
+  font-family: "standalone-topnav-icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  /*margin-right: .2em;*/
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  /*margin-left: .2em;*/
+
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.ping-pic.ping-pic__topNav .fa-search:before { content: '\e800'; } /* '' */
+.ping-pic.ping-pic__topNav .fa-globe:before { content: '\e801'; } /* '' */
+.ping-pic.ping-pic__topNav .fa-user:before { content: '\e802'; } /* '' */
+.ping-pic.ping-pic__topNav .fa-angle-double-left:before { content: '\f100'; } /* '' */
+.ping-pic.ping-pic__topNav .fa-angle-double-right:before { content: '\f101'; } /* '' */
+.ping-pic.ping-pic__topNav .fa-angle-double-up:before { content: '\f102'; } /* '' */
+.ping-pic.ping-pic__topNav .fa-angle-double-down:before { content: '\f103'; } /* '' */
+.ping-pic.ping-pic__topNav .fa-angle-left:before { content: '\f104'; } /* '' */
+.ping-pic.ping-pic__topNav .fa-angle-right:before { content: '\f105'; } /* '' */
+.ping-pic.ping-pic__topNav .fa-angle-up:before { content: '\f106'; } /* '' */
+.ping-pic.ping-pic__topNav .fa-angle-down:before { content: '\f107'; } /* '' */

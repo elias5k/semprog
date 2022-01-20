@@ -1,0 +1,3 @@
+- Fix 1: Authorization Middleware
+- Fix 2: Error Handler Middleware
+- Fix 3: Testing Suite

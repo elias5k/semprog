@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<!-- saved from url=(0121)https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/ -->
+<html lang="en-US"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<!--[if lt IE 9]>
+<script src="https://krebsonsecurity.com/wp-content/themes/kos-mar2021/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<title>First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security</title>
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Krebs on Security » Feed" href="https://krebsonsecurity.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Krebs on Security » Comments Feed" href="https://krebsonsecurity.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Krebs on Security » First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records Comments Feed" href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/krebsonsecurity.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.8.2"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="colorbox-theme1-css" href="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/colorbox.css" type="text/css" media="screen">
+<link rel="stylesheet" id="wp-block-library-css" href="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="contact-form-7-css" href="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="publisho-style-css" href="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/style.css" type="text/css" media="all">
+<style id="publisho-style-inline-css" type="text/css">
+
+	.themonic-nav .current-menu-item > a, .themonic-nav .current-menu-ancestor > a, .themonic-nav .current_page_item > a, .themonic-nav .current_page_ancestor > a {
+		background: #cc6600;
+	}
+	.themonic-nav ul.nav-menu, .themonic-nav div.nav-menu > ul {
+		border-bottom: 5px solid #cc6600;
+	}
+	#site-navigation .topheadmenu a {
+    background: rgba(0, 0, 0, 0);
+	}
+	.themonic-nav li a:hover {
+		background: #cc6600;
+	}
+	.themonic-nav li:hover {
+		background: #cc6600;
+	}.wrapper .flexslider {margin: 0 0 30px;}.frontp .btm-wrap {
+    border-top: 1px solid #e9e9e9;
+	}
+	.entry-summary {
+    border-top: none;
+	}.frontp .btm-wrap { margin-bottom: 30px;}.site { font-size:14px;}.site { font-family:'Roboto', arial ;}
+</style>
+<link rel="stylesheet" id="publisho-custom-style-css" href="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/custom.css" type="text/css" media="all">
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='publisho-ie-css'  href='https://krebsonsecurity.com/wp-content/themes/kos-mar2021/css/ie.css?ver=20160606' type='text/css' media='all' />
+<![endif]-->
+<link rel="stylesheet" id="fontawesome-css-css" href="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/font-awesome.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="publisho_custom_fonts-css" href="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/css" type="text/css" media="screen">
+<script type="text/javascript" src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/jquery.min.js.download" id="jquery-core-js"></script>
+<script type="text/javascript" src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/jquery-migrate.min.js.download" id="jquery-migrate-js"></script>
+<script type="text/javascript" src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/jquery.colorbox-min.js.download" id="colorbox-js"></script>
+<link rel="https://api.w.org/" href="https://krebsonsecurity.com/wp-json/"><link rel="alternate" type="application/json" href="https://krebsonsecurity.com/wp-json/wp/v2/posts/47813"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://krebsonsecurity.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://krebsonsecurity.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.8.2">
+<link rel="canonical" href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/">
+<link rel="shortlink" href="https://krebsonsecurity.com/?p=47813">
+<link rel="alternate" type="application/json+oembed" href="https://krebsonsecurity.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fkrebsonsecurity.com%2F2019%2F05%2Ffirst-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://krebsonsecurity.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fkrebsonsecurity.com%2F2019%2F05%2Ffirst-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records%2F&amp;format=xml">
+<!-- JavaScript Pull-Quotes plugin v2.2 -->
+	<link rel="stylesheet" href="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/jspullquotes-core.css" type="text/css">
+	<link rel="stylesheet" href="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/jspullquotes-default.css" type="text/css">
+	<script type="text/javascript" src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/jspullquotes.js.download"></script>
+	<script type="text/javascript">
+		var arrOptions = new Array("1", "1", "right", "1", "1", "blockquote", "pullquote", "pullquote pqRight");
+		pullQuoteOpts(arrOptions);
+	</script>
+<!-- end pull-quote additions -->
+<!-- jQuery Lightbox For Native Galleries v3.1.3 | http://www.viper007bond.com/wordpress-plugins/jquery-lightbox-for-native-galleries/ -->
+<script type="text/javascript">
+// <![CDATA[
+	jQuery(document).ready(function($){
+		$(".gallery").each(function(index, obj){
+			var galleryid = Math.floor(Math.random()*10000);
+			$(obj).find("a").colorbox({rel:galleryid, maxWidth:"95%", maxHeight:"95%"});
+		});
+		$("a.lightbox").colorbox({maxWidth:"95%", maxHeight:"95%"});
+	});
+// ]]>
+</script>
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #ffffff; }
+</style>
+	<meta name="twitter:widgets:link-color" content="#000000"><meta name="twitter:widgets:border-color" content="#000000"><meta name="twitter:partner" content="tfwp">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records"><meta name="twitter:site" content="@briankrebs"><meta name="twitter:description" content="The Web site for Fortune 500 real estate title insurance giant First American Financial Corp. [NYSE:FAF] leaked hundreds of millions of documents related to mortgage deals going back to 2003, until notified this week by KrebsOnSecurity. The digitized records --…"><meta name="twitter:image" content="https://krebsonsecurity.com/wp-content/uploads/2019/05/firstamericanfinancial.jpg">
+</head>
+<body class="post-template-default single single-post postid-47813 single-format-standard custom-background custom-background-white single-author vsc-initialized">
+<div id="page" class="site">
+	<!-- <div class="publisho-top-mobile-nav clear"></div> -->
+	<div class="themonic-logo themonic-ad3"><div class="a-statement">Advertisement</div><a href="https://ninjio.com/lp46d-krebs/">
+<img src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/9.png">
+</a>
+</div>
+	<div class="themonic-logo themonic-ad6"><div class="a-statement">Advertisement</div><a href="https://ninjio.com/lp46d-krebs/">
+<img src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/10.png">
+</a></div>
+	<nav id="site-navigation" class="themonic-nav" role="navigation">
+	</nav><!-- #site-navigation -->
+	<div class="clear"></div>
+	<header id="masthead" class="site-header" role="banner">
+ 					<div class="desktop-social">
+						<div class="socialmedia">
+							<a href="http://twitter.com/briankrebs" target="_blank"><i class="fa fa-twitter"></i></a> 
+															<a class="rss" href="https://krebsonsecurity.com/feed/" target="_blank"><i class="fa fa-rss"></i></a>	
+									<a class="rss" href="https://www.linkedin.com/in/bkrebs/" target="_blank"><i class="fa fa-linkedin"></i></a>	
+								</div>
+				 	</div>
+																						   
+		
+		<div class="themonic-logo responsive-img-container">
+			<a href="https://krebsonsecurity.com/" title="Krebs on Security" rel="home"><img src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/kos-27-03-2021.jpg" alt="Krebs on Security"></a>
+		</div>
+
+					<div class="mobile-social">
+						<div class="socialmedia">
+							<a href="http://twitter.com/briankrebs" target="_blank"><i class="fa fa-twitter"></i></a> 
+															<a class="rss" href="https://krebsonsecurity.com/feed/" target="_blank"><i class="fa fa-rss"></i></a>	
+									<a class="rss" href="https://www.linkedin.com/in/bkrebs/" target="_blank"><i class="fa fa-linkedin"></i></a>	
+								</div>
+					</div>
+		
+				<!-- <div class="publisho-mobile-nav clear"></div> -->
+		<nav id="site-navigation" class="themonic-nav" role="navigation">
+			<a class="assistive-text" href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/#content" title="Skip to content">Skip to content</a>
+			<div id="menu-top" class="nav-menu"><ul>
+<li><a href="https://krebsonsecurity.com/">Home</a></li><li class="page_item page-item-2"><a href="https://krebsonsecurity.com/about/">About the Author</a></li>
+<li class="page_item page-item-645"><a href="https://krebsonsecurity.com/cpm/">Advertising/Speaking</a></li>
+</ul></div>
+		</nav><!-- #site-navigation -->
+		<div class="clear"></div>
+	</header><!-- #masthead -->
+	<div id="main" class="wrapper">
+	<header class="entry-header">
+							<div class="singleentry">
+					<h1 class="entry-title">First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records</h1>
+				</div>
+							
+			
+			</header><!-- .entry-header -->
+
+	<div id="primary" class="site-content">
+		<div id="content" role="main">
+
+			
+					<article id="post-47813" class="post-47813 post type-post status-publish format-standard hentry category-data-breaches tag-ben-shoval tag-first-american-financial-corp">
+				<header class="entry-header">
+					<div class="clear"></div>
+	<div class="btm-wrap">
+	<div class="below-title-meta">
+		<div class="adt">
+			
+			
+				
+				<span class="date updated">May 24, 2019</span>
+					
+        </div>
+		<div class="adt-comment">
+		<span><a class="link-comments" href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/#comments">109 Comments</a></span> 
+        </div>    <div class="clear"></div>	   
+    </div><!-- below title meta end -->
+	</div>
+		
+						</header><!-- .entry-header -->
+		
+		
+							<div class="entry-content">
+												<p>The Web site for Fortune 500 real estate title insurance giant <strong>First American Financial Corp.</strong> [<a href="https://www.marketbeat.com/stocks/NYSE/FAF/" target="_blank" rel="noopener">NYSE:FAF</a>] leaked hundreds of millions of documents related to mortgage deals going back to 2003, until notified this week by KrebsOnSecurity. The digitized records — including bank account numbers and statements, mortgage and tax records, Social Security numbers, wire transaction receipts, and drivers license images — were available without authentication to anyone with a Web browser.</p>
+<div id="attachment_47830" style="width: 607px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-47830" loading="lazy" class=" wp-image-47830" src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/firstamericanfinancial.jpg" alt="" width="597" height="355"><p id="caption-attachment-47830" class="wp-caption-text">First American Financial Corp. Image: Linkedin.</p></div>
+<p>Santa Ana, Calif.-based <a href="https://en.wikipedia.org/wiki/First_American_Corporation" target="_blank" rel="noopener">First American</a> is a leading provider of title insurance and settlement services to the real estate and mortgage industries. It employs some 18,000 people and brought in <a href="http://fortune.com/fortune500/first-american-financial/" target="_blank" rel="noopener">more than $5.7 billion in 2018</a>.</p>
+<p>Earlier this week, KrebsOnSecurity was contacted by a real estate developer in Washington state who said he’d had little luck getting a response from the company about what he found, which was that a portion of its Web site (firstam.com) was leaking tens if not hundreds of millions of records. He said anyone who knew the URL for a valid document at the Web site could view other documents just by modifying a single digit in the link.</p>
+<p>And&nbsp;this would potentially include anyone who’s ever been sent a document link via email by First American.</p>
+<p>KrebsOnSecurity confirmed the real estate developer’s findings, which indicate that First American’s Web site exposed approximately 885 million files, the earliest dating back more than 16 years.&nbsp;No authentication was required to read the documents.</p>
+<p>Many of the exposed files are records of wire transactions with bank account numbers and other information from home or property buyers and sellers. <strong>Ben Shoval</strong>, the developer who notified KrebsOnSecurity about the data exposure, said that’s because First American is one of the most widely-used companies for real estate title insurance and for closing real estate deals — where both parties to the sale meet in a room and sign stacks of legal documents.</p>
+<p>“Closing agencies are supposed to be the only neutral party that doesn’t represent someone else’s interest, and you’re required to have title insurance if you have any kind of mortgage,” Shoval said.</p>
+<blockquote class="pullquote pqRight"><p>You give them all kinds of private information and you expect that to stay private.</p></blockquote><p>“The title insurance agency collects all kinds of documents from both the buyer and seller, including Social Security numbers, drivers licenses, account statements, and even internal corporate documents if you’re a small business. <span class="pullquote pqright">You give them all kinds of private information and you expect that to stay private.</span>”</p>
+<p>Shoval shared a document link he’d been given by First American from a recent transaction, which referenced a record number that was nine digits long and dated April 2019. Modifying the document number in his link by numbers in either direction yielded other peoples’ records before or after the same date and time, indicating the document numbers may have been issued sequentially.</p>
+<p>The earliest document number available on the site – 000000075 — referenced a real estate transaction from 2003. From there, the dates on the documents get closer to real time with each forward increment in the record number.</p>
+<div id="attachment_47843" style="width: 595px" class="wp-caption aligncenter"><a class="lightbox" href="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/sample-fa.jpg"><img aria-describedby="caption-attachment-47843" loading="lazy" class="wp-image-47843" src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/sample-fa.jpg" alt="" width="585" height="478"></a><p id="caption-attachment-47843" class="wp-caption-text">A redacted screenshot of one of many millions of sensitive records exposed by First American’s Web site.</p></div>
+<p>As of the morning of May 24, firstam.com was returning documents up to the present day (885,000,000+), including many PDFs and post-dated forms for upcoming real estate closings. By 2 p.m. ET Friday, the company had disabled the site that served the records. It’s not yet clear how long the site remained in its promiscuous state, but archive.org shows documents available from the site dating back to at least March 2017.</p>
+<p>First American wouldn’t comment on the overall number of records potentially exposed via their site, or how long those records were publicly available. But a spokesperson for the company did share the following statement:</p>
+<blockquote><p>“First American has learned of a design defect in&nbsp;an application&nbsp;that made possible unauthorized access to customer data.&nbsp; At First American, security, privacy and confidentiality are of the highest priority and we are committed to protecting our customers’ information. The company took immediate action to address the situation and shut down external access to the application. We are currently evaluating what effect, if any, this had on the security of customer information. We will have no further comment until our internal review is completed.”</p></blockquote>
+<p>I should emphasize that these documents were merely available from First American’s Web site; I do not have any information on whether this fact was known to fraudsters previously, nor do I have any information to suggest the documents were somehow mass-harvested (although a low-and-slow or distributed indexing of this data would not have been difficult for even a novice attacker).<span id="more-47813"></span></p>
+<p>Nevertheless, the information exposed by First American would be a virtual gold mine for phishers and scammers involved in so-called Business Email Compromise (BEC) scams, which often impersonate real estate agents, closing agencies, title and escrow firms in a bid to <a href="https://krebsonsecurity.com/2017/04/blind-trust-in-email-could-cost-you-your-home/" target="_blank" rel="noopener">trick property buyers into wiring funds to fraudsters</a>. According to the FBI, BEC scams are the most costly form of cybercrime today.</p>
+<p>Armed with a single link to a First American document, BEC scammers would have an endless supply of very convincing phishing templates to use. A database like this also would give fraudsters a constant feed of new information about upcoming real estate financial transactions — <em>including the email addresses, names and phone numbers of the closing agents and buyers</em>.</p>
+<p>As noted in past stories here, these types of data&nbsp;exposures are some of the most common yet preventable. In December 2018, the parent company of <strong>Kay Jewelers</strong> and <strong>Jared Jewelers</strong> fixed a weakness in their site that <a href="https://krebsonsecurity.com/2018/12/jared-kay-jewelers-parent-fixes-data-leak/" target="_blank" rel="noopener">exposed the order information for all of their online customers</a>.</p>
+<p>In August 2018, financial industry giant <strong>Fiserv Inc.</strong> <a href="https://krebsonsecurity.com/2018/08/fiserv-flaw-exposed-customer-data-at-hundreds-of-banks/" target="_blank" rel="noopener">fixed a bug reported by KrebsOnSecurity</a> that exposed personal and financial details of countless customers across hundreds of bank Web sites.</p>
+<p>In July 2018, identity theft protection service&nbsp;<strong>LifeLock</strong>&nbsp;corrected an information disclosure flaw that&nbsp;<a href="https://krebsonsecurity.com/2018/07/lifelock-bug-exposed-millions-of-customer-email-addresses/" target="_blank" rel="noopener">exposed the email address of millions of subscribers</a>. And in April 2018, PaneraBread.com&nbsp;<a href="https://krebsonsecurity.com/2018/04/panerabread-com-leaks-millions-of-customer-records/" target="_blank" rel="noopener">remedied a weakness</a>&nbsp;exposing millions of customer names, email and physical addresses, birthdays and partial credit card numbers.</p>
+											</div><!-- .entry-content -->
+		
+			
+	
+	<footer class="entry-meta">
+			
+		<p><i>
+         This entry was posted on Friday 24th of May 2019 04:47 PM 
+         </i></p>
+		 
+					<div class="categories"><a href="https://krebsonsecurity.com/category/data-breaches/" rel="category tag">Data Breaches</a></div>
+								<div class="tags"><a href="https://krebsonsecurity.com/tag/ben-shoval/" rel="tag">Ben Shoval</a> <a href="https://krebsonsecurity.com/tag/first-american-financial-corp/" rel="tag">First American Financial Corp.</a></div>
+			
+	</footer>
+
+	</article><!-- #post -->
+		
+			<br><div class="themonic-ad4"></div>
+					<nav class="nav-single">
+					<div class="assistive-text">Post navigation</div>
+					<span class="nav-previous"><a href="https://krebsonsecurity.com/2019/05/legal-threats-make-powerful-phishing-lures/" rel="prev"><span class="meta-nav">←</span> Legal Threats Make Powerful Phishing Lures</a></span>
+					<span class="nav-next"><a href="https://krebsonsecurity.com/2019/05/should-failing-phish-tests-be-a-fireable-offense/" rel="next">Should Failing Phish Tests Be a Fireable Offense? <span class="meta-nav">→</span></a></span>
+				</nav><!-- .nav-single -->
+
+				
+<div id="comments" class="comments-area">
+
+	
+			<h2 class="comments-title">
+			109 thoughts on “<span>First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records</span>”		</h2>
+
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-489934">
+		<article id="comment-489934" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">KoSReader6000000 </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-489934"><time datetime="2019-05-25T23:30:16-04:00">May 25, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>There are number of good comments in this tread.</p>
+<p>No Security : ‘”Chief Executive Officer at FIRST AMERICAN FINANCIAL..made $8,402,957 in total compensation…they should drop the comp $1M or so and hire some security.”‘</p>
+<p>I agree that is A lucrative compensation package but he leaves to a hole in their security – to the detriment of his customers. I wonder if the CEO’s house is on one of those exposed Urls.</p>
+<p>A.J. Soria: “This was completely preventable and reeks of gross negligence”</p>
+<p>I have to agree.</p>
+<p>Disgruntled FirstAm Customer: “Completed forms are all encrypted, scanned, and the hardcopies are thrown away… After the transaction is done, FirstAm has nothing left afterwards except the last 4 digits of a customer’s SSN…I guess she forgot to say, “FirstAm employees cannot access the encrypted copy, but everyone else on the internet can.””</p>
+<p>I feel for you. I have been scammed by non-written verbal assurance before. Clearly, 16 years worth of data indicates that is not true.</p>
+<p>Gunter Königsmann: ‘Sequential numbers in URLs, probably. Not bad by itself… But add any additional bug to it and you’re in deep trouble.”</p>
+<p>That is a big problem. I will talk about that in a bit.</p>
+<p>Jennifer: “…another misconfigured bucket? … This is why the US needs GDPR. There’s no privacy without protection.”</p>
+<p>Yes. It seems so.</p>
+<p>I took a look at FA job opening page and its  source code seems to indicate the content generator is WordPress. It is somewhat popular – even the White House used it at one point.</p>
+<p>I used to do some Top of the LAMP stack work with WordPress and other CMS long ago with the  serialization of rows of data thing [or Problem]. </p>
+<p>I think for WordPress “serialization” data came in around WordPress ~ version 2.5 or higher [Lamp is. Linux, Apache, MySql, Php – a stack of software used for CMS]. </p>
+<p>Let’s talk honestly, if First America used a serialization Content Management System or CMS [or CRM] years ago – would a simple plug-in such as Prevent Direct Access have helped keep First America s customer’s data safe? </p>
+<p>It is not an expensive plug-in and there are open source versions which are free of cost.</p>
+<p>WordPress plug-in description:</p>
+<p>“Prevent Direct Access provides a simple way to protect your WordPress files as well as prevent Google, other search engines and unwanted users from indexing and stealing your hard-to-produce ebooks, documents and videos.” -WordPress org</p>
+<p>wordpress[.]org/plugins/prevent-direct-access/</p>
+<p>Any database experts care to comment on this topic?</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	<ol class="children">
+	<li class="comment odd alt depth-2" id="li-comment-490031">
+		<article id="comment-490031" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Chris Hugar </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490031"><time datetime="2019-05-26T21:46:03-04:00">May 26, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>I worked at banks all my adult life. One thing never changed. After a catastrophe, no biggies would be held accountable but many of the worker ants would suffer. Some would be fired. The biggie would be on TV and claim the problem was solved. Many worker ants would have a very difficult time finding new employment since the HR department would hand out the company line instead of the truth. I’m retired now and I had the pleasant experience of seeing some of the biggies later shoulder the blame and lying HR sycophants on the street. Tough luck, chuck.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	<ol class="children">
+	<li class="comment even depth-3" id="li-comment-490064">
+		<article id="comment-490064" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Moike </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490064"><time datetime="2019-05-27T06:55:58-04:00">May 27, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>&gt;  After a catastrophe, no biggies would be held accountable but many of the worker ants would suffer. </p>
+<p>  As proof, mark your calendars.   Check back here in a year to see the pay increase that Dennis Gilmore has received for allowing this poorly reviewed security breach to continue.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment odd alt depth-2" id="li-comment-490498">
+		<article id="comment-490498" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Devyn </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490498"><time datetime="2019-05-30T11:57:04-04:00">May 30, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Yes, if they’re just plain uploading the files to WordPress then that plugin would do it. However, honestly, that seems like an immense amount of content to manage with WordPress, which isn’t really meant for that. For such a large company I’m sure they could afford something more appropriate.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-489941">
+		<article id="comment-489941" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Chris Butson </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-489941"><time datetime="2019-05-26T00:40:27-04:00">May 26, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>The New York Times published this story on May 24 (<a href="https://nyti.ms/2EwrXuq" rel="nofollow ugc">https://nyti.ms/2EwrXuq</a>) and quoted Dennis Gilmore, CEO of First American, from a presentation he gave in 2015 on cybersecurity. He is quoted as saying “We take it very, very serious”, though apparently not seriously enough to use proper grammar (or, you know, security).</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-489963">
+		<article id="comment-489963" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Manec </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-489963"><time datetime="2019-05-26T05:54:17-04:00">May 26, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>world is run by criminals.<br>
+Its all Same global mafia.<br>
+Big organizations and corporations are just the legit fronts.<br>
+Big guys who run the show Will drink Champagne and small Ghetto criminals Will Take a blame.<br>
+There is no justice its just power.<br>
+Mafia Existing everywhere we Don’t see it but More bigger things or success You Want the More You need to deal with mafia. </p>
+<p>Until Good people belive that nice guys with nice suits and smiling faces Nothing gona change.<br>
+WHO fault it is?  Don’t complain If You Don’t undestood how the world Works.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	<ol class="children">
+	<li class="comment even depth-2" id="li-comment-490826">
+		<article id="comment-490826" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">PattiM </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490826"><time datetime="2019-06-03T14:36:01-04:00">June 3, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>I will say Yuval Noah Harari stated in his review of the history of mankind that, “There is no justice in history” – meaning exactly that.  There has been no known “just” civilization.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-489975">
+		<article id="comment-489975" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Otto </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-489975"><time datetime="2019-05-26T07:49:18-04:00">May 26, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>I have a beef about the company’s statement, quote:</p>
+<p>“First American has learned of a design defect in an application that made possible unauthorized access to customer data.”</p>
+<p>What the company deems authorized/unauthorized access has to be reflected in the system settings. Based on the access control setting to this data, “Everyone” had access to all of the records. </p>
+<p>How this setting did not raise a “red flag” is beyond me. Maybe it did for programmers and they provided alternatives, but the company deemed it too cumbersome to the email recipients and/or too costly to implement.</p>
+<p>At the very least, the company should have created a GUID for each sent email and use it for controlling access to the record, obfuscate the url, time limit access to the record, etc. While not the best way to secure records accessible over the web, it certainly beats “Everyone” access setting.</p>
+<p>When a design does not even account for the basic security principals, it’s not an error. It’s by design…</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	<ol class="children">
+	<li class="comment even depth-2" id="li-comment-490295">
+		<article id="comment-490295" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">SkunkWerks </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490295"><time datetime="2019-05-29T13:16:33-04:00">May 29, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>This is a common sort of weasel-wording, usually coming from people too dense to understand technical matters at anything more than a superficial level, but cognizant enough to realize what it may mean in terms of culpability.</p>
+<p>‘It was a computer problem!  I mean, computers!  Amirite?! Who can understand this stuff?  So hard…’</p>
+<p>“How this setting did not raise a “red flag” is beyond me.”</p>
+<p>Classic Security By Obscurity, most likely.  </p>
+<p>There probably were some knowledgeable folks raising red flags inside the company- for months or even years- and those people were probably hit with the mollification that “well, yeah, they could do that, but no one would ever have any reason to…”</p>
+<p>It’s not just a fool and his money that are soon parted these days.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-489981">
+		<article id="comment-489981" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Readership1 </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-489981"><time datetime="2019-05-26T08:44:52-04:00">May 26, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Some of the spam comments are almost convincing.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-489990">
+		<article id="comment-489990" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Pradeep Singh </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-489990"><time datetime="2019-05-26T10:52:51-04:00">May 26, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>The SVP/CIO is a Psych major.  Anyone remember Equifax and the CISO being a Music major?…</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	<ol class="children">
+	<li class="comment odd alt depth-2" id="li-comment-489996">
+		<article id="comment-489996" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">HookedOnPhonics </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-489996"><time datetime="2019-05-26T13:19:58-04:00">May 26, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Some of the best minds in computer science didn’t study computer science in college.  It isn’t even uncommon for someone to major in a completely unrelated field.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	<ol class="children">
+	<li class="comment even depth-3" id="li-comment-490019">
+		<article id="comment-490019" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Hooked On Majors </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490019"><time datetime="2019-05-26T19:34:34-04:00">May 26, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>And probably more unqualified than successful.  Psych major? Ha ha</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment odd alt depth-2" id="li-comment-490086">
+		<article id="comment-490086" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Hooked On Drugs </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490086"><time datetime="2019-05-27T12:47:59-04:00">May 27, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>What does this  have to do with this article ?</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	<ol class="children">
+	<li class="comment even depth-3" id="li-comment-490094">
+		<article id="comment-490094" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Steven </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490094"><time datetime="2019-05-27T14:40:01-04:00">May 27, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>pay attention,, it was the price of tea in China and Egypt</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment odd alt depth-2" id="li-comment-490133">
+		<article id="comment-490133" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Eye Sore </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490133"><time datetime="2019-05-28T02:33:57-04:00">May 28, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>I completely agree with your observation @ Pradeep . I did have the same sentiment for the CIO where her Major in Psych is so not justified for that position. Reason here is sometimes the C-Levels are so blind sided that they don’t even realize it’s a “Square Peg In a Round Hole”. Like someone said it’s a company for Manager’s but IT cannot work in this Fashion. The top Brasses in IT do need to have more than just Management Skill’s. They need to be proficient at Technology too to be a legit Tech Leader.</p>
+<p>The CISO also seems to be the same as I do not see any solid IT educational background. Majoring in Forensic Science still does not qualify for a Legit CISO. I would rather get a 10th grade Ethical Hacker for that position who may do a much more Fab Job. </p>
+<p>@Dennis – High time for a Overhaul of your Top Exec’s(including VP’s and Directors) before they Sink your Ship.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even depth-2" id="li-comment-490190">
+		<article id="comment-490190" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Recent FA Emp </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490190"><time datetime="2019-05-28T13:23:05-04:00">May 28, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>The new CIO is a liar and a corp shill she is a proven liar over and over again. When you layoff 20% of the workforce this is bound to happen.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-490003">
+		<article id="comment-490003" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Cheshire </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490003"><time datetime="2019-05-26T14:00:45-04:00">May 26, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Sigh…..this makes us look worse…whats our budget on Defense Spending…getting rolled…Those records should have been taken off line and and properly archived.  Grab the root build.pop<br>
+Grab a texteditor<br>
+then just —– /data/data/*hostdbip*.settings/</p>
+<p>Modifying root gloabl seeings is not skin of my a$$<br>
+Grab that RazorSQL editor then its pwn pwn pwn pwn mod mod mod till I get that settings storage place it in a different field so I go undetected and leeeeeech till data is delivered…..</p>
+<p>Hate to hear stories like this….weak admins….weak sec…weak CTO’s….weak compliance, weak weak weak…we look like were the cleveland browns in the IT game…..sigh….</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-490014">
+		<article id="comment-490014" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn"><a href="http://www.abolishthebankers.com/" rel="external nofollow ugc" class="url">Billie Powers</a> </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490014"><time datetime="2019-05-26T18:07:38-04:00">May 26, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>This is a complete fraud upon all of us who have ever dealt with this company. I have been fighting for years Against the crimes involving identity theft and usurpation and have hundreds of pages of documents and emails shared with fnf attorneys and employees.<br>
+This is a good way to do some perging of documents and claim no responsibility? Unbelievable.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-490015">
+		<article id="comment-490015" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Charles </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490015"><time datetime="2019-05-26T18:11:22-04:00">May 26, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>How about telling all us potential victims how to find out if its our personal information First American has thrown to the crooks?</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	<ol class="children">
+	<li class="comment even depth-2" id="li-comment-490020">
+		<article id="comment-490020" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">timeless </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490020"><time datetime="2019-05-26T19:48:58-04:00">May 26, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>We won’t know until First American tells us.</p>
+<p>Unless they happened to also leak their web access logs, there’s really no way for an outsider to know.</p>
+<p>And they might not even retain sufficient web access logs to be able to answer the question.</p>
+<p>In general, it’s best to assume that all data you’ve shared w/ anyone ever is somewhere that someone you don’t really want to have access to it will be able to access it.</p>
+<p>Most of the data here is probably best used to impersonate you.</p>
+<p>If you’re seriously concerned, the best protection is to enable 2FA on everything (you should do this anyway) and if possible demand in-person verification (not over the phone…).</p>
+<p>Also, for any transaction over say $1,000 if you can force two independent people to sign off and have them properly (* this is hard) verify transactions (using historical out-of-band communication mechanisms) that would be good for the world.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-490038">
+		<article id="comment-490038" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn"><a href="http://www.cfoforrent.com/" rel="external nofollow ugc" class="url">Gene Siciliano</a> </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490038"><time datetime="2019-05-27T01:41:11-04:00">May 27, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>This is scary. Especially since I am currently involved in a real estate transaction in which First America is the facilitator, the escrow office, and the holder of our money. If we get through this one okay there will be a different agent for the next one.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-490054">
+		<article id="comment-490054" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Povl H. Pedersen </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490054"><time datetime="2019-05-27T04:35:31-04:00">May 27, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>I can only ask myself, how often have they had a pen-tester test the sites security ?<br>
+Likely never.</p>
+<p>I am in GDPR-land, and we do tests, internal or external. and it is a 2-digit number of years ago I last saw anything resembling sequential letters/numbers. If it is not an UUID I am suspicious. If you can log in with an order number + e-mail address then I reject the solution.<br>
+Since GDPR we have removed access to much customer data from the Internet, and completely stopped collecting/keeping other.</p>
+<p>The USA needs GDPR. But it would kill Facebook, Google and other if they can only collect data they get approval for collecting, and can not resell it without prior consent, and all purchasers of data will need to have a “business releationship” with the subject as well. And only use the data for the purpose for which it was collected.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	<ol class="children">
+	<li class="comment odd alt depth-2" id="li-comment-490161">
+		<article id="comment-490161" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Ooh I Like Cereal </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490161"><time datetime="2019-05-28T08:22:41-04:00">May 28, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>“The USA needs GDPR. But it would kill Facebook, Google and other if they can only collect data they get approval for collecting”</p>
+<p>Man, you hit the nail on the head right there. I say “bring it on”. I would love to see Facebook, Google, and the like die off, though, it will never happen. The tech giants you listed are receiving pretty hefty fines right now from GDPR and other privacy organizations, but you’re right, we need some sort of standard that needs to be enforced. There is a complete disregard for their users’ privacy and it’s disturbing that they are essentially getting a slap-on-the-wrist. How Zuckerberg is still employed is beyond me…</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even depth-2" id="li-comment-491034">
+		<article id="comment-491034" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Dfg </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-491034"><time datetime="2019-06-05T20:29:01-04:00">June 5, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>They wouldn’t even Die. Google lets you control what they keep on you, but if you want their service to work well you need to keep some things on. </p>
+<p>Which makes sense .. if you want you assistant to help you it needs to know stuff about you and your habits (and sometimes propose some ads).</p>
+<p>Facebook seems to be fighting way more against GDPR so maybe they do rely a lot on selling information without the user consent, but I’m sure it wouldn’t kill Google.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-490059">
+		<article id="comment-490059" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Mickey Deez </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490059"><time datetime="2019-05-27T05:19:43-04:00">May 27, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>The title of this post says First American Financial corp leaked — LEAKED —</p>
+<p>LEAKED?  what…you mean peeked.  You sheep, go to sleep.  Its no leak if it couldn’t peek. But,  you know it had to …. first sneak.<br>
+The posts on this thread are freaks.  my, oh my…I can’t wait for more.  Treats. </p>
+<p>My question, dont these corps have….any creeds?</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-490083">
+		<article id="comment-490083" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Mike Anders </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490083"><time datetime="2019-05-27T12:17:08-04:00">May 27, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>First American may want to monitor the exposure on the Dark Web. Not sure if what is there is from this incident but certainly worth looking into. Unfortunately, I do not have the time.  First American Title? Check Pastebin. Not a criticism just an observation!</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-490085">
+		<article id="comment-490085" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">The Sunshine State </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490085"><time datetime="2019-05-27T12:45:39-04:00">May 27, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Great informative  article ! Didn’t get the email notification   about this  one last  Friday ?</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-490091">
+		<article id="comment-490091" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Kiers </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490091"><time datetime="2019-05-27T13:49:46-04:00">May 27, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Fortunately for the brave new world, software is completely EXEMPT from TORT law. Period. No liability.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-490220">
+		<article id="comment-490220" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn"><a href="http://n/a" rel="external nofollow ugc" class="url">Hello</a> </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490220"><time datetime="2019-05-28T21:41:07-04:00">May 28, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Funny, I used to work at FA and if there is a group that has money, it’s the security org.  Always hiring someone, new implementations, pain in everyone’s butt for every release, etc.  Have you read The Phoenix Project?  That’s FA.  Security doesn’t realize that if they prevent things from being released, FA doesn’t make money.</p>
+<p>So, that group missing something as simple as this is really sad and scary.  They’re so focused on moving to the cloud and laying off staff to try to be more profitable that they miss the little, and obvious things.</p>
+<p>FA is a bad place to work, so as a former employee who was laid off, I don’t have any sympathy.  I hope this costs them…a lot.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-490285">
+		<article id="comment-490285" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Ronald Burns </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490285"><time datetime="2019-05-29T11:13:19-04:00">May 29, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>How in the world is it that no penetration or vulnerability test picked this up???</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-490293">
+		<article id="comment-490293" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Robert Maciorowski </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490293"><time datetime="2019-05-29T12:47:32-04:00">May 29, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Class action has been filed: <a href="https://www.classlawgroup.com/wp-content/uploads/First-American-Data-Breach-Lawsuit-Class-Action-Complaint.pdf" rel="nofollow ugc">https://www.classlawgroup.com/wp-content/uploads/First-American-Data-Breach-Lawsuit-Class-Action-Complaint.pdf</a></p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	<ol class="children">
+	<li class="comment even depth-2" id="li-comment-490827">
+		<article id="comment-490827" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">PattiM </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490827"><time datetime="2019-06-03T14:40:23-04:00">June 3, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Thanks for that link – excellent – this seems to be the only way justice is handled in the US.   I wonder who funds such expensive legal efforts in our neo-Democracy?</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-490474">
+		<article id="comment-490474" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Pat Kelly </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490474"><time datetime="2019-05-30T09:39:41-04:00">May 30, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>“At First American, security, privacy and confidentiality are of the highest priority and we are committed to protecting our customers’ information.”  SO how committed?  What is the company’s commitment to ensuring the customer data is safe? Have they had an independent audit of their security controls, penetration tests, or other security audits? IS their IT outsourced? And who developed, maintained and tested this web application?  Unless they have answers for these questions, the are not commited and should be sued for gross negligence.  The banking industry has GLB, what do companies of PII have as a security standard?</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-490972">
+		<article id="comment-490972" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Ronald Purcell </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-490972"><time datetime="2019-06-04T18:48:27-04:00">June 4, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Thanks for the information I think I had used this company</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-491009">
+		<article id="comment-491009" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn">Jeremy </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-491009"><time datetime="2019-06-05T12:00:57-04:00">June 5, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>It seems like PR wonks have been using this copy-and-paste statement for years:  “security, privacy and confidentiality are of the highest priority and we are committed to protecting our customers’ information.”</p>
+<p>The same template is used by an airline CEO at a memorial service/crash site, by a news anchor when a story was incorrect, or by a police department when there was an incident.  If this was truly the case, you wouldn’t be talking about a data breach, a plane crash, a mis-spoken word, or an incident.  </p>
+<p>I’d have more respect for them if they admitted that they’re people and their priorities were in the wrong place, it will be fixed and made right for customers.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-491143">
+		<article id="comment-491143" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<cite class="fn"><a href="https://www.hbsslaw.com/cases/FLT" rel="external nofollow ugc" class="url">Reed Kathrein</a> </cite><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-2/#comment-491143"><time datetime="2019-06-07T14:09:28-04:00">June 7, 2019</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>If you are an investor and suffered losses due this event, please contact Reed Kathrein at 510-725-3000 .  Persons with non-public information regarding FleetCor should consider their options to help in the investigation or take advantage of the SEC Whistleblower program.  Under the new program, whistleblowers who provide original information may receive rewards totaling up to 30 percent of any successful recovery made by the SEC.</p>
+							</section><!-- .comment-content -->
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+		</ol><!-- .commentlist -->
+
+				<nav id="comment-nav-below" class="navigation" role="navigation">
+			<h1 class="assistive-text section-heading">Comment navigation</h1>
+			<div class="nav-previous"><a href="https://krebsonsecurity.com/2019/05/first-american-financial-corp-leaked-hundreds-of-millions-of-title-insurance-records/comment-page-1/#comments">← Older Comments</a></div>
+			<div class="nav-next"></div>
+		</nav>
+		
+				<p class="nocomments">Comments are closed.</p>
+		
+	
+	
+</div><!-- #comments .comments-area -->
+			
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+
+			<div id="secondary" class="widget-area" role="complementary">
+
+        <div id="sidebar_ad" class="widget themonic-ad5"><div class="a-statement">Advertisement</div><a href="https://ninjio.com/lp46d-krebs/">
+<img src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/12.png">
+</a></div>
+
+                        <br><div class="widget themonic-ad1"><div class="a-statement">Advertisement</div></div><br>
+
+			<aside id="custom_html-2" class="widget_text widget widget_custom_html"><p class="widget-title">Mailing List</p><div class="textwidget custom-html-widget"><a href="https://krebsonsecurity.com/subscribe/">Subscribe here</a></div></aside><aside id="search-2" class="widget widget_search"><p class="widget-title">Search KrebsOnSecurity</p><form role="search" method="get" id="searchform" class="searchform" action="https://krebsonsecurity.com/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input type="text" value="" name="s" id="s">
+					<input type="submit" id="searchsubmit" value="Search">
+				</div>
+			</form></aside>
+		<aside id="recent-posts-3" class="widget widget_recent_entries">
+		<p class="widget-title">Recent Posts</p>
+		<ul>
+											<li>
+					<a href="https://krebsonsecurity.com/2022/01/norton-360-now-comes-with-a-cryptominer/">Norton 360 Now Comes With a Cryptominer</a>
+									</li>
+											<li>
+					<a href="https://krebsonsecurity.com/2021/12/happy-12th-birthday-krebsonsecurity-com/">Happy 12th Birthday, KrebsOnSecurity.com!</a>
+									</li>
+											<li>
+					<a href="https://krebsonsecurity.com/2021/12/ny-man-pleads-guilty-in-20-million-sim-swap-theft/">NY Man Pleads Guilty in $20 Million SIM Swap Theft</a>
+									</li>
+											<li>
+					<a href="https://krebsonsecurity.com/2021/12/microsoft-patch-tuesday-december-2021-edition/">Microsoft Patch Tuesday, December 2021 Edition</a>
+									</li>
+											<li>
+					<a href="https://krebsonsecurity.com/2021/12/inside-irelands-public-healthcare-ransomware-scare/">Inside Ireland’s Public Healthcare Ransomware Scare</a>
+									</li>
+					</ul>
+
+		</aside><aside id="text-2" class="widget widget_text">			<div class="textwidget"><a name="subscribe2"></a></div>
+		</aside><aside id="widget_sp_image-15" class="widget widget_sp_image"><p class="widget-title">Spam Nation</p><a href="https://www.amazon.com/Spam-Nation-Organized-Cybercrime-Epidemic-ebook/dp/B00L5QGBL0/ref=dp_kinw_strp_1" target="_blank" class="widget_sp_image-image-link" title="Spam Nation"><img width="266" height="404" alt="Spam Nation" class="attachment-266x404 aligncenter" style="max-width: 100%;" src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/spamnation-nyt.png"></a><div class="widget_sp_image-description"><p>A New York Times Bestseller! </p>
+</div></aside><aside id="widget_sp_image-25" class="widget widget_sp_image"><p class="widget-title">Thinking of a Cybersecurity Career?</p><a href="https://krebsonsecurity.com/2020/07/thinking-of-a-cybersecurity-career-read-this/" target="_blank" class="widget_sp_image-image-link" title="Thinking of a Cybersecurity Career? Read This."><img width="625" height="424" alt="Thinking of a Cybersecurity Career?" class="attachment-full" style="max-width: 100%;" srcset="https://krebsonsecurity.com/wp-content/uploads/2020/07/codepeople.png 625w, https://krebsonsecurity.com/wp-content/uploads/2020/07/codepeople-580x393.png 580w" sizes="(max-width: 625px) 100vw, 625px" src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/codepeople.png"></a><div class="widget_sp_image-description"><p>Read this.</p>
+</div></aside><aside id="widget_sp_image-3" class="widget widget_sp_image"><p class="widget-title">All About Skimmers </p><a href="https://krebsonsecurity.com/all-about-skimmers/" target="_blank" class="widget_sp_image-image-link" title="All About Skimmers "><img width="299" height="232" alt="All About Skimmers" class="attachment-299x232 aligncenter" style="max-width: 100%;" src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/skimgallery1.jpg"></a><div class="widget_sp_image-description"><p>Click image for my skimmer series.</p>
+</div></aside><aside id="categories-2" class="widget widget_categories"><p class="widget-title">Story Categories</p>
+			<ul>
+					<li class="cat-item cat-item-5"><a href="https://krebsonsecurity.com/category/sunshine/" title="Includes investigative blog posts meant to shine a light on the darker corners of the Internet.">A Little Sunshine</a>
+</li>
+	<li class="cat-item cat-item-2240"><a href="https://krebsonsecurity.com/category/all-about-skimmers/">All About Skimmers</a>
+</li>
+	<li class="cat-item cat-item-9085"><a href="https://krebsonsecurity.com/category/ashley-madison-breach/">Ashley Madison breach</a>
+</li>
+	<li class="cat-item cat-item-3191"><a href="https://krebsonsecurity.com/category/breadcrumbs/">Breadcrumbs</a>
+</li>
+	<li class="cat-item cat-item-3771"><a href="https://krebsonsecurity.com/category/data-breaches/" title="Stories about data breaches at retailers, corporations, governments and organizations of all sizes.">Data Breaches</a>
+</li>
+	<li class="cat-item cat-item-4624"><a href="https://krebsonsecurity.com/category/ddos-for-hire/">DDoS-for-Hire</a>
+</li>
+	<li class="cat-item cat-item-9173"><a href="https://krebsonsecurity.com/category/employment-fraud/">Employment Fraud</a>
+</li>
+	<li class="cat-item cat-item-2151"><a href="https://krebsonsecurity.com/category/how-to-break-into-security/" title="If you&#39;ve ever wanted career advice on how to make a shift into the security industry, look no further.">How to Break Into Security</a>
+</li>
+	<li class="cat-item cat-item-87"><a href="https://krebsonsecurity.com/category/latest-warnings/">Latest Warnings</a>
+</li>
+	<li class="cat-item cat-item-4071"><a href="https://krebsonsecurity.com/category/neer-do-well-news/">Ne'er-Do-Well News</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="https://krebsonsecurity.com/category/other/">Other</a>
+</li>
+	<li class="cat-item cat-item-1306"><a href="https://krebsonsecurity.com/category/pharma-wars/">Pharma Wars</a>
+</li>
+	<li class="cat-item cat-item-8240"><a href="https://krebsonsecurity.com/category/ransomware/">Ransomware</a>
+</li>
+	<li class="cat-item cat-item-599"><a href="https://krebsonsecurity.com/category/security-tools/">Security Tools</a>
+</li>
+	<li class="cat-item cat-item-8298"><a href="https://krebsonsecurity.com/category/sim-swapping/">SIM Swapping</a>
+</li>
+	<li class="cat-item cat-item-4079"><a href="https://krebsonsecurity.com/category/spam-nation/">Spam Nation</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="https://krebsonsecurity.com/category/smallbizvictims/" title="Posts in this category will include new stories similar to those told in the Small Business Victims category on The Washington Post&#39;s Security Fix blog, which chronicled the methods organized cyber thieve are using to steal hundreds of thousands of dollars from dozens of small- to mid-sized companies around the country.">Target: Small Businesses</a>
+</li>
+	<li class="cat-item cat-item-5167"><a href="https://krebsonsecurity.com/category/tax-refund-fraud/">Tax Refund Fraud</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="https://krebsonsecurity.com/category/comingstorm/" title="This category includes blog posts about computer and Internet security threats now and on the horizon.">The Coming Storm</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="https://krebsonsecurity.com/category/patches/" title="Short posts on the latest security updates for widely-used software.
+">Time to Patch</a>
+</li>
+	<li class="cat-item cat-item-21"><a href="https://krebsonsecurity.com/category/web-fraud-2-0/">Web Fraud 2.0</a>
+</li>
+			</ul>
+
+			</aside><aside id="widget_sp_image-5" class="widget widget_sp_image"><p class="widget-title">The Value of a Hacked PC</p><a href="https://krebsonsecurity.com/2012/10/the-scrap-value-of-a-hacked-pc-revisited/" target="_blank" class="widget_sp_image-image-link" title="The Value of a Hacked PC"><img width="285" height="180" alt="valuehackedpc " class="attachment-285x180 aligncenter" style="max-width: 100%;" src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/valuehackedpc-285x180.png"></a><div class="widget_sp_image-description"><p>Badguy uses for your PC</p>
+</div></aside><aside id="widget_sp_image-9" class="widget widget_sp_image"><p class="widget-title">Badguy Uses for Your Email </p><a href="https://krebsonsecurity.com/2013/06/the-value-of-a-hacked-email-account/" target="_self" class="widget_sp_image-image-link" title="Badguy Uses for Your Email "><img width="296" height="170" alt="Badguy Uses for Your Email " class="attachment-full aligncenter" style="max-width: 100%;" srcset="https://krebsonsecurity.com/wp-content/uploads/2013/06/badguyemail.png 296w, https://krebsonsecurity.com/wp-content/uploads/2013/06/badguyemail-285x163.png 285w" sizes="(max-width: 296px) 100vw, 296px" src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/badguyemail.png"></a><div class="widget_sp_image-description"><p>Your email account may be worth far more than you imagine.</p>
+</div></aside><aside id="widget_sp_image-24" class="widget widget_sp_image"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=MCCRKHWRX57HS" id="donate" target="_self" class="widget_sp_image-image-link"><img width="250" height="55" alt="Donate to Krebs On Security" class="attachment-medium aligncenter" style="max-width: 100%;" src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/donatepaypal2-1.png"></a></aside><aside id="most_popular_posts-3" class="widget widget_most_popular_posts">
+<p class="widget-title">Most Popular Posts</p>
+<ul>	<li><a href="https://krebsonsecurity.com/2018/07/sextortion-scam-uses-recipients-hacked-passwords/">Sextortion Scam Uses Recipient's Hacked Passwords</a> (1076)</li>
+	<li><a href="https://krebsonsecurity.com/2015/07/online-cheating-site-ashleymadison-hacked/">Online Cheating Site AshleyMadison Hacked</a> (798)</li>
+	<li><a href="https://krebsonsecurity.com/2013/12/sources-target-investigating-data-breach/">Sources: Target Investigating Data Breach</a> (620)</li>
+	<li><a href="https://krebsonsecurity.com/2020/11/trump-fires-security-chief-christopher-krebs/">Trump Fires Security Chief Christopher Krebs</a> (534)</li>
+	<li><a href="https://krebsonsecurity.com/2013/12/cards-stolen-in-target-breach-flood-underground-markets/">Cards Stolen in Target Breach Flood Underground Markets</a> (445)</li>
+	<li><a href="https://krebsonsecurity.com/2013/05/reports-liberty-reserve-founder-arrested-site-shuttered/">Reports: Liberty Reserve Founder Arrested, Site Shuttered</a> (416)</li>
+	<li><a href="https://krebsonsecurity.com/2015/08/was-the-ashley-madison-database-leaked/">Was the Ashley Madison Database Leaked?</a> (376)</li>
+	<li><a href="https://krebsonsecurity.com/2021/01/ddos-guard-to-forfeit-internet-space-occupied-by-parler/">DDoS-Guard To Forfeit Internet Space Occupied by Parler</a> (374)</li>
+	<li><a href="https://krebsonsecurity.com/2014/05/true-goodbye-using-truecrypt-is-not-secure/">True Goodbye: 'Using TrueCrypt Is Not Secure'</a> (363)</li>
+	<li><a href="https://krebsonsecurity.com/2015/08/who-hacked-ashley-madison/">Who Hacked Ashley Madison?</a> (361)</li>
+</ul>
+</aside>
+<aside id="media_image-2" class="widget widget_media_image"><p class="widget-title">Why So Many Top Hackers Hail from Russia</p><a href="https://krebsonsecurity.com/2017/06/why-so-many-top-hackers-hail-from-russia/"><img width="580" height="389" src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/computered-580x389.png" class="image wp-image-39684  attachment-medium size-medium" alt="" loading="lazy" style="max-width: 100%; height: auto;" srcset="https://krebsonsecurity.com/wp-content/uploads/2017/06/computered-580x389.png 580w, https://krebsonsecurity.com/wp-content/uploads/2017/06/computered-768x514.png 768w, https://krebsonsecurity.com/wp-content/uploads/2017/06/computered-940x630.png 940w, https://krebsonsecurity.com/wp-content/uploads/2017/06/computered.png 1551w" sizes="(max-width: 580px) 100vw, 580px"></a></aside><aside id="widget_sp_image-11" class="widget widget_sp_image"><p class="widget-title">Category: Web Fraud 2.0</p><a href="https://krebsonsecurity.com/category/web-fraud-2-0/" target="_blank" class="widget_sp_image-image-link" title="Category: Web Fraud 2.0"><img width="227" height="400" alt="Criminnovations" class="attachment-medium aligncenter" style="max-width: 100%;" src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/cybercrimeinnovations-227x400.png"></a><div class="widget_sp_image-description"><p>Innovations from the Underground</p>
+</div></aside><aside id="widget_sp_image-12" class="widget widget_sp_image"><a href="https://krebsonsecurity.com/2014/03/are-credit-monitoring-services-worth-it/" target="_blank" class="widget_sp_image-image-link"><img width="285" height="189" class="attachment-medium aligncenter" style="max-width: 100%;" srcset="https://krebsonsecurity.com/wp-content/uploads/2014/03/shreddedID-copy-285x189.png 285w, https://krebsonsecurity.com/wp-content/uploads/2014/03/shreddedID-copy-600x399.png 600w, https://krebsonsecurity.com/wp-content/uploads/2014/03/shreddedID-copy.png 849w" sizes="(max-width: 285px) 100vw, 285px" src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/shreddedID-copy-285x189.png"></a><div class="widget_sp_image-description"><p>ID Protection Services Examined</p>
+</div></aside><aside id="widget_sp_image-13" class="widget widget_sp_image"><p class="widget-title">Is Antivirus Dead?</p><a href="https://krebsonsecurity.com/2014/05/antivirus-is-dead-long-live-antivirus/" target="_blank" class="widget_sp_image-image-link" title="Is Antivirus Dead?"><img width="285" height="161" alt="Is Antivirus Dead?" class="attachment-medium aligncenter" style="max-width: 100%;" srcset="https://krebsonsecurity.com/wp-content/uploads/2014/05/cryptservices-285x161.png 285w, https://krebsonsecurity.com/wp-content/uploads/2014/05/cryptservices-600x339.png 600w, https://krebsonsecurity.com/wp-content/uploads/2014/05/cryptservices.png 945w" sizes="(max-width: 285px) 100vw, 285px" src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/cryptservices-285x161.png"></a><div class="widget_sp_image-description"><p>The reasons for its decline</p>
+</div></aside><aside id="widget_sp_image-14" class="widget widget_sp_image"><p class="widget-title">The Growing Tax Fraud Menace</p><a href="https://krebsonsecurity.com/category/tax-refund-fraud/" target="_blank" class="widget_sp_image-image-link" title="The Growing Tax Fraud Menace"><img width="285" height="285" alt="The Growing Tax Fraud Menace" class="attachment-medium aligncenter" style="max-width: 100%;" srcset="https://krebsonsecurity.com/wp-content/uploads/2014/04/taxfraud-285x285.jpg 285w, https://krebsonsecurity.com/wp-content/uploads/2014/04/taxfraud-150x150.jpg 150w, https://krebsonsecurity.com/wp-content/uploads/2014/04/taxfraud-600x600.jpg 600w, https://krebsonsecurity.com/wp-content/uploads/2014/04/taxfraud.jpg 693w" sizes="(max-width: 285px) 100vw, 285px" src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/taxfraud-285x285.jpg"></a><div class="widget_sp_image-description"><p>File 'em Before the Bad Guys Can </p>
+</div></aside><aside id="widget_sp_image-17" class="widget widget_sp_image"><p class="widget-title">Inside a Carding Shop</p><a href="https://krebsonsecurity.com/2014/06/peek-inside-a-professional-carding-shop/" target="_blank" class="widget_sp_image-image-link" title="Inside a Carding Shop"><img width="194" height="340" alt="Inside a Carding Shop" class="attachment-medium aligncenter" style="max-width: 100%;" src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/mcdumpalsjoined.png"></a><div class="widget_sp_image-description"><p>A crash course in carding. </p>
+</div></aside><aside id="widget_sp_image-18" class="widget widget_sp_image"><p class="widget-title">Beware Social Security Fraud</p><a href="https://krebsonsecurity.com/2013/09/crooks-hijack-retirement-funds-via-ssa-portal/" target="_blank" class="widget_sp_image-image-link" title="Beware Social Security Fraud"><img width="285" height="293" alt="Beware Social Security Fraud" class="attachment-full aligncenter" style="max-width: 100%;" src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/myssn-285x293.png"></a><div class="widget_sp_image-description"><p>Sign up, or Be Signed Up! </p>
+</div></aside><aside id="widget_sp_image-2" class="widget widget_sp_image"><p class="widget-title">How Was Your Card Stolen?</p><a href="https://krebsonsecurity.com/2015/01/how-was-your-credit-card-stolen/" target="_blank" class="widget_sp_image-image-link" title="How Was Your Card Stolen?"><img width="285" height="285" alt="How Was Your Card Stolen?" class="attachment-full aligncenter" style="max-width: 100%;" srcset="https://krebsonsecurity.com/wp-content/uploads/2016/09/carddominoes-285x285.jpg 285w, https://krebsonsecurity.com/wp-content/uploads/2016/09/carddominoes-285x285-150x150.jpg 150w" sizes="(max-width: 285px) 100vw, 285px" src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/carddominoes-285x285.jpg"></a><div class="widget_sp_image-description"><p>Finding out is not so easy. </p>
+</div></aside><aside id="widget_sp_image-22" class="widget widget_sp_image"><p class="widget-title">Krebs’s 3 Rules…</p><a href="https://krebsonsecurity.com/2011/05/krebss-3-basic-rules-for-online-safety/" target="_blank" class="widget_sp_image-image-link" title="Krebs’s 3 Rules…"><img width="300" height="300" alt="Krebs’s 3 Rules…" class="attachment-medium aligncenter" style="max-width: 100%;" srcset="https://krebsonsecurity.com/wp-content/uploads/2011/05/three-300x300.jpg 300w, https://krebsonsecurity.com/wp-content/uploads/2011/05/three-150x150.jpg 150w, https://krebsonsecurity.com/wp-content/uploads/2011/05/three.jpg 347w" sizes="(max-width: 300px) 100vw, 300px" src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/three-300x300.jpg"></a><div class="widget_sp_image-description"><p>...For Online Safety. </p>
+</div></aside>		</div><!-- #secondary -->
+		</div><!-- #main .wrapper -->
+	
+	<div id="publisho-footer" class="widget-area">
+				<div class="footer-widget">
+                				</div>
+				<div class="footer-widget">
+								</div>
+				<div class="footer-widget">
+								</div>
+	</div>
+
+	<div class="site-wordpress">
+					© Krebs on Security<br>
+	</div>
+	<!-- .site-info --><div class="clear"></div>
+</div><!-- #page -->
+
+<script type="text/javascript" src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/slicknav.js.download" id="publisho-mobile-navigation-js"></script>
+<script type="text/javascript" src="./First American Financial Corp. Leaked Hundreds of Millions of Title Insurance Records – Krebs on Security_files/wp-embed.min.js.download" id="wp-embed-js"></script>
+
+
+<!--
+Performance optimized by W3 Total Cache. Learn more: https://www.boldgrid.com/w3-total-cache/
+
+Object Caching 169/214 objects using memcached
+Page Caching using memcached 
+Database Caching 2/29 queries in 0.007 seconds using memcached
+
+Served from: krebsonsecurity.com @ 2022-01-08 06:19:28 by W3 Total Cache
+--></body></html>

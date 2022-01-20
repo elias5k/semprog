@@ -1,0 +1,15 @@
+(function(){
+	var localStorageDataKeys = ['videoDayFreq'];
+	for (var i = localStorageDataKeys.length - 1; i >= 0; i--) {
+		window.localStorage.removeItem(localStorageDataKeys[i]);
+	}
+	createAndGetIframe();
+
+	function createAndGetIframe() {
+		var iframe = document.createElement('iframe');
+		iframe.src = 'https://contextual.media.net/checksync.php?https=1&cid=8CUNE0KWE&gdpr=1';
+		iframe.width = '0px';
+		iframe.height = '0px';
+		document.body.appendChild(iframe);
+	}
+})();
