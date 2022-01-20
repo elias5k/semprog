@@ -1,0 +1,38 @@
+<div>
+	<mat-card class="padding">
+		<mat-card-header>
+			<mat-card-title>
+				<h4>Hi {{currentUser.name}}!</h4>
+			</mat-card-title>
+		</mat-card-header>
+		<button *ngIf="currentUser.role === 'admin'" mat-button [routerLink]="['/home']">
+			Home
+		</button>
+		<button *ngIf="currentUser.role === 'admin'" mat-button [routerLink]="['/admin']">
+			Admin Panel
+		</button>
+	</mat-card>
+
+	<mat-card class="padding">
+		<mat-card-header>
+			<mat-card-title>
+				<h4>List of users:</h4>
+			</mat-card-title>
+		</mat-card-header>
+		<mat-card-content>
+			<mat-list>
+				<mat-list-item *ngFor="let user of users">
+					<p matLine>
+					{{user.name}}, {{user.username}}, {{user.role}}
+					<button mat-button color="primary" *ngIf="user.role !== 'admin'" (click)="promoteUser(user)">
+						Promote to Admin
+					</button>
+					<button mat-button color="primary" *ngIf="user.role === 'admin'" (click)="demoteUser(user)">
+						Demote
+					</button>
+					</p>
+				</mat-list-item>
+			</mat-list>
+		</mat-card-content>
+	</mat-card>
+</div>

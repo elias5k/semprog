@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<!-- saved from url=(0167)https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/05-Authorization_Testing/01-Testing_Directory_Traversal_File_Include -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="WSTG - Latest on the main website for The OWASP Foundation. OWASP is a nonprofit foundation that works to improve the security of software.">
+<meta property="og:description" content="WSTG - Latest on the main website for The OWASP Foundation. OWASP is a nonprofit foundation that works to improve the security of software.">
+<meta propery="og:title" content="WSTG - Latest | OWASP Foundation">
+<meta property="og:url" content="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/05-Authorization_Testing/01-Testing_Directory_Traversal_File_Include">
+<meta property="og:locale" content="en_US">
+
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://owasp.org/www--site-theme/favicon.ico">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-XSS-Protection" content="1; mode=block">
+<script src="./WSTG - Latest _ OWASP_05.12.2021_11.05_files/y6Eaq1GuWIsvmc2nXbGNpGVEQKw.js.download"></script><script src="./WSTG - Latest _ OWASP_05.12.2021_11.05_files/5-xp5eClRc1sE8vHKWqCDdAF0zE.js.download"></script><link rel="canonical" href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/05-Authorization_Testing/01-Testing_Directory_Traversal_File_Include">
+
+
+
+
+<script src="./WSTG - Latest _ OWASP_05.12.2021_11.05_files/js.cookie.js.download"></script>
+<script>
+  if(Cookies.get('cookies-ok') == 'true' && window.ga === undefined)
+  {
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-4531126-1', 'auto');
+    ga('send', 'pageview');
+  }
+  else if (Cookies.get('cookies-ok') == 'true')
+  {
+    ga('send', 'pageview');
+  }
+
+  function handleOutboundLinkClicks(event) {
+    var href = '';
+    if(event.target.href == undefined)
+      href = event.target.parentElement.href;
+    else
+      href = event.target.href
+  if(Cookies.get('cookies-ok') == 'true'){  
+    
+    ga('send', 'event', {
+      eventCategory: 'Outbound Link',
+      eventAction: 'click',
+      eventLabel: href,
+      transport: 'beacon'
+    });
+  }
+}
+</script>
+<script async="" src="./WSTG - Latest _ OWASP_05.12.2021_11.05_files/analytics.js.download"></script>
+
+<link rel="stylesheet" href="./WSTG - Latest _ OWASP_05.12.2021_11.05_files/styles.css">
+<link rel="shortcut icon" type="images/x-icon" href="https://owasp.org/www--site-theme/favicon.ico">
+<script src="./WSTG - Latest _ OWASP_05.12.2021_11.05_files/jquery-3.4.1.min.js.download"></script>
+<script src="./WSTG - Latest _ OWASP_05.12.2021_11.05_files/util.js.download"></script>
+<script src="./WSTG - Latest _ OWASP_05.12.2021_11.05_files/yaml.min.js.download"></script>
+<script src="./WSTG - Latest _ OWASP_05.12.2021_11.05_files/luxon.min.js.download"></script>
+<script src="./WSTG - Latest _ OWASP_05.12.2021_11.05_files/kjua.min.js.download"></script>
+<title>WSTG - Latest | OWASP</title>
+<script type="text/javascript">
+      $(function(){
+        var baseurl = "https://github.com/OWASP/www-project-web-security-testing-guide/blob/master/";
+        var path = "latest/4-Web_Application_Security_Testing/05-Authorization_Testing/01-Testing_Directory_Traversal_File_Include.md";
+        $('.repo').html('<a href=' + baseurl + path + '><div class="reset-3c756112--menuItemIcon-206eb252" style="float: left;"><svg preserveAspectRatio="xMidYMid meet" height="1em" width="1em" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 438.549 438.549" stroke="none" class="icon-7f6730be--text-3f89f380"><g><path d="M409.132 114.573c-19.608-33.596-46.205-60.194-79.798-79.8-33.598-19.607-70.277-29.408-110.063-29.408-39.781 0-76.472 9.804-110.063 29.408-33.596 19.605-60.192 46.204-79.8 79.8C9.803 148.168 0 184.854 0 224.63c0 47.78 13.94 90.745 41.827 128.906 27.884 38.164 63.906 64.572 108.063 79.227 5.14.954 8.945.283 11.419-1.996 2.475-2.282 3.711-5.14 3.711-8.562 0-.571-.049-5.708-.144-15.417a2549.81 2549.81 0 0 1-.144-25.406l-6.567 1.136c-4.187.767-9.469 1.092-15.846 1-6.374-.089-12.991-.757-19.842-1.999-6.854-1.231-13.229-4.086-19.13-8.559-5.898-4.473-10.085-10.328-12.56-17.556l-2.855-6.57c-1.903-4.374-4.899-9.233-8.992-14.559-4.093-5.331-8.232-8.945-12.419-10.848l-1.999-1.431c-1.332-.951-2.568-2.098-3.711-3.429-1.142-1.331-1.997-2.663-2.568-3.997-.572-1.335-.098-2.43 1.427-3.289 1.525-.859 4.281-1.276 8.28-1.276l5.708.853c3.807.763 8.516 3.042 14.133 6.851 5.614 3.806 10.229 8.754 13.846 14.842 4.38 7.806 9.657 13.754 15.846 17.847 6.184 4.093 12.419 6.136 18.699 6.136 6.28 0 11.704-.476 16.274-1.423 4.565-.952 8.848-2.383 12.847-4.285 1.713-12.758 6.377-22.559 13.988-29.41-10.848-1.14-20.601-2.857-29.264-5.14-8.658-2.286-17.605-5.996-26.835-11.14-9.235-5.137-16.896-11.516-22.985-19.126-6.09-7.614-11.088-17.61-14.987-29.979-3.901-12.374-5.852-26.648-5.852-42.826 0-23.035 7.52-42.637 22.557-58.817-7.044-17.318-6.379-36.732 1.997-58.24 5.52-1.715 13.706-.428 24.554 3.853 10.85 4.283 18.794 7.952 23.84 10.994 5.046 3.041 9.089 5.618 12.135 7.708 17.705-4.947 35.976-7.421 54.818-7.421s37.117 2.474 54.823 7.421l10.849-6.849c7.419-4.57 16.18-8.758 26.262-12.565 10.088-3.805 17.802-4.853 23.134-3.138 8.562 21.509 9.325 40.922 2.279 58.24 15.036 16.18 22.559 35.787 22.559 58.817 0 16.178-1.958 30.497-5.853 42.966-3.9 12.471-8.941 22.457-15.125 29.979-6.191 7.521-13.901 13.85-23.131 18.986-9.232 5.14-18.182 8.85-26.84 11.136-8.662 2.286-18.415 4.004-29.263 5.146 9.894 8.562 14.842 22.077 14.842 40.539v60.237c0 3.422 1.19 6.279 3.572 8.562 2.379 2.279 6.136 2.95 11.276 1.995 44.163-14.653 80.185-41.062 108.068-79.226 27.88-38.161 41.825-81.126 41.825-128.906-.01-39.771-9.818-76.454-29.414-110.049z"></path></g></svg><span style="padding-left:8px;">Edit on GitHub</span></div></a>');
+      });
+    </script>
+<script async="" defer="" src="./WSTG - Latest _ OWASP_05.12.2021_11.05_files/buttons.js.download"></script>
+<link rel="stylesheet" href="data:text/css;charset=utf-8;base64,Y2xvdWRmbGFyZS1hcHBbYXBwPSJjZi1hdXRoLWJhciJdIHsKICBkaXNwbGF5OiBibG9jazsKICBkaXNwbGF5OiAtd2Via2l0LWJveDsKICBkaXNwbGF5OiAtbXMtZmxleGJveDsKICBkaXNwbGF5OiBmbGV4OwogIGZvbnQtd2VpZ2h0OiA3MDA7CiAgbGV0dGVyLXNwYWNpbmc6IC4wOGVtOwogIHBvaW50ZXItZXZlbnRzOiBub25lOwogIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7CiAgd2hpdGUtc3BhY2U6IG5vd3JhcDsKICBwb3NpdGlvbjogZml4ZWQ7CiAgdG9wOiAwOwogIGxlZnQ6IDA7CiAgcmlnaHQ6IDA7Cn0KCmNsb3VkZmxhcmUtYXBwW2FwcD0iY2YtYXV0aC1iYXIiXVtkYXRhLWhvcml6b250YWwtYWxpZ249ImxlZnQiXSB7CiAgLXdlYmtpdC1ib3gtcGFjazogc3RhcnQ7CiAgICAgIC1tcy1mbGV4LXBhY2s6IHN0YXJ0OwogICAgICAgICAganVzdGlmeS1jb250ZW50OiBmbGV4LXN0YXJ0Owp9CmNsb3VkZmxhcmUtYXBwW2FwcD0iY2YtYXV0aC1iYXIiXVtkYXRhLWhvcml6b250YWwtYWxpZ249ImxlZnQiXSBjZi1jb250ZW50IHsKICBib3JkZXItcmFkaXVzOiAwIDAgLjNlbSAwOwp9CgpjbG91ZGZsYXJlLWFwcFthcHA9ImNmLWF1dGgtYmFyIl1bZGF0YS1ob3Jpem9udGFsLWFsaWduPSJjZW50ZXIiXSB7CiAgLXdlYmtpdC1ib3gtcGFjazogY2VudGVyOwogICAgICAtbXMtZmxleC1wYWNrOiBjZW50ZXI7CiAgICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjsKfQpjbG91ZGZsYXJlLWFwcFthcHA9ImNmLWF1dGgtYmFyIl1bZGF0YS1ob3Jpem9udGFsLWFsaWduPSJjZW50ZXIiXSBjZi1jb250ZW50IHsKICBib3JkZXItcmFkaXVzOiAwIDAgLjNlbSAuM2VtOwp9CgpjbG91ZGZsYXJlLWFwcFthcHA9ImNmLWF1dGgtYmFyIl1bZGF0YS1ob3Jpem9udGFsLWFsaWduPSJyaWdodCJdIHsKICAtd2Via2l0LWJveC1wYWNrOiBlbmQ7CiAgICAgIC1tcy1mbGV4LXBhY2s6IGVuZDsKICAgICAgICAgIGp1c3RpZnktY29udGVudDogZmxleC1lbmQ7Cn0KY2xvdWRmbGFyZS1hcHBbYXBwPSJjZi1hdXRoLWJhciJdW2RhdGEtaG9yaXpvbnRhbC1hbGlnbj0icmlnaHQiXSBjZi1jb250ZW50IHsKICBib3JkZXItcmFkaXVzOiAwIDAgMCAuM2VtOwp9CgpjbG91ZGZsYXJlLWFwcFthcHA9ImNmLWF1dGgtYmFyIl0gY2YtY29udGVudCB7CiAgZGlzcGxheTogLXdlYmtpdC1ib3g7CiAgZGlzcGxheTogLW1zLWZsZXhib3g7CiAgZGlzcGxheTogZmxleDsKICAtbXMtZmxleC1saW5lLXBhY2s6IGNlbnRlcjsKICAgICAgYWxpZ24tY29udGVudDogY2VudGVyOwogIC13ZWJraXQtYm94LXBhY2s6IGNlbnRlcjsKICAgICAgLW1zLWZsZXgtcGFjazogY2VudGVyOwogICAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7CiAgLXdlYmtpdC1ib3gtb3JpZW50OiBob3Jpem9udGFsOwogIC13ZWJraXQtYm94LWRpcmVjdGlvbjogbm9ybWFsOwogICAgICAtbXMtZmxleC1mbG93OiByb3cgd3JhcDsKICAgICAgICAgIGZsZXgtZmxvdzogcm93IHdyYXA7CiAgcGFkZGluZzogMCAxZW07CiAgbGluZS1oZWlnaHQ6IDIuNTsKICBwb2ludGVyLWV2ZW50czogYWxsOwp9CgpjbG91ZGZsYXJlLWFwcFthcHA9ImNmLWF1dGgtYmFyIl0gY2YtZW50cmllcyB7CiAgZGlzcGxheTogLXdlYmtpdC1ib3g7CiAgZGlzcGxheTogLW1zLWZsZXhib3g7CiAgZGlzcGxheTogZmxleDsKfQoKY2xvdWRmbGFyZS1hcHBbYXBwPSJjZi1hdXRoLWJhciJdIGNmLWVudHJ5IHsKICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CiAgLXdlYmtpdC1ib3gtZmxleDogMDsKICAgICAgLW1zLWZsZXg6IDAgMCBhdXRvOwogICAgICAgICAgZmxleDogMCAwIGF1dG87Cn0KCmNsb3VkZmxhcmUtYXBwW2FwcD0iY2YtYXV0aC1iYXIiXSBjZi1lbnRyeSArIGNmLWVudHJ5IHsKICBtYXJnaW4tbGVmdDogMWVtOwp9CgpjbG91ZGZsYXJlLWFwcFthcHA9ImNmLWF1dGgtYmFyIl0gY2YtYWN0aW9ucyB7CiAgZGlzcGxheTogLXdlYmtpdC1ib3g7CiAgZGlzcGxheTogLW1zLWZsZXhib3g7CiAgZGlzcGxheTogZmxleDsKfQoKY2xvdWRmbGFyZS1hcHBbYXBwPSJjZi1hdXRoLWJhciJdIGEgewogIHRleHQtZGVjb3JhdGlvbjogbm9uZTsKfQoKQG1lZGlhIChtaW4td2lkdGg6IDc2OHB4KSB7CiAgY2xvdWRmbGFyZS1hcHBbYXBwPSJjZi1hdXRoLWJhciJdIGNmLWVudHJpZXMgKyBjZi1hY3Rpb25zIHsKICAgIG1hcmdpbi1sZWZ0OiAxZW07CiAgfQp9CgpAbWVkaWEgKG1heC13aWR0aDogNzY4cHgpIHsKICBjbG91ZGZsYXJlLWFwcFthcHA9ImNmLWF1dGgtYmFyIl0gewogICAgZm9udC1zaXplOiAuOWVtICFpbXBvcnRhbnQ7CiAgfQoKICBjbG91ZGZsYXJlLWFwcFthcHA9ImNmLWF1dGgtYmFyIl0gY2YtY29udGVudCB7CiAgICAtd2Via2l0LWJveC1vcmllbnQ6IHZlcnRpY2FsOwogICAgLXdlYmtpdC1ib3gtZGlyZWN0aW9uOiBub3JtYWw7CiAgICAgICAgLW1zLWZsZXgtZmxvdzogY29sdW1uOwogICAgICAgICAgICBmbGV4LWZsb3c6IGNvbHVtbjsKICAgIGJvcmRlci1yYWRpdXM6IDAgIWltcG9ydGFudDsKICAgIHdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7CiAgfQoKICBjbG91ZGZsYXJlLWFwcFthcHA9ImNmLWF1dGgtYmFyIl0gY2YtZW50cmllcyB7CiAgICAtd2Via2l0LWJveC1wYWNrOiBjZW50ZXI7CiAgICAgICAgLW1zLWZsZXgtcGFjazogY2VudGVyOwogICAgICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjsKICAgIC13ZWJraXQtYm94LW9yaWVudDogaG9yaXpvbnRhbDsKICAgIC13ZWJraXQtYm94LWRpcmVjdGlvbjogbm9ybWFsOwogICAgICAgIC1tcy1mbGV4LWZsb3c6IHJvdyB3cmFwOwogICAgICAgICAgICBmbGV4LWZsb3c6IHJvdyB3cmFwOwogIH0KCiAgY2xvdWRmbGFyZS1hcHBbYXBwPSJjZi1hdXRoLWJhciJdIGNmLWFjdGlvbnMgewogICAgLXdlYmtpdC1ib3gtcGFjazogY2VudGVyOwogICAgICAgIC1tcy1mbGV4LXBhY2s6IGNlbnRlcjsKICAgICAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7CiAgfQoKICBjbG91ZGZsYXJlLWFwcFthcHA9ImNmLWF1dGgtYmFyIl0gY2YtYWN0aW9ucyBhIHsKICAgIGRpc3BsYXk6IGJsb2NrOwogICAgLXdlYmtpdC1ib3gtZmxleDogMTsKICAgICAgICAtbXMtZmxleDogMSAwIGF1dG87CiAgICAgICAgICAgIGZsZXg6IDEgMCBhdXRvOwogICAgdGV4dC1hbGlnbjogY2VudGVyOwogIH0KfQoK"></head>
+<body class="base-grid col-sidebar vsc-initialized">
+<div id="blocker"></div>
+<noscript>For full functionality of this site it is necessary to enable JavaScript. Here are the <a href="https://www.enable-javascript.com/"> instructions how to enable JavaScript in your web browser</a>.</noscript>
+<header role="banner">
+<div role="banner" style="position:sticky;top:0;text-align:center;box-sizing:border-box;font-size:0.875em;width:100%;">
+<div style="background-color:#FFBABA;color:#6A0E0E;padding:8px 20px 8px;">
+This content represents the latest contributions to the Web Security Testing Guide, and may frequently change.
+</div>
+</div>
+<div id="popup" class="notice" aria-label="announcement" style="display: none;">
+</div>
+<style>
+  #banner img {
+    max-width: 30em;
+  }
+
+  @media (max-width: 1131px) {
+    #banner img {
+      max-width: 30em;
+    }
+  }
+
+  @media (max-width: 800px) {
+    #banner img {
+      max-width: 20em;
+    }
+    #popup {
+      visibility: hidden;
+    }
+  }
+
+  @media (max-width: 600px) {
+    #popup {
+      visibility: hidden;
+    }
+    #banner img {
+      max-width: 20em;
+    }
+  }
+
+  @media (max-width: 450px) {
+    #banner img {
+      max-width: 250px;
+    }
+    #popup {
+      visibility: hidden;
+    }
+  }
+</style>
+<script type="text/javascript">
+  $(function () {
+    var popdata = [];
+    $("#popup").hide();
+    popyaml = YAML.load('https://owasp.org/www-project-web-security-testing-guide/assets/sitedata/popup-data.yml');
+    $.each(popyaml, function (index) {
+      popdata.push(this);
+    });
+
+    if (popdata.length > 0) {
+      var htmlstring = "";
+      var usepop = null;
+      var defpop = null;
+      var checkdate = new Date(); //local time but who cares about the time?
+      popdata.forEach(data => {
+        if (data.start) {
+          var start = data.start;
+
+          if (data.start <= checkdate) {
+            if (data.end) {
+
+              var end = data.end;
+              if (checkdate < end) {
+                usepop = data;
+              }
+            }
+            else
+              usepop = data;
+          }
+        }
+        else {
+          defpop = data;
+        }
+      });
+
+      if (defpop && !usepop)
+        usepop = defpop;
+      if (usepop) {
+        htmlstring = usepop.text;
+        htmlstring += "<a href='#' id='close-popup' aria-label='close announcement' style='float:right;'><i class='fa fa-times'></i></a>";
+
+        $("#popup").html(htmlstring);
+        $("#popup").removeClass("notice");
+        $("#popup").addClass(usepop.type);
+        
+        if( Cookies.get('popup-seen')!='true')
+        {
+          $("#popup").show();
+        }
+
+        $("#close-popup").click(function() {
+          $(this).closest("#popup").remove();
+            Cookies.set('popup-seen', 'true', { expires: 7 });
+        });
+      }
+    }
+  });
+</script>
+<div class="header-wrapper" aria-label="main navigation">
+<nav class="alt-nav">
+<a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/05-Authorization_Testing/01-Testing_Directory_Traversal_File_Include#" class="menu-toggler" aria-hidden="true">
+<i class="fa fa-bars"></i>
+</a>
+<a href="https://owasp.org/" class="alt-logo" aria-label="go to homepage">
+<img src="./WSTG - Latest _ OWASP_05.12.2021_11.05_files/logo.png" alt="OWASP logo">
+</a>
+<div id="overlay" class="remove-el">
+</div><ul class="mobile-menu hide-el" role="navigation" aria-label="mobile primary navigation"><li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/05-Authorization_Testing/01-Testing_Directory_Traversal_File_Include#" class="menu-toggler" aria-hidden="true"><i class="fa fa-times"></i></a></li><li><form role="search" method="get" action="https://owasp.org/search"><div class="search-div"><input id="searchString" aria-label="search input" name="searchString" class="search-bar" type="search" placeholder="Search OWASP.org" required="true"><button id="search-button" aria-label="search button" type="submit" class="fa fa-search" style="padding-left: 8px;"></button></div></form></li><button class="accordion">PROJECTS</button><div class="panel"><ul><li><a href="https://owasp.org/projects/">Browse All Projects...</a></li><li class="separator"><a href="https://owasp.org/www-project-top-ten/">OWASP Top Ten</a></li><li><a href="https://owasp.org/www-project-dependency-track/">Dependency Track</a></li><li><a href="https://owasp.org/www-project-juice-shop/">Juice Shop</a></li><li><a href="https://owasp.org/www-project-mobile-security-testing-guide/">Mobile Security Testing Guide</a></li><li><a href="https://owasp.org/www-project-modsecurity-core-rule-set/">ModSecurity Core Rule Set</a></li><li><a href="https://owasp.org/www-project-samm/">Software Assurance Maturity Model (SAMM)</a></li><li><a href="https://owasp.org/www-project-security-knowledge-framework/">Security Knowledge Framework</a></li><li><a href="https://owasp.org/www-project-web-security-testing-guide/">Web Security Testing Guide</a></li><li><a href="https://owasp.org/www-project-zap/">Zed Attack Proxy</a></li><li class="separator"><a href="https://owasporg.atlassian.net/servicedesk/customer/portal/7/create/70?src=-1419759666">Start a New Project...</a></li><li><a href="https://owasp.org/gsoc/gsoc2021">Google Summer of Code 2021</a></li></ul></div><button class="accordion">CHAPTERS</button><div class="panel"><ul><li><a href="https://owasp.org/chapters/">Find a Local Chapter...</a></li><li class="separator"><a href="https://owasp.org/chapters/#Africa">Africa</a></li><li><a href="https://owasp.org/chapters/#Asia">Asia</a></li><li><a href="https://owasp.org/chapters/#CentralAmerica">Central America</a></li><li><a href="https://owasp.org/chapters/#EasternEurope">Eastern Europe</a></li><li><a href="https://owasp.org/chapters/#EuropeanUnion">European Union</a></li><li><a href="https://owasp.org/chapters/#MiddleEast">Middle East</a></li><li><a href="https://owasp.org/chapters/#NorthAmerica">North America</a></li><li><a href="https://owasp.org/chapters/#Oceania">Oceania</a></li><li><a href="https://owasp.org/chapters/#SouthAmerica">South America</a></li><li><a href="https://owasp.org/chapters/#TheCarribean">The Caribbean</a></li><li class="separator"><a href="https://owasporg.atlassian.net/servicedesk/customer/portal/7/create/73?src=-1419759666" target="_blank" rel="noopener noreferrer">Start a Local Chapter...</a></li></ul></div><button class="accordion">EVENTS</button><div class="panel"><ul><li><a href="https://20thanniversary.owasp.org/" target="_blank" rel="noopener noreferrer">OWASP 20th Anniversary</a></li><li><a href="https://training.owasp.org/" target="_blank" rel="noopener noreferrer">OWASP Virtual Trainings</a></li><li><a href="https://lightning.owasp.org/" target="_blank" rel="noopener noreferrer">Lightning Conference</a></li><li><a href="https://brainbreak.owasp.org/" target="_blank" rel="noopener noreferrer">Brain Break</a></li><li><a href="https://calltobattle.owasp.org/" target="_blank" rel="noopener noreferrer">Call to Battle</a></li><li><a href="https://owasp.org/chapters/events/">Upcoming Chapter Events</a></li><li class="separator"><a href="https://owasp.org/events/">Browse All Events...</a></li></ul></div><button class="accordion">ABOUT</button><div class="panel"><ul><li><a href="https://owasp.org/about/">About OWASP</a></li><li><a href="https://owasp.org/corporate/">Board &amp; Staff</a></li><li><a href="https://owasp.org/careers/">Careers</a></li><li><a href="https://owasp.org/committees/">Committees</a></li><li><a href="https://owasp.org/contact/">Contact Us</a></li><li><a href="https://owasp.org/www-community">Contributed Content</a></li><li><a href="https://owasp.org/donate/">Donate</a></li><li><a href="https://owasp.org/finance/">Finance</a></li><li><a href="https://owasp.org/store">Get OWASP Gear</a></li><li><a href="https://owasp.org/www-board/">Global Board</a></li><li><a href="https://owasp.org/governance/">Governance</a></li><li><a href="https://owasp.org/membership/">Membership</a></li><li><a href="https://members.owasp.org/">Membership Portal</a></li><li><a href="https://owasp.org/news/">Opinions &amp; News</a></li><li><a href="https://owasp.org/www-policy/">Policies</a></li><li><a href="https://owasp.org/www-staff/">Staff Projects &amp; Procedures</a></li><li><a href="https://owasp.org/supporters/">Corporate Membership</a></li><li><a href="https://owasp.org/corporate-sponsorships">Corporate Event Sponsorship</a></li><li><a href="https://www.youtube.com/user/OWASPGLOBAL/videos" target="_blank" rel="noopener noreferrer">Video</a></li></ul></div><li><a href="https://owasp.org/donate">MAKE A DONATION</a></li><li><a href="https://owasp.org/membership">BECOME A MEMBER</a></li><li><a href="https://owasp.org/sitemap">SITEMAP</a></li></ul>
+
+</nav>
+<nav class="top-nav" role="navigation" aria-label="primary navigation">
+<a href="https://owasp.org/" class="desktop-logo" aria-label="go to homepage">
+<img src="./WSTG - Latest _ OWASP_05.12.2021_11.05_files/logo.png" alt="">
+</a><ul aria-label="header menu"><li><a href="https://owasp.org/projects/">PROJECTS</a><ul class="dropdown-menu"><li><a href="https://owasp.org/projects/">Browse All Projects...</a></li><li class="separator"><a href="https://owasp.org/www-project-top-ten/">OWASP Top Ten</a></li><li><a href="https://owasp.org/www-project-dependency-track/">Dependency Track</a></li><li><a href="https://owasp.org/www-project-juice-shop/">Juice Shop</a></li><li><a href="https://owasp.org/www-project-mobile-security-testing-guide/">Mobile Security Testing Guide</a></li><li><a href="https://owasp.org/www-project-modsecurity-core-rule-set/">ModSecurity Core Rule Set</a></li><li><a href="https://owasp.org/www-project-samm/">Software Assurance Maturity Model (SAMM)</a></li><li><a href="https://owasp.org/www-project-security-knowledge-framework/">Security Knowledge Framework</a></li><li><a href="https://owasp.org/www-project-web-security-testing-guide/">Web Security Testing Guide</a></li><li><a href="https://owasp.org/www-project-zap/">Zed Attack Proxy</a></li><li class="separator"><a href="https://owasporg.atlassian.net/servicedesk/customer/portal/7/create/70?src=-1419759666">Start a New Project...</a></li><li><a href="https://owasp.org/gsoc/gsoc2021">Google Summer of Code 2021</a></li></ul></li><li><a href="https://owasp.org/chapters/">CHAPTERS</a><ul class="dropdown-menu"><li><a href="https://owasp.org/chapters/">Find a Local Chapter...</a></li><li class="separator"><a href="https://owasp.org/chapters/#Africa">Africa</a></li><li><a href="https://owasp.org/chapters/#Asia">Asia</a></li><li><a href="https://owasp.org/chapters/#CentralAmerica">Central America</a></li><li><a href="https://owasp.org/chapters/#EasternEurope">Eastern Europe</a></li><li><a href="https://owasp.org/chapters/#EuropeanUnion">European Union</a></li><li><a href="https://owasp.org/chapters/#MiddleEast">Middle East</a></li><li><a href="https://owasp.org/chapters/#NorthAmerica">North America</a></li><li><a href="https://owasp.org/chapters/#Oceania">Oceania</a></li><li><a href="https://owasp.org/chapters/#SouthAmerica">South America</a></li><li><a href="https://owasp.org/chapters/#TheCarribean">The Caribbean</a></li><li class="separator"><a href="https://owasporg.atlassian.net/servicedesk/customer/portal/7/create/73?src=-1419759666" target="_blank" rel="noopener noreferrer">Start a Local Chapter...</a></li></ul></li><li><a href="https://owasp.org/events/">EVENTS</a><ul class="dropdown-menu"><li><a href="https://20thanniversary.owasp.org/" target="_blank" rel="noopener noreferrer">OWASP 20th Anniversary</a></li><li><a href="https://training.owasp.org/" target="_blank" rel="noopener noreferrer">OWASP Virtual Trainings</a></li><li><a href="https://lightning.owasp.org/" target="_blank" rel="noopener noreferrer">Lightning Conference</a></li><li><a href="https://brainbreak.owasp.org/" target="_blank" rel="noopener noreferrer">Brain Break</a></li><li><a href="https://calltobattle.owasp.org/" target="_blank" rel="noopener noreferrer">Call to Battle</a></li><li><a href="https://owasp.org/chapters/events/">Upcoming Chapter Events</a></li><li class="separator"><a href="https://owasp.org/events/">Browse All Events...</a></li></ul></li><li><a href="https://owasp.org/about/">ABOUT</a><ul class="dropdown-menu"><li><a href="https://owasp.org/about/">About OWASP</a></li><li><a href="https://owasp.org/corporate/">Board &amp; Staff</a></li><li><a href="https://owasp.org/careers/">Careers</a></li><li><a href="https://owasp.org/committees/">Committees</a></li><li><a href="https://owasp.org/contact/">Contact Us</a></li><li><a href="https://owasp.org/www-community">Contributed Content</a></li><li><a href="https://owasp.org/donate/">Donate</a></li><li><a href="https://owasp.org/finance/">Finance</a></li><li><a href="https://owasp.org/store">Get OWASP Gear</a></li><li><a href="https://owasp.org/www-board/">Global Board</a></li><li><a href="https://owasp.org/governance/">Governance</a></li><li><a href="https://owasp.org/membership/">Membership</a></li><li><a href="https://members.owasp.org/">Membership Portal</a></li><li><a href="https://owasp.org/news/">Opinions &amp; News</a></li><li><a href="https://owasp.org/www-policy/">Policies</a></li><li><a href="https://owasp.org/www-staff/">Staff Projects &amp; Procedures</a></li><li><a href="https://owasp.org/supporters/">Corporate Membership</a></li><li><a href="https://owasp.org/corporate-sponsorships">Corporate Event Sponsorship</a></li><li><a href="https://www.youtube.com/user/OWASPGLOBAL/videos" target="_blank" rel="noopener noreferrer">Video</a></li></ul></li></ul>
+
+<div class="interactive-wrapper">
+<form role="search" method="get" action="https://owasp.org/search">
+<div class="search-div">
+<input id="searchString" name="searchString" class="search-bar" type="search" placeholder="Search OWASP.org" required="true">
+<button id="search-button" type="submit" class="fa fa-search">
+
+</button>
+</div>
+</form>
+<div class="nav-button" aria-label="donate to or join OWASP">
+<a href="https://owasp.org/store" class="cta-button white inset"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Store</a>
+<a href="https://owasp.org/donate?reponame=www-project-web-security-testing-guide&amp;title=WSTG+-+Latest" class="cta-button green">Donate</a>
+<a href="https://owasp.org/membership" class="cta-button">Join</a>
+</div>
+</div>
+</nav>
+
+</div>
+<div class="mobile" style="width:100%;margin:auto;justify-content: space-between;">
+<div style="float:left;margin:auto;padding-right:10%;"><a href="https://owasp.org/store" class="cta-button white inset"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Store</a></div>
+<div style="float:left;margin:auto;padding-right:10%;"><a href="https://owasp.org/donate?reponame=www-project-web-security-testing-guide&amp;title=WSTG+-+Latest" class="cta-button green">Donate</a></div>
+<div style="float:left;margin:auto;"><a href="https://owasp.org/membership" class="cta-button">Join</a></div>
+</div>
+<script type="text/javascript">
+  $(function(){
+      
+      url = $(location).attr('href');
+      if(url.includes('www2'))
+      {
+        url = url.replace(/www2./, '');
+        $(location).attr('href',url);
+        return;
+      }
+    // this works to get data from a json file NOT in data
+      $.getJSON("https://owasp.org/www--site-theme/assets/sitedata/menus.json", function(data) {
+         var listr = "<ul aria-label='header menu'>";
+         
+         var mlistr = "<ul class='mobile-menu hide-el' role='navigation' aria-label='mobile primary navigation'>";
+
+          mlistr += "<li><a href='#' class='menu-toggler' aria-hidden='true'><i class='fa fa-times'></i></a></li>";
+          mlistr += "<li>";
+          mlistr += "<form role='search' method='get' action='https://owasp.org/search'>";   
+          mlistr += "<div class='search-div'>";
+          mlistr += "<input id='searchString' aria-label='search input' name='searchString' class='search-bar' type='search' placeholder='Search OWASP.org' required='true'>";
+          mlistr += "<button id='search-button' aria-label='search button' type='submit' class='fa fa-search' style='padding-left: 8px;'></button></div></form>";
+          mlistr += "</li>";
+          $.each(data.menus, function (ndx, menu){
+              listr += "<li><a href='" + menu.url + "'>" + menu.title + "</a>";
+
+              if(!menu.items)
+              {
+                  mlistr += "<li><a href='" + menu.url + "'>" + menu.title + "</a>";
+              }
+              
+              if(menu.items){
+                  listr += "<ul class='dropdown-menu'>";
+                  mlistr += "<button class='accordion'>" + menu.title + "</button>";
+                  mlistr += "<div class='panel'>";
+                  mlistr += "<ul>";
+                $.each(menu.items, function(ndx, item){
+                
+                  if(item.separator)
+                  {
+                      listr += "<li class='separator'>";
+                      mlistr += "<li class='separator'>";
+                  }
+                  else
+                  {
+                      listr += "<li>";
+                      mlistr += "<li>";
+                  }
+                  listr += "<a href='" + item.url + "'";
+                  mlistr += "<a href='" + item.url + "'";
+                  if(item.opentab)
+                  {
+                    listr += " target='_blank' rel='noopener noreferrer'";
+                    mlistr += " target='_blank' rel='noopener noreferrer'";
+                  }
+
+                  listr += ">" + item.title + "</a></li>";
+                  mlistr += ">" + item.title + "</a></li>";
+                });
+                listr += "</ul>";
+                mlistr += "</ul>";
+                mlistr += "</div>"
+              }
+              
+              listr += "</li>";
+              mlistr += "</li>";
+          });
+          listr += "</ul>";
+          mlistr += "<li><a href='https://owasp.org/donate'>MAKE A DONATION</a></li>";
+          mlistr += "<li><a href='https://owasp.org/membership'>BECOME A MEMBER</a></li>";
+          mlistr += "<li><a href='https://owasp.org/sitemap'>SITEMAP</a></li>";
+          mlistr += "</ul>";
+          
+          $('.desktop-logo').after(listr);
+          $('#overlay').after(mlistr);
+
+          $(".accordion").click(function () {
+              $(this).toggleClass("active");
+              if($(this).next('.panel').css('display') == 'block'){
+                $(this).next('.panel').css('display', 'none');
+              }
+              else {
+                $(this).next('.panel').css('display', 'block');
+              }
+            });
+            $(".menu-toggler").click(function() {
+              $(".mobile-menu").toggleClass('hide-el');
+            });
+      });
+    });
+  </script>
+</header>
+<main role="main">
+<div class="main-wrapper document">
+<div id="main" class="page-body tab" role="tabpanel" aria-labelledby="main-link" tabindex="0">
+<div class="doc-title"></div>
+<h1 class="page-title">WSTG - Latest</h1>
+<nav role="navigation" aria-label="navigate page">
+<ol>
+</ol>
+</nav>
+<section id="div-main" class="page-body tab">
+<div class="breadcrumb" style="font-size: 0.8em">
+<a href="https://owasp.org/www-project-web-security-testing-guide/">Home</a>&nbsp;&gt;&nbsp;<a href="https://owasp.org/www-project-web-security-testing-guide/latest/">Latest</a>&nbsp;&gt;&nbsp;<a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/">4-Web Application Security Testing</a>&nbsp;&gt;&nbsp;<a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/05-Authorization_Testing/">05-Authorization Testing</a></div>
+<h1 id="testing-directory-traversal-file-include">Testing Directory Traversal File Include</h1>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WSTG-ATHZ-01</td>
+</tr>
+</tbody>
+</table>
+<h2 id="summary">Summary</h2>
+<p>Many web applications use and manage files as part of their daily operation. Using input validation methods that have not been well designed or deployed, an aggressor could exploit the system in order to read or write files that are not intended to be accessible. In particular situations, it could be possible to execute arbitrary code or system commands.</p>
+<p>Traditionally, web servers and web applications implement authentication mechanisms to control access to files and resources. Web servers try to confine users’ files inside a “root directory” or “web document root”, which represents a physical directory on the file system. Users have to consider this directory as the base directory into the hierarchical structure of the web application.</p>
+<p>The definition of the privileges is made using&nbsp;Access Control Lists&nbsp;(ACL) which identify which users or groups are supposed to be able to access, modify, or execute a specific file on the server. These mechanisms are designed to prevent malicious users from accessing sensitive files (for example, the common&nbsp;<code class="language-plaintext highlighter-rouge">/etc/passwd</code>&nbsp;file on a UNIX-like platform) or to avoid the execution of system commands.</p>
+<p>Many web applications use server-side scripts to include different kinds of files. It is quite common to use this method to manage images, templates, load static texts, and so on. Unfortunately, these applications expose security vulnerabilities if input parameters (i.e., form parameters, cookie values) are not correctly validated.</p>
+<p>In web servers and web applications, this kind of problem arises in path traversal/file include attacks. By exploiting this kind of vulnerability, an attacker is able to read directories or files which they normally couldn’t read, access data outside the web document root, or include scripts and other kinds of files from external websites.</p>
+<p>For the purpose of the OWASP Testing Guide, only the security threats related to web applications will be considered and not threats to web servers (e.g., the infamous <code class="language-plaintext highlighter-rouge">%5c</code> escape code into Microsoft IIS web server). Further reading suggestions will be provided in the references section for interested readers.</p>
+<p>This kind of attack is also known as the&nbsp;dot-dot-slash&nbsp;attack (<code class="language-plaintext highlighter-rouge">../</code>),&nbsp;directory traversal,&nbsp;directory climbing, or&nbsp;backtracking.</p>
+<p>During an assessment, to discover path traversal and file include flaws, testers need to perform two different stages:</p>
+<ol>
+<li>Input Vectors Enumeration (a systematic evaluation of each input vector)</li>
+<li>Testing Techniques (a methodical evaluation of each attack technique used by an attacker to exploit the vulnerability)</li>
+</ol>
+<h2 id="test-objectives">Test Objectives</h2>
+<ul>
+<li>Identify injection points that pertain to path traversal.</li>
+<li>Assess bypassing techniques and identify the extent of path traversal.</li>
+</ul>
+<h2 id="how-to-test">How to Test</h2>
+<h3 id="black-box-testing">Black-Box Testing</h3>
+<h4 id="input-vectors-enumeration">Input Vectors Enumeration</h4>
+<p>In order to determine which part of the application is vulnerable to input validation bypassing, the tester needs to enumerate all parts of the application that accept content from the user. This also includes HTTP GET and POST queries and common options like file uploads and HTML forms.</p>
+<p>Here are some examples of the checks to be performed at this stage:</p>
+<ul>
+<li>Are there request parameters which could be used for file-related operations?</li>
+<li>Are there unusual file extensions?</li>
+<li>Are there interesting variable names?
+<ul>
+<li><code class="language-plaintext highlighter-rouge">http://example.com/getUserProfile.jsp?item=ikki.html</code></li>
+<li><code class="language-plaintext highlighter-rouge">http://example.com/index.php?file=content</code></li>
+<li><code class="language-plaintext highlighter-rouge">http://example.com/main.cgi?home=index.htm</code></li>
+</ul>
+</li>
+<li>Is it possible to identify cookies used by the web application for the dynamic generation of pages or templates?
+<ul>
+<li><code class="language-plaintext highlighter-rouge">Cookie: ID=d9ccd3f4f9f18cc1:TM=2166255468:LM=1162655568:S=3cFpqbJgMSSPKVMV:TEMPLATE=flower</code></li>
+<li><code class="language-plaintext highlighter-rouge">Cookie: USER=1826cc8f:PSTYLE=GreenDotRed</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="testing-techniques">Testing Techniques</h4>
+<p>The next stage of testing is analyzing the input validation functions present in the web application. Using the previous example, the dynamic page called <code class="language-plaintext highlighter-rouge">getUserProfile.jsp</code> loads static information from a file and shows the content to users. An attacker could insert the malicious string <code class="language-plaintext highlighter-rouge">../../../../etc/passwd</code> to include the password hash file of a Linux/UNIX system. Obviously, this kind of attack is possible only if the validation checkpoint fails; according to the file system privileges, the web application itself must be able to read the file.</p>
+<p><strong>Note:</strong> To successfully test for this flaw, the tester needs to have knowledge of the system being tested and the location of the files being requested. There is no point requesting <code class="language-plaintext highlighter-rouge">/etc/passwd</code> from an IIS web server.</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://example.com/getUserProfile.jsp?item=../../../../etc/passwd
+</code></pre></div></div>
+<p>Another common example is including content from an external source:</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://example.com/index.php?file=http://www.owasp.org/malicioustxt
+</code></pre></div></div>
+<p>The same can be applied to cookies or any other input vector that is used for dynamic page generation.</p>
+<p>More file inclusion payloads can be found at <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/File%20Inclusion">PayloadsAllTheThings - File Inclusion</a></p>
+<p>It is important to note that different operating systems use different path separators</p>
+<ul>
+<li>Unix-like OS:
+<ul>
+<li>root directory: <code class="language-plaintext highlighter-rouge">/</code></li>
+<li>directory separator: <code class="language-plaintext highlighter-rouge">/</code></li>
+</ul>
+</li>
+<li>Windows OS:
+<ul>
+<li>root directory: <code class="language-plaintext highlighter-rouge">&lt;drive letter&gt;:</code></li>
+<li>directory separator: <code class="language-plaintext highlighter-rouge">\</code> or <code class="language-plaintext highlighter-rouge">/</code></li>
+</ul>
+</li>
+<li>Classic macOS:
+<ul>
+<li>root directory: <code class="language-plaintext highlighter-rouge">&lt;drive letter&gt;:</code></li>
+<li>directory separator: <code class="language-plaintext highlighter-rouge">:</code></li>
+</ul>
+</li>
+</ul>
+<p>It’s a common mistake by developers to not expect every form of encoding and therefore only do validation for basic encoded content. If at first the test string isn’t successful, try another encoding scheme.</p>
+<p>You can find encoding techniques and ready to use directory traversal payloads at <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Directory%20Traversal">PayloadsAllTheThings - Directory Traversal</a></p>
+<h4 id="windows-specific-considerations">Windows Specific Considerations</h4>
+<ul>
+<li>Windows shell: Appending any of the following to paths used in a shell command results in no difference in function:
+<ul>
+<li>Angle brackets <code class="language-plaintext highlighter-rouge">&lt;</code> and <code class="language-plaintext highlighter-rouge">&gt;</code> at the end of the path</li>
+<li>Double quotes (closed properly) at the end of the path</li>
+<li>Extraneous current directory markers such as <code class="language-plaintext highlighter-rouge">./</code> or <code class="language-plaintext highlighter-rouge">.\\</code></li>
+<li>Extraneous parent directory markers with arbitrary items that may or may not exist:
+<ul>
+<li><code class="language-plaintext highlighter-rouge">file.txt</code></li>
+<li><code class="language-plaintext highlighter-rouge">file.txt...</code></li>
+<li><code class="language-plaintext highlighter-rouge">file.txt&lt;spaces&gt;</code></li>
+<li><code class="language-plaintext highlighter-rouge">file.txt""""</code></li>
+<li><code class="language-plaintext highlighter-rouge">file.txt&lt;&lt;&lt;&gt;&gt;&gt;&lt;</code></li>
+<li><code class="language-plaintext highlighter-rouge">./././file.txt</code></li>
+<li><code class="language-plaintext highlighter-rouge">nonexistant/../file.txt</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Windows API: The following items are discarded when used in any shell command or API call where a string is taken as a filename:
+<ul>
+<li>periods</li>
+<li>spaces</li>
+</ul>
+</li>
+<li>Windows UNC Filepaths: Used to reference files on SMB shares. Sometimes, an application can be made to refer to files on a remote UNC filepath. If so, the Windows SMB server may send stored credentials to the attacker, which can be captured and cracked. These may also be used with a self-referential IP address or domain name to evade filters, or used to access files on SMB shares inaccessible to the attacker, but accessible from the web server.
+<ul>
+<li><code class="language-plaintext highlighter-rouge">\\server_or_ip\path\to\file.abc</code></li>
+<li><code class="language-plaintext highlighter-rouge">\\?\server_or_ip\path\to\file.abc</code></li>
+</ul>
+</li>
+<li>Windows NT Device Namespace: Used to refer to the Windows device namespace. Certain references will allow access to file systems using a different path.
+<ul>
+<li>May be equivalent to a drive letter such as <code class="language-plaintext highlighter-rouge">c:\</code>, or even a drive volume without an assigned letter: <code class="language-plaintext highlighter-rouge">\\.\GLOBALROOT\Device\HarddiskVolume1\</code></li>
+<li>Refers to the first disc drive on the machine: <code class="language-plaintext highlighter-rouge">\\.\CdRom0\</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="gray-box-testing">Gray-Box Testing</h3>
+<p>When the analysis is performed with a gray-box testing approach, testers have to follow the same methodology as in black-box testing. However, since they can review the source code, it is possible to search the input vectors more easily and accurately. During a source code review, they can use simple tools (such as the <em>grep</em> command) to search for one or more common patterns within the application code: inclusion functions/methods, filesystem operations, and so on.</p>
+<ul>
+<li><code class="language-plaintext highlighter-rouge">PHP: include(), include_once(), require(), require_once(), fopen(), readfile(), ...</code></li>
+<li><code class="language-plaintext highlighter-rouge">JSP/Servlet: java.io.File(), java.io.FileReader(), ...</code></li>
+<li><code class="language-plaintext highlighter-rouge">ASP: include file, include virtual, ...</code></li>
+</ul>
+<p>Using online code search engines (e.g., <a href="https://searchcode.com/">Searchcode</a>), it may also be possible to find path traversal flaws in Open Source software published on the Internet.</p>
+<p>For PHP, testers can use the following regex:</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(include|require)(_once)?\s*['"(]?\s*\$_(GET|POST|COOKIE)
+</code></pre></div></div>
+<p>Using the gray-box testing method, it is possible to discover vulnerabilities that are usually harder to discover, or even impossible to find during a standard black-box assessment.</p>
+<p>Some web applications generate dynamic pages using values and parameters stored in a database. It may be possible to insert specially crafted path traversal strings when the application adds data to the database. This kind of security problem is difficult to discover due to the fact the parameters inside the inclusion functions seem internal and <strong>safe</strong> but are not in reality.</p>
+<p>Additionally, by reviewing the source code it is possible to analyze the functions that are supposed to handle invalid input: some developers try to change invalid input to make it valid, avoiding warnings and errors. These functions are usually prone to security flaws.</p>
+<p>Consider a web application with these instructions:</p>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">filename</span> <span class="o">=</span> <span class="nc">Request</span><span class="mf">.</span><span class="nf">QueryString</span><span class="p">(</span><span class="s2">"file"</span><span class="p">);</span>
+<span class="nf">Replace</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"/"</span><span class="p">,</span><span class="s2">"</span><span class="se">\"</span><span class="s2">);
+Replace(filename, "</span><span class="mf">..</span><span class="err">\</span><span class="s2">","");
+</span></code></pre></div></div>
+<p>Testing for the flaw is achieved by:</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>file=....//....//boot.ini
+file=....\\....\\boot.ini
+file= ..\..\boot.ini
+</code></pre></div></div>
+<h2 id="tools">Tools</h2>
+<ul>
+<li><a href="https://github.com/wireghoul/dotdotpwn">DotDotPwn - The Directory Traversal Fuzzer</a></li>
+<li><a href="https://github.com/xmendez/wfuzz/blob/master/wordlist/Injections/Traversal.txt">Path Traversal Fuzz Strings (from WFuzz Tool)</a></li>
+<li><a href="https://www.zaproxy.org/">OWASP ZAP</a></li>
+<li><a href="https://portswigger.net/">Burp Suite</a></li>
+<li>Enconding/Decoding tools</li>
+<li><a href="https://www.gnu.org/software/grep/">String searcher “grep”</a></li>
+<li><a href="https://wiki.owasp.org/index.php/Category:OWASP_DirBuster_Project">DirBuster</a></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Directory%20Traversal">PayloadsAllTheThings - Directory Traversal</a></li>
+<li><a href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/File%20Inclusion">PayloadsAllTheThings - File Inclusion</a></li>
+</ul>
+<h3 id="whitepapers">Whitepapers</h3>
+<ul>
+<li><a href="https://seclists.org/vulnwatch/2004/q4/33">phpBB Attachment Mod Directory Traversal HTTP POST Injection</a></li>
+<li><a href="https://www.slideshare.net/BaronZor/windows-file-pseudonyms">Windows File Pseudonyms: Pwnage and Poetry</a></li>
+</ul>
+</section>
+<nav role="navigation" aria-label="navigate page">
+<ol>
+</ol>
+</nav>
+</div>
+<hr>
+<div class="repo"><a href="https://github.com/OWASP/www-project-web-security-testing-guide/blob/master/latest/4-Web_Application_Security_Testing/05-Authorization_Testing/01-Testing_Directory_Traversal_File_Include.md"><div class="reset-3c756112--menuItemIcon-206eb252" style="float: left;"><svg preserveAspectRatio="xMidYMid meet" height="1em" width="1em" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 438.549 438.549" stroke="none" class="icon-7f6730be--text-3f89f380"><g><path d="M409.132 114.573c-19.608-33.596-46.205-60.194-79.798-79.8-33.598-19.607-70.277-29.408-110.063-29.408-39.781 0-76.472 9.804-110.063 29.408-33.596 19.605-60.192 46.204-79.8 79.8C9.803 148.168 0 184.854 0 224.63c0 47.78 13.94 90.745 41.827 128.906 27.884 38.164 63.906 64.572 108.063 79.227 5.14.954 8.945.283 11.419-1.996 2.475-2.282 3.711-5.14 3.711-8.562 0-.571-.049-5.708-.144-15.417a2549.81 2549.81 0 0 1-.144-25.406l-6.567 1.136c-4.187.767-9.469 1.092-15.846 1-6.374-.089-12.991-.757-19.842-1.999-6.854-1.231-13.229-4.086-19.13-8.559-5.898-4.473-10.085-10.328-12.56-17.556l-2.855-6.57c-1.903-4.374-4.899-9.233-8.992-14.559-4.093-5.331-8.232-8.945-12.419-10.848l-1.999-1.431c-1.332-.951-2.568-2.098-3.711-3.429-1.142-1.331-1.997-2.663-2.568-3.997-.572-1.335-.098-2.43 1.427-3.289 1.525-.859 4.281-1.276 8.28-1.276l5.708.853c3.807.763 8.516 3.042 14.133 6.851 5.614 3.806 10.229 8.754 13.846 14.842 4.38 7.806 9.657 13.754 15.846 17.847 6.184 4.093 12.419 6.136 18.699 6.136 6.28 0 11.704-.476 16.274-1.423 4.565-.952 8.848-2.383 12.847-4.285 1.713-12.758 6.377-22.559 13.988-29.41-10.848-1.14-20.601-2.857-29.264-5.14-8.658-2.286-17.605-5.996-26.835-11.14-9.235-5.137-16.896-11.516-22.985-19.126-6.09-7.614-11.088-17.61-14.987-29.979-3.901-12.374-5.852-26.648-5.852-42.826 0-23.035 7.52-42.637 22.557-58.817-7.044-17.318-6.379-36.732 1.997-58.24 5.52-1.715 13.706-.428 24.554 3.853 10.85 4.283 18.794 7.952 23.84 10.994 5.046 3.041 9.089 5.618 12.135 7.708 17.705-4.947 35.976-7.421 54.818-7.421s37.117 2.474 54.823 7.421l10.849-6.849c7.419-4.57 16.18-8.758 26.262-12.565 10.088-3.805 17.802-4.853 23.134-3.138 8.562 21.509 9.325 40.922 2.279 58.24 15.036 16.18 22.559 35.787 22.559 58.817 0 16.178-1.958 30.497-5.853 42.966-3.9 12.471-8.941 22.457-15.125 29.979-6.191 7.521-13.901 13.85-23.131 18.986-9.232 5.14-18.182 8.85-26.84 11.136-8.662 2.286-18.415 4.004-29.263 5.146 9.894 8.562 14.842 22.077 14.842 40.539v60.237c0 3.422 1.19 6.279 3.572 8.562 2.379 2.279 6.136 2.95 11.276 1.995 44.163-14.653 80.185-41.062 108.068-79.226 27.88-38.161 41.825-81.126 41.825-128.906-.01-39.771-9.818-76.454-29.414-110.049z"></path></g></svg><span style="padding-left:8px;">Edit on GitHub</span></div></a></div>
+<div class="github-buttons">
+<span></span>
+<span></span>
+</div>
+<div class="sidebar" role="complementary">
+<div class="owasp-sidebar-top">
+<strong>The OWASP<sup>®</sup> Foundation</strong> works to improve the security of software through its community-led open source software projects,
+hundreds of chapters worldwide, tens of thousands of members, and by hosting local and global conferences.
+</div>
+<h2><a href="https://owasp.org/www-project-web-security-testing-guide/latest/">WSTG Contents</a></h2>
+<ul style="font-size:0.9em">
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/0-Foreword/README">0. Foreword by Eoin Keary</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/1-Frontispiece/">1. Frontispiece</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/2-Introduction/">2. Introduction</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/2-Introduction/README#the-owasp-testing-project">2.1 The OWASP Testing Project</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/2-Introduction/README#principles-of-testing">2.2 Principles of Testing</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/2-Introduction/README#testing-techniques-explained">2.3 Testing Techniques Explained</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/2-Introduction/README#manual-inspections-and-reviews">2.4 Manual Inspections and Reviews</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/2-Introduction/README#threat-modeling">2.5 Threat Modeling</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/2-Introduction/README#source-code-review">2.6 Source Code Review</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/2-Introduction/README#penetration-testing">2.7 Penetration Testing</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/2-Introduction/README#the-need-for-a-balanced-approach">2.8 The Need for a Balanced Approach</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/2-Introduction/README#deriving-security-test-requirements">2.9 Deriving Security Test Requirements</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/2-Introduction/README#security-tests-integrated-in-development-and-testing-workflows">2.10 Security Tests Integrated in Development and Testing Workflows</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/2-Introduction/README#security-test-data-analysis-and-reporting">2.11 Security Test Data Analysis and Reporting</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/3-The_OWASP_Testing_Framework/">3. The OWASP Testing Framework</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/3-The_OWASP_Testing_Framework/0-The_Web_Security_Testing_Framework">3.1 The Web Security Testing Framework</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/3-The_OWASP_Testing_Framework/0-The_Web_Security_Testing_Framework#phase-1-before-development-begins">3.2 Phase 1 Before Development Begins</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/3-The_OWASP_Testing_Framework/0-The_Web_Security_Testing_Framework#phase-2-during-definition-and-design">3.3 Phase 2 During Definition and Design</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/3-The_OWASP_Testing_Framework/0-The_Web_Security_Testing_Framework#phase-3-during-development">3.4 Phase 3 During Development</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/3-The_OWASP_Testing_Framework/0-The_Web_Security_Testing_Framework#phase-4-during-deployment">3.5 Phase 4 During Deployment</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/3-The_OWASP_Testing_Framework/0-The_Web_Security_Testing_Framework#phase-5-during-maintenance-and-operations">3.6 Phase 5 During Maintenance and Operations</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/3-The_OWASP_Testing_Framework/0-The_Web_Security_Testing_Framework#a-typical-sdlc-testing-workflow">3.7 A Typical SDLC Testing Workflow</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/3-The_OWASP_Testing_Framework/1-Penetration_Testing_Methodologies">3.8 Penetration Testing Methodologies</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/">4. Web Application Security Testing</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/00-Introduction_and_Objectives/README">4.0 Introduction and Objectives</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/README">4.1 Information Gathering</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/01-Conduct_Search_Engine_Discovery_Reconnaissance_for_Information_Leakage">4.1.1 Conduct Search Engine Discovery Reconnaissance for Information Leakage</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/02-Fingerprint_Web_Server">4.1.2 Fingerprint Web Server</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/03-Review_Webserver_Metafiles_for_Information_Leakage">4.1.3 Review Webserver Metafiles for Information Leakage</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/04-Enumerate_Applications_on_Webserver">4.1.4 Enumerate Applications on Webserver</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/05-Review_Webpage_Content_for_Information_Leakage">4.1.5 Review Webpage Content for Information Leakage</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/06-Identify_Application_Entry_Points">4.1.6 Identify Application Entry Points</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/07-Map_Execution_Paths_Through_Application">4.1.7 Map Execution Paths Through Application</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/08-Fingerprint_Web_Application_Framework">4.1.8 Fingerprint Web Application Framework</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/09-Fingerprint_Web_Application">4.1.9 Fingerprint Web Application</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/10-Map_Application_Architecture">4.1.10 Map Application Architecture</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/README">4.2 Configuration and Deployment Management Testing</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/01-Test_Network_Infrastructure_Configuration">4.2.1 Test Network Infrastructure Configuration</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/02-Test_Application_Platform_Configuration">4.2.2 Test Application Platform Configuration</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/03-Test_File_Extensions_Handling_for_Sensitive_Information">4.2.3 Test File Extensions Handling for Sensitive Information</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/04-Review_Old_Backup_and_Unreferenced_Files_for_Sensitive_Information">4.2.4 Review Old Backup and Unreferenced Files for Sensitive Information</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/05-Enumerate_Infrastructure_and_Application_Admin_Interfaces">4.2.5 Enumerate Infrastructure and Application Admin Interfaces</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/06-Test_HTTP_Methods">4.2.6 Test HTTP Methods</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/07-Test_HTTP_Strict_Transport_Security">4.2.7 Test HTTP Strict Transport Security</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/08-Test_RIA_Cross_Domain_Policy">4.2.8 Test RIA Cross Domain Policy</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/09-Test_File_Permission">4.2.9 Test File Permission</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/10-Test_for_Subdomain_Takeover">4.2.10 Test for Subdomain Takeover</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/11-Test_Cloud_Storage">4.2.11 Test Cloud Storage</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/12-Test_for_Content_Security_Policy">4.2.12 Test for Content Security Policy</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/03-Identity_Management_Testing/README">4.3 Identity Management Testing</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/03-Identity_Management_Testing/01-Test_Role_Definitions">4.3.1 Test Role Definitions</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/03-Identity_Management_Testing/02-Test_User_Registration_Process">4.3.2 Test User Registration Process</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/03-Identity_Management_Testing/03-Test_Account_Provisioning_Process">4.3.3 Test Account Provisioning Process</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/03-Identity_Management_Testing/04-Testing_for_Account_Enumeration_and_Guessable_User_Account">4.3.4 Testing for Account Enumeration and Guessable User Account</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/03-Identity_Management_Testing/05-Testing_for_Weak_or_Unenforced_Username_Policy">4.3.5 Testing for Weak or Unenforced Username Policy</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/04-Authentication_Testing/README">4.4 Authentication Testing</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/04-Authentication_Testing/01-Testing_for_Credentials_Transported_over_an_Encrypted_Channel">4.4.1 Testing for Credentials Transported over an Encrypted Channel</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/04-Authentication_Testing/02-Testing_for_Default_Credentials">4.4.2 Testing for Default Credentials</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/04-Authentication_Testing/03-Testing_for_Weak_Lock_Out_Mechanism">4.4.3 Testing for Weak Lock Out Mechanism</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/04-Authentication_Testing/04-Testing_for_Bypassing_Authentication_Schema">4.4.4 Testing for Bypassing Authentication Schema</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/04-Authentication_Testing/05-Testing_for_Vulnerable_Remember_Password">4.4.5 Testing for Vulnerable Remember Password</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/04-Authentication_Testing/06-Testing_for_Browser_Cache_Weaknesses">4.4.6 Testing for Browser Cache Weaknesses</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/04-Authentication_Testing/07-Testing_for_Weak_Password_Policy">4.4.7 Testing for Weak Password Policy</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/04-Authentication_Testing/08-Testing_for_Weak_Security_Question_Answer">4.4.8 Testing for Weak Security Question Answer</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/04-Authentication_Testing/09-Testing_for_Weak_Password_Change_or_Reset_Functionalities">4.4.9 Testing for Weak Password Change or Reset Functionalities</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/04-Authentication_Testing/10-Testing_for_Weaker_Authentication_in_Alternative_Channel">4.4.10 Testing for Weaker Authentication in Alternative Channel</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/05-Authorization_Testing/README">4.5 Authorization Testing</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/05-Authorization_Testing/01-Testing_Directory_Traversal_File_Include">4.5.1 Testing Directory Traversal File Include</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/05-Authorization_Testing/02-Testing_for_Bypassing_Authorization_Schema">4.5.2 Testing for Bypassing Authorization Schema</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/05-Authorization_Testing/03-Testing_for_Privilege_Escalation">4.5.3 Testing for Privilege Escalation</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/05-Authorization_Testing/04-Testing_for_Insecure_Direct_Object_References">4.5.4 Testing for Insecure Direct Object References</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/06-Session_Management_Testing/README">4.6 Session Management Testing</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/06-Session_Management_Testing/01-Testing_for_Session_Management_Schema">4.6.1 Testing for Session Management Schema</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes">4.6.2 Testing for Cookies Attributes</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/06-Session_Management_Testing/03-Testing_for_Session_Fixation">4.6.3 Testing for Session Fixation</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/06-Session_Management_Testing/04-Testing_for_Exposed_Session_Variables">4.6.4 Testing for Exposed Session Variables</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/06-Session_Management_Testing/05-Testing_for_Cross_Site_Request_Forgery">4.6.5 Testing for Cross Site Request Forgery</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/06-Session_Management_Testing/06-Testing_for_Logout_Functionality">4.6.6 Testing for Logout Functionality</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/06-Session_Management_Testing/07-Testing_Session_Timeout">4.6.7 Testing Session Timeout</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/06-Session_Management_Testing/08-Testing_for_Session_Puzzling">4.6.8 Testing for Session Puzzling</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/06-Session_Management_Testing/09-Testing_for_Session_Hijacking">4.6.9 Testing for Session Hijacking</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/06-Session_Management_Testing/10-Testing_JSON_Web_Tokens">4.6.10 Testing JSON Web Tokens</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/README">4.7 Input Validation Testing</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/01-Testing_for_Reflected_Cross_Site_Scripting">4.7.1 Testing for Reflected Cross Site Scripting</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/02-Testing_for_Stored_Cross_Site_Scripting">4.7.2 Testing for Stored Cross Site Scripting</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/03-Testing_for_HTTP_Verb_Tampering">4.7.3 Testing for HTTP Verb Tampering</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/04-Testing_for_HTTP_Parameter_Pollution">4.7.4 Testing for HTTP Parameter Pollution</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05-Testing_for_SQL_Injection">4.7.5 Testing for SQL Injection</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.1-Testing_for_Oracle">4.7.5.1 Testing for Oracle</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.2-Testing_for_MySQL">4.7.5.2 Testing for MySQL</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.3-Testing_for_SQL_Server">4.7.5.3 Testing for SQL Server</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.4-Testing_PostgreSQL">4.7.5.4 Testing PostgreSQL</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.5-Testing_for_MS_Access">4.7.5.5 Testing for MS Access</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.6-Testing_for_NoSQL_Injection">4.7.5.6 Testing for NoSQL Injection</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.7-Testing_for_ORM_Injection">4.7.5.7 Testing for ORM Injection</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05.8-Testing_for_Client-side">4.7.5.8 Testing for Client-side</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/06-Testing_for_LDAP_Injection">4.7.6 Testing for LDAP Injection</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/07-Testing_for_XML_Injection">4.7.7 Testing for XML Injection</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/08-Testing_for_SSI_Injection">4.7.8 Testing for SSI Injection</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/09-Testing_for_XPath_Injection">4.7.9 Testing for XPath Injection</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/10-Testing_for_IMAP_SMTP_Injection">4.7.10 Testing for IMAP SMTP Injection</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/11-Testing_for_Code_Injection">4.7.11 Testing for Code Injection</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/11.1-Testing_for_File_Inclusion">4.7.11.1 Testing for File Inclusion</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/12-Testing_for_Command_Injection">4.7.12 Testing for Command Injection</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/13-Testing_for_Format_String_Injection">4.7.13 Testing for Format String Injection</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/14-Testing_for_Incubated_Vulnerability">4.7.14 Testing for Incubated Vulnerability</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/15-Testing_for_HTTP_Splitting_Smuggling">4.7.15 Testing for HTTP Splitting Smuggling</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/16-Testing_for_HTTP_Incoming_Requests">4.7.16 Testing for HTTP Incoming Requests</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/17-Testing_for_Host_Header_Injection">4.7.17 Testing for Host Header Injection</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/18-Testing_for_Server-side_Template_Injection">4.7.18 Testing for Server-side Template Injection</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/19-Testing_for_Server-Side_Request_Forgery">4.7.19 Testing for Server-Side Request Forgery</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/20-Testing_for_Mass_Assignment">4.7.20 Testing for Mass Assignment</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/README">4.8 Testing for Error Handling</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/01-Testing_For_Improper_Error_Handling">4.8.1 Testing for Improper Error Handling</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/02-Testing_for_Stack_Traces">4.8.2 Testing for Stack Traces</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/README">4.9 Testing for Weak Cryptography</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/01-Testing_for_Weak_Transport_Layer_Security">4.9.1 Testing for Weak Transport Layer Security</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/02-Testing_for_Padding_Oracle">4.9.2 Testing for Padding Oracle</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/03-Testing_for_Sensitive_Information_Sent_via_Unencrypted_Channels">4.9.3 Testing for Sensitive Information Sent via Unencrypted Channels</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/09-Testing_for_Weak_Cryptography/04-Testing_for_Weak_Encryption">4.9.4 Testing for Weak Encryption</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/10-Business_Logic_Testing/README">4.10 Business Logic Testing</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/10-Business_Logic_Testing/00-Introduction_to_Business_Logic">4.10.0 Introduction to Business Logic</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/10-Business_Logic_Testing/01-Test_Business_Logic_Data_Validation">4.10.1 Test Business Logic Data Validation</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/10-Business_Logic_Testing/02-Test_Ability_to_Forge_Requests">4.10.2 Test Ability to Forge Requests</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/10-Business_Logic_Testing/03-Test_Integrity_Checks">4.10.3 Test Integrity Checks</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/10-Business_Logic_Testing/04-Test_for_Process_Timing">4.10.4 Test for Process Timing</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/10-Business_Logic_Testing/05-Test_Number_of_Times_a_Function_Can_Be_Used_Limits">4.10.5 Test Number of Times a Function Can Be Used Limits</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/10-Business_Logic_Testing/06-Testing_for_the_Circumvention_of_Work_Flows">4.10.6 Testing for the Circumvention of Work Flows</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/10-Business_Logic_Testing/07-Test_Defenses_Against_Application_Misuse">4.10.7 Test Defenses Against Application Misuse</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/10-Business_Logic_Testing/08-Test_Upload_of_Unexpected_File_Types">4.10.8 Test Upload of Unexpected File Types</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/10-Business_Logic_Testing/09-Test_Upload_of_Malicious_Files">4.10.9 Test Upload of Malicious Files</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client-side_Testing/README">4.11 Client-side Testing</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client-side_Testing/01-Testing_for_DOM-based_Cross_Site_Scripting">4.11.1 Testing for DOM-Based Cross Site Scripting</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client-side_Testing/01.1-Testing_for_Self_DOM_Based_Cross_Site_Scripting">4.11.1.1 Testing for Self DOM Based Cross-Site Scripting</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client-side_Testing/02-Testing_for_JavaScript_Execution">4.11.2 Testing for JavaScript Execution</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client-side_Testing/03-Testing_for_HTML_Injection">4.11.3 Testing for HTML Injection</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client-side_Testing/04-Testing_for_Client-side_URL_Redirect">4.11.4 Testing for Client-side URL Redirect</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client-side_Testing/05-Testing_for_CSS_Injection">4.11.5 Testing for CSS Injection</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client-side_Testing/06-Testing_for_Client-side_Resource_Manipulation">4.11.6 Testing for Client-side Resource Manipulation</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client-side_Testing/07-Testing_Cross_Origin_Resource_Sharing">4.11.7 Testing Cross Origin Resource Sharing</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client-side_Testing/08-Testing_for_Cross_Site_Flashing">4.11.8 Testing for Cross Site Flashing</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client-side_Testing/09-Testing_for_Clickjacking">4.11.9 Testing for Clickjacking</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client-side_Testing/10-Testing_WebSockets">4.11.10 Testing WebSockets</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client-side_Testing/11-Testing_Web_Messaging">4.11.11 Testing Web Messaging</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client-side_Testing/12-Testing_Browser_Storage">4.11.12 Testing Browser Storage</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/11-Client-side_Testing/13-Testing_for_Cross_Site_Script_Inclusion">4.11.13 Testing for Cross Site Script Inclusion</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/12-API_Testing/README">4.12 API Testing</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/12-API_Testing/01-Testing_GraphQL">4.12.1 Testing GraphQL</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/5-Reporting/README">5. Reporting</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/6-Appendix/A-Testing_Tools_Resource">Appendix A. Testing Tools Resource</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/6-Appendix/B-Suggested_Reading">Appendix B. Suggested Reading</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/6-Appendix/C-Fuzz_Vectors">Appendix C. Fuzz Vectors</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/6-Appendix/D-Encoded_Injection">Appendix D. Encoded Injection</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/6-Appendix/E-History">Appendix E. History</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/6-Appendix/F-Leveraging_Dev_Tools">Appendix F. Leveraging Dev Tools</a></li>
+</ul>
+<div class="owasp-sidebar-bottom">
+<h3>Upcoming OWASP Global Events</h3>
+<div id="global-event-div"><ul><li><a href="https://training.owasp.org/" target="_blank rel=" noopener"="">OWASP Virtual Training Courses</a><ul><li style="list-style-type: circle;margin-top: 0px;padding:0px;margin-left:16px;">December 15 and continued on December 17</li></ul></li><li><a href="https://owasp.org/events/" target="_blank rel=" noopener"="">2022 OWASP March Training</a><ul><li style="list-style-type: circle;margin-top: 0px;padding:0px;margin-left:16px;">March 7, 2022</li></ul></li><li><a href="https://dublin.globalappsec.org/" target="_blank rel=" noopener"="">OWASP Global AppSec Dublin</a><ul><li style="list-style-type: circle;margin-top: 0px;padding:0px;margin-left:16px;">June 6-10, 2022</li></ul></li><li><a href="https://owasp.org/events/" target="_blank rel=" noopener"="">OWASP Global AppSec San Francisco</a><ul><li style="list-style-type: circle;margin-top: 0px;padding:0px;margin-left:16px;">September 19-23, 2022</li></ul></li></ul></div>
+</div>
+<script type="text/javascript">
+   var events = [];
+   $(function() {
+     eventsyml = YAML.load('https://owasp.org/assets/sitedata/events.yml');
+ 
+     $.each(eventsyml, function (index) {
+        if(this.category == 'Global'){
+               for(e in this.events){
+                 events.push(this.events[e]);
+               }
+           }
+       });
+   
+       if(events.length > 0){
+          var htmlstring = "<ul>";
+          for(evnt in events){
+            if(events[evnt].url)
+               htmlstring += '<li><a href="'+ events[evnt].url 
+             else
+               htmlstring += '<li><a href="https://owasp.org/events/'
+               
+            htmlstring += '" target="_blank rel="noopener">' + events[evnt].name + '</a>';
+            htmlstring += "<ul><li style='list-style-type: circle;margin-top: 0px;padding:0px;margin-left:16px;'>" + events[evnt].dates + "</li></ul></li>";
+          }         
+          htmlstring += "</ul>";
+ 
+          $("#global-event-div").html(htmlstring);
+       }
+    });
+ </script>
+
+</div>
+</div>
+</main>
+<footer>
+<section class="member">
+<script type="text/javascript">
+    var members = [];
+    var plat_indices = [];
+    var gold_indices = [];
+    var other_indices = [];
+
+    function get_next_member(members, indexUsed){
+      // random 6
+      // 0 to 2 = Platinum (.2 > Other)
+      // 3 to 4 = Gold (.1 > Other)
+      // 5 = Other  
+      member = null;
+      chosenIndex = -1;
+      var pick = Math.floor(Math.random() * 100);      
+      var randomIndex = -1;
+      if(pick < 44){
+        // pick a platinum member
+        randomIndex = Math.floor(Math.random() * plat_indices.length);
+        pIndex = plat_indices[randomIndex];            
+        cycleIndex = randomIndex
+        while(chosenIndex == -1)
+        {
+          randomIndex++;
+          if(indexUsed.indexOf(pIndex)== -1){
+            chosenIndex = pIndex;
+            
+          }else if(randomIndex >= plat_indices.length){
+            randomIndex = 0;
+            
+          }
+          if (randomIndex == cycleIndex){ // we could not find a plat member not already in the list....            
+            break;
+          }
+        }
+      }
+      if (chosenIndex == -1 && pick < 77) {
+        // pick a gold member
+        randomIndex = Math.floor(Math.random() * gold_indices.length);
+        pIndex = gold_indices[randomIndex];            
+        cycleIndex = randomIndex
+        while(chosenIndex == -1)
+        {
+          randomIndex++;
+          if(indexUsed.indexOf(pIndex)== -1){
+            chosenIndex = pIndex;
+            
+          }else if(randomIndex >= gold_indices.length){
+            randomIndex = 0;
+            
+          }
+          if (randomIndex == cycleIndex){ // we could not find a plat member not already in the list....            
+            break;
+          }
+        }
+      }
+      if (chosenIndex == -1){
+        // pick an other member
+        randomIndex = Math.floor(Math.random() * other_indices.length);
+        pIndex = other_indices[randomIndex];            
+        cycleIndex = randomIndex
+        while(chosenIndex == -1)
+        {
+          randomIndex++;
+          if(indexUsed.indexOf(pIndex)== -1){
+            chosenIndex = pIndex;
+            
+          }else if(randomIndex >= other_indices.length){
+            randomIndex = 0;
+            
+          }
+          if (randomIndex == cycleIndex){ // we could not find a plat member not already in the list....            
+            break;
+          }
+        }
+      }    
+      if(chosenIndex >= 0){          
+        member = members[chosenIndex];
+        indexUsed.push(chosenIndex);
+        var membertype = 'not a member';
+        if(member.member && (member.membertype == 1 || !member.membertype))
+          membertype = 'silver member';
+        else if(member.member && member.membertype == 2)
+          membertype = 'platinum member';
+        else if(member.member && member.membertype == 3)
+          membertype = 'gold member';
+        else if(member.member && member.membertype)
+          membertype = member.membertype;        
+      }
+      return member;      
+    }
+
+    $(function() {  
+      var corp_members = YAML.load('https://owasp.org/assets/sitedata/corp_members.yml');
+      $.each(corp_members, function (index) {
+          index = members.push(this) - 1;  
+          if(this.member && this.membertype == 3)
+            gold_indices.push(index);
+          else if (this.member && this.membertype == 2)
+            plat_indices.push(index);
+          else
+            other_indices.push(index);        
+        });
+
+        var indexUsed = [];
+
+        var counter = 0;
+        var numberOfImages = 9;
+        var member = get_next_member(members, indexUsed);
+        htmlstring = '<h2>Spotlight: ' + member["name"] + '</h2>';
+        htmlstring += '<a href="'+ member["url"] + '" rel="sponsored nopener noreferrer" target="_blank" onclick="handleOutboundLinkClicks(event);"><img src="https://owasp.org' + member["image"] + '" alt="image" /></a>';
+        htmlstring += '<p>' + member["description"] + '</p>';
+        $(".member-spotlight").html(htmlstring);
+
+        if(members.length > 0)
+        {
+          var htmlstring = "";
+          while (counter < numberOfImages)
+          {
+            member = get_next_member(members, indexUsed)
+            if (member)
+            {
+                counter++;
+                htmlstring += '<a href="'+ member["url"] + '" class="member-logo" rel="sponsored noopener noreferrer" target="_blank" onclick="handleOutboundLinkClicks(event);"><img src="https://owasp.org' + member["image"] + '" alt="image"/></a>';                                
+            }
+          }
+
+          $("#corp_member_div").html(htmlstring);
+         
+          
+        }
+    });
+  </script>
+<div class="member-wrapper">
+<section class="member-spotlight"><h2>Spotlight: Fortify</h2><a href="https://www.microfocus.com/en-us/cyberres/application-security" rel="sponsored nopener noreferrer" target="_blank" onclick="handleOutboundLinkClicks(event);"><img src="./WSTG - Latest _ OWASP_05.12.2021_11.05_files/fortify_logo_owasp.png" alt="image"></a><p>Fortify lets you build secure software fast with an application security platform that automates testing throughout the CI/CD pipeline to enable developers to quickly resolve issues. Fortify static, dynamic, interactive, and runtime security testing technologies are available on premises or as a service, offering organizations the flexibility needed to build an end-to-end software security assurance program.</p></section>
+<section class="member-list">
+<h2>Corporate Supporters</h2>
+<div id="corp_member_div"><a href="https://www.akeero.com/" class="member-logo" rel="sponsored noopener noreferrer" target="_blank" onclick="handleOutboundLinkClicks(event);"><img src="./WSTG - Latest _ OWASP_05.12.2021_11.05_files/Akeerologo_owasp.png" alt="image"></a><a href="http://www.atlassian.com/trust" class="member-logo" rel="sponsored noopener noreferrer" target="_blank" onclick="handleOutboundLinkClicks(event);"><img src="./WSTG - Latest _ OWASP_05.12.2021_11.05_files/atlassian.png" alt="image"></a><a href="https://blackbeltsec.com/" class="member-logo" rel="sponsored noopener noreferrer" target="_blank" onclick="handleOutboundLinkClicks(event);"><img src="./WSTG - Latest _ OWASP_05.12.2021_11.05_files/black_belt_logo.png" alt="image"></a><a href="https://www.acunetix.com/" class="member-logo" rel="sponsored noopener noreferrer" target="_blank" onclick="handleOutboundLinkClicks(event);"><img src="./WSTG - Latest _ OWASP_05.12.2021_11.05_files/Acunetix.png" alt="image"></a><a href="https://www.salesforce.com/" class="member-logo" rel="sponsored noopener noreferrer" target="_blank" onclick="handleOutboundLinkClicks(event);"><img src="./WSTG - Latest _ OWASP_05.12.2021_11.05_files/salesforce.png" alt="image"></a><a href="https://www.f5.com/" class="member-logo" rel="sponsored noopener noreferrer" target="_blank" onclick="handleOutboundLinkClicks(event);"><img src="./WSTG - Latest _ OWASP_05.12.2021_11.05_files/f5_logo.png" alt="image"></a><a href="https://about.gitlab.com/" class="member-logo" rel="sponsored noopener noreferrer" target="_blank" onclick="handleOutboundLinkClicks(event);"><img src="./WSTG - Latest _ OWASP_05.12.2021_11.05_files/gitlab.png" alt="image"></a><a href="https://www.checkmarx.com/" class="member-logo" rel="sponsored noopener noreferrer" target="_blank" onclick="handleOutboundLinkClicks(event);"><img src="./WSTG - Latest _ OWASP_05.12.2021_11.05_files/checkmarx.png" alt="image"></a><a href="https://wallarm.com/" class="member-logo" rel="sponsored noopener noreferrer" target="_blank" onclick="handleOutboundLinkClicks(event);"><img src="./WSTG - Latest _ OWASP_05.12.2021_11.05_files/wallarm.png" alt="image"></a></div>
+<div class="member-cta">
+<a class="callout-link" href="https://owasp.org/supporters">Become a corporate supporter</a>
+</div>
+</section>
+</div>
+</section>
+<section class="footer-wrapper">
+<section class="social">
+<a href="https://owasp.org/slack/invite" aria-label="slack group" target="_blank" rel="noopener noreferrer"><i class="fa fa-lg fa-slack"></i></a>
+<a href="https://www.facebook.com/OWASPFoundation" aria-label="facebook group" target="_blank" rel="noopener noreferrer"><i class="fa fa-lg fa-facebook-square"></i></a>
+<a href="https://twitter.com/owasp" aria-label="twitter account" target="_blank" rel="noopener noreferrer"><i class="fa fa-lg fa-twitter"></i></a>
+<a href="https://www.linkedin.com/company/owasp/" aria-label="linkedin account" target="_blank" rel="noopener noreferrer"><i class="fa fa-lg fa-linkedin"></i></a>
+<a href="https://www.youtube.com/user/OWASPGLOBAL" aria-label="youtube account" target="_blank" rel="noopener noreferrer"><i class="fa fa-lg fa-youtube-square"></i></a>
+</section>
+<nav class="bot-nav" role="navigation" aria-label="secondary navigation">
+<ul>
+<li><a href="https://owasp.org/">HOME</a></li>
+<li><a href="https://owasp.org/projects/">PROJECTS</a></li>
+<li><a href="https://owasp.org/chapters/">CHAPTERS</a></li>
+<li><a href="https://owasp.org/events/">EVENTS</a></li>
+<li><a href="https://owasp.org/about/">ABOUT</a></li>
+<li><a href="https://owasp.org/www-policy/operational/privacy">PRIVACY</a></li>
+<li><a href="https://owasp.org/sitemap/">SITEMAP</a></li>
+<li><a href="https://owasp.org/contact/">CONTACT</a></li>
+</ul>
+</nav>
+<p class="disclaimer">
+OWASP, Open Web Application Security Project, and Global AppSec are registered trademarks and AppSec Days, AppSec California, AppSec Cali, SnowFROC, LASCON, and the OWASP logo are trademarks of the OWASP Foundation, Inc. Unless otherwise specified, all content on the site is Creative Commons Attribution-ShareAlike v4.0 and provided without warranty of service or accuracy. For more information, please refer to our <a href="https://owasp.org/www-policy/operational/general-disclaimer.html">General Disclaimer</a>. OWASP does not endorse or recommend commercial products or services, allowing our community to remain vendor neutral with the collective wisdom of the best minds in software security worldwide. Copyright 2021, OWASP Foundation, Inc.
+</p>
+</section>
+</footer>
+
+
+</body></html>

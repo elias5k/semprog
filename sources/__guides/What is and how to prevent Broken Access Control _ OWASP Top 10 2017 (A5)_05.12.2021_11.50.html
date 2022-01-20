@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://hdivsecurity.com/owasp-broken-access-control -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript" async="" src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/f.txt"></script><script type="text/javascript" async="" src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/uwt.js.download"></script><script type="text/javascript" async="" src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/insight.min.js.download"></script><script type="text/javascript" async="" src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/analytics.js.download"></script><script async="" src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/sl.js.download"></script><script type="text/javascript" id="zsiqscript" defer="" src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/widget"></script><script async="" src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/gtm.js.download"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5NRM6QG');</script>
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+<meta name="robots" content="follow, index">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hdivsecurity.com/owasp-broken-access-control">
+<meta property="og:title" content="What is and how to prevent Broken Access Control | OWASP Top 10 (A5)">
+<meta property="og:description" content="What is and how to prevent Broken Access Control.">
+
+<link rel="canonical" href="https://hdivsecurity.com/owasp-broken-access-control">
+<link rel="shortlink" href="https://hdivsecurity.com/owasp-broken-access-control">
+<meta name="google-site-verification" content="KkiEAKuhSTjI-6S8cNa7NGH2SfRzziR4K3oIOAPDK_M">
+<link rel="author" href="https://twitter.com/hdivsecurity">
+<link rel="publisher" href="https://twitter.com/hdivsecurity">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@hdivsecurity">
+<meta name="twitter:creator" content="@hdivsecurity">
+<meta name="description" content="What is Function Level Access Control.">
+
+<title>What is and how to prevent Broken Access Control | OWASP Top 10 2017 (A5)</title>
+<!-- Bootstrap -->
+<link href="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/bootstrap.min.css" rel="stylesheet">
+<link href="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/menu.css" rel="stylesheet">
+<link href="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/footer.css" rel="stylesheet">
+<link href="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/sections.css" rel="stylesheet">
+<link href="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/modals.css" rel="stylesheet">
+<link href="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/h-style.css" rel="stylesheet">
+<link href="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/h-pages.css" rel="stylesheet">
+<link href="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/screen.css" rel="stylesheet">
+<link href="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/fonts.css" rel="stylesheet">
+<link href="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/contact.css" rel="stylesheet">
+<link href="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/owasp.css" rel="stylesheet">
+
+<link rel="icon" type="image/png" href="https://hdivsecurity.com/favicon.png">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<script type="text/javascript" src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/be.js.download"></script><script src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/f(1).txt"></script><link rel="stylesheet" href="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/floatbutton_bb727c5c37ddcf80a6c3594a33173cf3_.css"><script src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/floatbutton_66a0bc10d029176eae8c4f737988ddbd_.js.download"></script></head>
+<body class="vsc-initialized">
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5NRM6QG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div id="menu">
+  <div class="h-menu">
+    <div class="container">
+      <div class="row">
+        <nav class="navbar navbar-default" role="navigation">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button id="menu-button" class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button>
+            <a class="navbar-brand" href="https://hdivsecurity.com/"><img alt="Hdiv Security" class="logo" src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/logo.svg"> </a> </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="https://hdivsecurity.com/owasp-broken-access-control#">Products <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li> <a id="main-nav-products-iast" href="https://hdivsecurity.com/interactive-application-security-testing-iast">Hdiv Detection (IAST) <span class="note">Find and fix vulnerabilities in your code</span></a> </li>
+                  <li> <a id="main-nav-products-sca" href="https://hdivsecurity.com/software-composition-analysis-sca">Hdiv Detection (SCA) <span class="note">Find and fix vulnerabilities in your open-source libraries</span></a> </li>
+                  <li> <a id="main-nav-products-rasp" href="https://hdivsecurity.com/runtime-application-self-protection-rasp">Hdiv Protection (RASP) <span class="note">Enable applications to protect themselves</span></a> </li>
+                  <li> <a id="main-nav-products-community" href="https://hdivsecurity.com/application-security-framework">Hdiv Community <span class="note">Open-source application security framework</span></a> </li>
+                </ul>
+              </li>
+              <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="https://hdivsecurity.com/owasp-broken-access-control#">Solutions <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li> <a id="main-nav-solutions-application-security" href="https://hdivsecurity.com/application-security">Application Security<span class="note">Protecting from application level risks</span></a> </li>
+                  <li> <a id="main-nav-solutions-pcidss" href="https://hdivsecurity.com/pci-compliance">PCI DSS Compliance<span class="note">Helping organizations to achieve regulatory compliance</span></a> </li>
+                  <li> <a id="main-nav-solutions-secure-development" href="https://hdivsecurity.com/secure-development">Secure Development <span class="note">Integrated security into the SDLC</span></a> </li>
+                  <li> <a id="main-nav-solutions-cloud-ready-security" href="https://hdivsecurity.com/cloud-security">Cloud Ready Security<span class="note">Secure applications wherever they go</span></a> </li>
+                </ul>
+              </li>
+              <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="https://hdivsecurity.com/owasp-broken-access-control#">Resources<b class="caret"></b></a>
+                <ul class="dropdown-menu">                  
+                  <li> <a id="main-nav-resources-owasp-benchmark" href="https://hdivsecurity.com/owasp-benchmark">OWASP Benchmark<span class="note">We score 100% with 0 false positives</span></a> </li>
+                  <li> <a id="main-nav-resources-owasp-top-10" href="https://hdivsecurity.com/owasp-top-10">OWASP Top 10<span class="note">See covered risk</span></a> </li>
+                  <li> <a id="main-nav-resources-videos-webinars" href="https://hdivsecurity.com/videos-whitepapers">Videos &amp; Whitepapers<span class="note">Explore our technology</span></a> </li>
+                  <li> <a id="main-nav-resources-appsec-knowledge-center" href="https://hdivsecurity.com/application-security-knowledge-center">AppSec Knowledge Center<span class="note">Learn about web application security and DevSecOps </span></a> </li>
+                  <li> <a id="main-nav-resources-documentation" href="https://hdivsecurity.com/docs/" target="_blank">Documentation<span class="note">Access the latest documentation </span></a> </li>
+                  <li> <a id="main-nav-resources-community" href="https://stackoverflow.com/questions/tagged/hdiv">Community<span class="note">Contribute to promote application security</span></a> </li>
+                </ul>
+              </li>
+              <li class="no-dropdown"><a href="https://hdivsecurity.com/bornsecure/">Blog</a></li>
+              <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="https://hdivsecurity.com/owasp-broken-access-control#">About<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li> <a id="main-nav-about-our-company" href="https://hdivsecurity.com/our-company">Our company<span class="note">What we do</span></a> </li>
+                  <li> <a id="main-nav-about-leadership" href="https://hdivsecurity.com/leadership">Leadership<span class="note">Get to know us better</span></a> </li>
+                  <li> <a id="main-nav-about-contact" href="https://hdivsecurity.com/contact">Contact<span class="note">Get in touch</span></a> </li>
+                </ul>
+              </li>
+            </ul>
+            <div class="navbar-text navbar-right">
+              <span class="mini-nav">
+                <a id="main-nav-contact" class="navbar-link" href="https://hdivsecurity.com/contact">Contact</a>
+              </span>
+              <a id="main-nav-online-demo" class="online-demo" href="https://hdivsecurity.com/demo">ONLINE DEMO</a>
+            </div>
+          </div>
+          <!-- /.navbar-collapse -->
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="section--common section--common-less-padding">
+  <div class="container fluid header-dots header-dots--min-height">
+    <img class="section__title__separator separator--centered" src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/h1-header.svg">
+    <h1 class="header-h1">Broken Access Control</h1>
+    <h2 class="header-h2-owasp-risks header-h2-green">OWASP Top 10 - A5</h2>
+  </div>
+</section>
+
+<br>
+<br>
+
+<div class="container owasp">
+   <div class="row">
+    <div class="col-md-9 col-md-offset-3 text-left">
+    </div>
+  </div>
+  <div class="row">
+  <hr>
+    <div class="col-md-9 owasp-definition-content">
+      <div class="admonition-grey">
+        <p class="admonition-title">UPDATE:</p>
+          <p>OWASP just updated the Top 10 list. <br>Check out this in-depth post to learn everything about the new OWASP Top 10 2021.<br><br><a href="https://hdivsecurity.com/bornsecure/owasp-top-10-2021/">Discover OWASP Top 10 2021</a></p>
+      </div>
+      <h2>What is Broken Access Control?</h2>
+      <p>Access control enforces policy such that users cannot act outside of their intended permissions. Failures typically lead to unauthorized information disclosure, modification or destruction of all data, or performing a business function outside of the limits of the user. Common access control vulnerabilities include:</p>
+      <ul>
+        <li type="square">Bypassing access control checks by modifying the URL, internal application state, or the HTML page, or simply using a custom API attack tool</li>
+        <li type="square">Allowing the primary key to be changed to another's users record, permitting viewing or editing someone else's account.</li>
+        <li type="square">Elevation of privilege. Acting as a user without being logged in, or acting as an admin when logged in as a user.</li>
+        <li type="square">Metadata manipulation, such as replaying or tampering with a JSON Web Token (JWT) access control token or a cookie or hidden field manipulated to elevate privileges, or abusing JWT invalidation</li>
+        <li type="square">CORS misconfiguration allows unauthorized API access.</li>
+        <li type="square">Force browsing to authenticated pages as an unauthenticated user or to privileged pages as a standard user. Accessing API with missing access controls for POST, PUT and DELETE.</li>
+      </ul>      
+      <br>
+      <h3>Broken Access Control examples</h3>
+      <h4>Example #1: The application uses unverified data</h4>
+      <p>The application uses unverified data in a SQL call that is accessing account information:</p>
+      <pre class="prettyprint">
+        <b>pstmt.setString(1, request.getParameter("acct"));</b>
+        ResultSet results = pstmt.executeQuery();
+      </pre>
+      <p>An attacker simply modifies the <code>acct</code> parameter in the browser to send whatever account number they want. If not properly verified, the attacker can access any user's account.</p>
+      <pre class="prettyprint">
+        http://example.com/app/accountInfo?acct=<b>notmyacct</b>
+      </pre>
+      <br>      
+      <h4>Example #2: An attacker simply force browses to target URLs</h4>
+      <p>Admin rights are required for access to the admin page.</p>      
+      <pre class="prettyprint">
+        http://example.com/app/getappInfo
+        http://example.com/app/<b>admin_getappInfo</b>
+      </pre>
+      <p>If an unauthenticated user can access either page, it’s a flaw. If a non-admin can access the admin page, this is a flaw.</p>
+    </div>
+    <div class="col-md-3 owasp-cta-space-3">
+      <div class="owasp-cta-container">
+        <div class="owasp-cta-img" style="background-image:url(../img/resources-demo.png)"></div>
+        <p class="owasp-cta-title">ONLINE DEMO</p>
+        <p class="owasp-cta-body">Test Drive The Unified Security Platform</p>          
+        <a href="https://hdivsecurity.com/demo"><span class="owasp-cta-button">Get Started</span></a>
+      </div>  
+      <div class="owasp-cta-container">
+          <div class="owasp-cta-img" style="background-image:url(../img/resources-datasheet.png)"></div>
+          <p class="owasp-cta-title">WHITEPAPER</p>
+          <p class="owasp-cta-body">Learn the answers to the key questions regarding IAST tools</p>          
+          <a href="https://hdivsecurity.com/build-secure-software-with-IAST-tools?utm_source=website&amp;utm_medium=banner&amp;utm_campaign=Cd72jyeytEh30r10"><span class="owasp-cta-button">Download Now</span></a>
+      </div>   
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<div class="container owasp">
+  <div class="row owasp-more-margin-bottom">
+  <hr>
+    <div class="col-md-9 owasp-definition-content">
+      <h2>How to prevent Broken Access Control</h2>    
+      <p>Access control is only effective if enforced in trusted server-side code or server-less API, where the attacker cannot modify the access control check or metadata.</p>
+      <ul>
+        <li type="square">Deny access to functionality by default.</li>
+        <li type="square">Use Access control lists and role-based authentication mechanisms.</li>
+        <li type="square">Do not just hide functions.</li>        
+      </ul>
+      <br>
+      <h3>How Hdiv can help</h3>
+      <style></style>
+      <div class="embed-container">
+      <iframe src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/gOwOB_nnVTc.html" frameborder="0" allowfullscreen=""></iframe>
+      </div>
+
+      <br>
+      <br>
+      <p>The information flow control system implemented by Hdiv allows control of the resources (links and forms) exposed by the application, and prevents breaking the original contract from the server. In other words, even when the programmer does not use access control systems or ACL (Java EE or Spring Security) Hdiv is able to know which resource is legally accessible by each user.</p>
+      <div class="admonition">
+        <p class="admonition-title admonition-less-margin-bottom">Risk Covered</p>
+        Hdiv flow control prevents any client attempt to break the server contract.
+        <div class="row presence">
+          <div class="col-sm-4 community-since"><img src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/since-2008.png" width="81" height="81" alt="Since 2008 in production">SINCE<span> 2008</span>IN PRODUCTION</div>
+          <div class="col-sm-4 community-countries"><img src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/countries.png" width="81" height="81" alt="more than 128 countries">MORE THAN<span> 128</span>COUNTRIES</div>
+          <div class="col-sm-4 community-fortune"><img src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/fortune.png" width="81" height="81" alt="Fortune 500 companies">FORTUNE<span> 500</span>COMPANIES</div>
+        </div>
+        <div class="text-center"><a href="https://hdivsecurity.com/demo" class="btn-admonition-green" id="owasp-risk-cta">Explore our Online Demo</a></div>
+      </div>
+
+      <br>
+      <br>
+      <br>
+    </div>
+    <div class="col-md-3 owasp-cta-space-3">
+      <div class="owasp-cta-container">
+        <div class="owasp-cta-img" style="background-image:url(../img/resources-devsecops.png)"></div>
+        <p class="owasp-cta-title">WHITEPAPER</p>
+        <p class="owasp-cta-body">The 7 Key Factors to Successful DevSecOps</p>          
+        <a href="https://hdivsecurity.com/secure-your-devops-practice?utm_source=website&amp;utm_medium=banner&amp;utm_campaign=CfEjO41f9vRt42m0"><span class="owasp-cta-button">Download Now</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="section--common resources bg-grey"> 
+  <div class="container">
+    <h2>Resources</h2>
+    <div class="row">
+      <div class="col col-md-3 col-sm-6">
+        <div class="resources-container">
+          <div class="resources-video" style="background-image:url(../img/resources-devsecops.png)"></div>
+          <p class="resources-title">WHITEPAPER</p>
+          <p>The 7 Key Factors to Successful DevSecOps</p>
+          <a href="https://hdivsecurity.com/secure-your-devops-practice?utm_source=website&amp;utm_medium=banner&amp;utm_campaign=CfEjO41f9vRt42m0" id="resources-whitepaper"><span class="resources-button">Download Now</span></a>
+        </div>
+      </div>
+      <div class="col col-md-3 col-sm-6">
+        <div class="resources-container">
+          <div class="resources-video" style="background-image:url(../img/resources-iast-development.png)"></div>
+          <p class="resources-title">VIDEO</p>
+          <p>Hdiv Detection (IAST) for Developers</p>
+          <a data-target="#hdivVideoModal" class="media-link" data-src="https://www.youtube.com/embed/-NtqMcBR9xo?autoplay=1&amp;showinfo=0&amp;rel=0" data-title="Hdiv Detection (IAST) for Developers" data-toggle="modal" href="https://hdivsecurity.com/owasp-broken-access-control#"><span class="resources-button">Watch</span></a>
+        </div>
+      </div>
+      <div class="col col-md-3 col-sm-6">
+        <div class="resources-container">
+          <div class="resources-video" style="background-image:url(../img/resources-owasp-benchmark.png)"></div>
+          <p class="resources-title">VIDEO</p>
+          <p>The Best Protection Against OWASP Top 10 Risks</p>
+          <a data-target="#hdivVideoModal" class="media-link" data-src="https://www.youtube.com/embed/UE6OGG_dc8Q?autoplay=1&amp;showinfo=0&amp;rel=0" data-title="Runtime Protection" data-toggle="modal" href="https://hdivsecurity.com/owasp-broken-access-control#"><span class="resources-button">Watch</span></a>
+        </div>
+      </div>
+      <div class="col col-md-3 col-sm-6">
+        <div class="resources-container">
+          <div class="resources-video" style="background-image:url(../img/resources-agile-protection.png)"></div>
+          <p class="resources-title">AGILE PROTECTION</p>
+          <p>Agile protection: above and beyond the WAF</p>
+          <a href="https://hdivsecurity.com/bornsecure/agile-protection-above-and-beyond-the-waf/"><span class="resources-button">Read More</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal HTML -->
+<div id="modals"><div class="modal fade" id="hdivVideoModal">
+  <div class="modal-dialog modal-full-screen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body">
+        <iframe id="hdivVideo" name="hdivVideo" width="100%" height="100%" frameborder="0" src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/saved_resource.html" allowfullscreen=""></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="hdivImageModal">
+  <div class="modal-dialog modal-full-screen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body">
+        <div class="modal-body">
+        <img id="hdivImage" class="img-responsive" src="https://hdivsecurity.com/owasp-broken-access-control">
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- footer HTML -->
+<div id="footer" class="footer--owasp-top-10">
+<footer>
+  <div class="footer-buttons">
+    <div class="container footer-buttons__container"> <a class="footer-button trial" href="https://hdivsecurity.com/try-it-free">FREE TRIAL</a> <a class="footer-button price" href="https://hdivsecurity.com/get-price">GET PRICE</a> <a class="footer-button watch-demo" href="https://hdivsecurity.com/schedule-a-demo">SCHEDULE A DEMO</a> </div>
+  </div>
+  <div class="footer" id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="row">
+            <div class="col-xs-6 col-sm-6">
+              <h3>Products</h3>
+              <img class="pull-left" src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/footer-line.png">
+              <ul>
+                <li> <a href="https://hdivsecurity.com/interactive-application-security-testing-iast">Hdiv Detection (IAST)</a> </li>
+                <li> <a href="https://hdivsecurity.com/software-composition-analysis-sca">Hdiv Detection (SCA)</a> </li>
+                <li> <a href="https://hdivsecurity.com/runtime-application-self-protection-rasp">Hdiv Protection (RASP)</a> </li>
+                <li> <a href="https://hdivsecurity.com/application-security-framework">Hdiv Community</a> </li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-6">
+              <h3>Solutions</h3>
+              <img class="pull-left" src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/footer-line.png">
+              <ul>
+                <li> <a href="https://hdivsecurity.com/application-security">Application Security</a> </li>
+                <li> <a href="https://hdivsecurity.com/pci-compliance">PCI DSS Compliance</a> </li>
+                <li> <a href="https://hdivsecurity.com/secure-development">Secure Development</a> </li>
+                <li> <a href="https://hdivsecurity.com/cloud-security">Cloud Ready Security</a><br>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-sm-6">
+              <h3>Resources</h3>
+              <img class="pull-left" src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/footer-line.png">
+              <ul>
+                <li> <a href="https://hdivsecurity.com/bornsecure/">Blog</a> </li>
+                <li> <a href="https://hdivsecurity.com/owasp-benchmark">OWASP Benchmark</a> </li>
+                <li> <a href="https://hdivsecurity.com/owasp-top-10">OWASP Top 10</a> </li>
+                <li> <a href="https://hdivsecurity.com/videos-whitepapers">Videos &amp; Whitepapers</a> </li>
+                <li> <a href="https://hdivsecurity.com/docs/">Documentation</a> </li>
+                <li> <a href="https://stackoverflow.com/questions/tagged/hdiv">Community</a> </li>
+              </ul>
+            </div>
+            <div class="col-xs-6 col-sm-6">
+              <h3>About</h3>
+              <img class="pull-left" src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/footer-line.png">
+              <ul>
+                <li> <a href="https://hdivsecurity.com/our-company">Our Company</a> </li>
+                <li> <a href="https://hdivsecurity.com/leadership">Leadership</a> </li>
+              </ul>
+              <br>
+              <a class="footer-btn contact" href="https://hdivsecurity.com/contact">CONTACT US</a> </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <h3>From the Blog</h3>
+          <img class="pull-left" src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/footer-line.png">
+          <div class="post">
+            <div class="author"><img class="pull-left footer-author" src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/post-author.png"></div>
+            <div class="date-title">
+              <p>10.09.2021</p>
+              <p>Author: Daniel Blazquez</p>
+            </div>
+            <a class="bold" href="https://hdivsecurity.com/bornsecure/sonarqube-vs-hdiv/">SonarQube vs Hdiv</a>
+            <p>SonarQube enjoys high market penetration as a vulnerability detection tool, what are its pros and cons, and how does it compare to Hdiv?.  <a class="green" href="https://hdivsecurity.com/bornsecure/sonarqube-vs-hdiv/">View article</a></p>   
+          </div>
+          <h3>Follow us</h3>
+          <img class="pull-left" src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/footer-line.png">
+          <ul class="social">
+            <li> <a href="http://stackoverflow.com/questions/tagged/hdiv" rel="nofollow" target="_blank" title="Stack Overflow" alt="Stack Overflow"><img src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/stackoverflow-social.svg"></a> </li>
+            <li> <a href="https://github.com/hdiv" rel="nofollow" target="_blank" title="Github" alt="Hdiv at Github"><img src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/github-social.svg"></a> </li>
+            <li> <a href="https://es.linkedin.com/company/hdiv-security" rel="nofollow" target="_blank" title="LinkedIn" alt="Hdiv Security at LinkedIn"><img src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/linkedin-social.svg"></a> </li>
+            <li> <a href="https://www.youtube.com/c/hdivsecurity" rel="nofollow" target="_blank" title="YouTube" alt="Hdiv YouTube channel"><img src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/youtube-social.svg"></a> </li>
+            <li> <a href="https://twitter.com/hdivsecurity" rel="nofollow" target="_blank" title="Twitter" alt="Hdiv at Twitter"><img src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/twitter-social.svg"></a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>© 2021 Hdiv Security. All Rights Reserved. | <a href="https://hdivsecurity.com/privacy-policy">Privacy Policy</a> | <a href="https://hdivsecurity.com/cookie-policy">Cookie Policy</a></p>
+    </div>
+  </div>
+</footer>
+</div>
+<div id="cookie-compliance" class="cookie-compliance" style="display: block;">
+  <button id="cookie-consent-close" name="close" type="button" class="close-btn">×</button>
+  <div class="message">
+    <img src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/cookie.svg" class="cookie">
+    <p>
+      We use cookies to provide you with a great user experience. By using our website, you agree to our <a href="https://hdivsecurity.com/privacy-policy" target="_blank" rel="noreferrer noopener">Privacy Policy</a>.      
+    </p>
+  </div>
+</div>
+
+<script src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/jquery.min.js.download"></script>
+<script src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/bootstrap.min.js.download"></script>
+<script src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/owl.carousel.min.js.download"></script>
+<script src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/h-menu.js.download"></script>
+<script type="text/javascript" src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/mkz.js.download"></script><div id="zsiqwidget"></div>
+<script src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/media-player.js.download"></script>
+<script type="text/javascript" src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/zcga.js.download"></script>
+<script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"c95956fec0b671f46dcf414b16b8c450"})});</script>
+<script type="text/javascript" id="cookie-consent-script">
+  document.getElementById("cookie-consent-close").addEventListener("click", function() { var expiredate = new Date(); expiredate.setTime(expiredate.getTime() + (10*365*24*60*60*1000)); document.cookie="hdivGdpr=1;path=/;expires=" + expiredate.toUTCString() + ";secure;"; document.getElementById("cookie-compliance").remove(); document.getElementById("cookie-consent-script").remove(); },true); if(document.cookie.indexOf('hdivGdpr') > -1) { document.getElementById("cookie-compliance").remove(); document.getElementById("cookie-consent-script").remove(); } else { document.getElementById("cookie-compliance").style.display = "block";}
+</script>
+<script type="text/javascript" src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/sloft.js.download"></script>
+
+
+<div class="zsiq_floatmain zsiq_theme1 siq_bR" data-id="zsalesiq" style="visibility: hidden; display: block;"><div id="zsiq_float" class="zsiq_float zsiq_off" style="font-family:inherit"><div class="zsiq_flt_rel"><em id="zsiq_agtpic" class="zsiq_user siqico-chat"></em><div id="titlediv" class="zsiq_cnt"><div id="zsiq_maintitle" class="zsiq_ellips" title="We&#39;re offline">We're offline</div><p id="zsiq_byline" class="zsiq_ellips" title="Leave a message">Leave a message</p></div><em id="zsiq_unreadcnt" class="zsiq_unrdcnt" style="display: none;"></em><em id="zsiq_avcall" class="zsiqmin_unrdcnt zsiq_unrdcnt siqico-mincall" style="display: none;"></em></div></div></div><style id="zsiqcustomcss" data-id="zsalesiq">.zsiq_flt_rel{ background-color:#00cc77 !important;} .zsiq_seasonal .st2 { fill: #00cc77 !important;}</style><div class="zls-sptwndw  siqembed siqtrans siqhide zsiq-mobhgt siq_rht zsiq_size3" embedtheme="1" data-id="zsiqembed" style="visibility: hidden; top: -10000px; display: block;"><div id="siqcht" class="zls-prelative"><iframe id="siqiframe" title="SalesIQ Chatwindow" seamless="seamless" height="460" width="100%" scrolling="no" src="./What is and how to prevent Broken Access Control _ OWASP Top 10 2017 (A5)_05.12.2021_11.50_files/saved_resource(1).html"></iframe></div></div><div class="siq_media" data-id="zsalesiq"></div></body></html>

@@ -1,0 +1,17 @@
+$(document).ready(function () {
+    $(window).resize(function () {
+        $(window).width() < 768 && $(".navbar .dropdown").off("mouseover").off("mouseout");
+    });
+}),
+    $(".tab-menu a").hover(function (e) {
+        e.preventDefault(), $(this).tab("show");
+    });
+    $("#menu-button").mouseenter(function (e) {
+        $(this).addClass("active");
+    });
+    $("#menu-button").mouseleave(function (e) {
+        $(this).removeClass("active");
+    });
+    $(".owl-carousel").owlCarousel({ loop: true, margin: 29, nav: true, mouseDrag: false, navText: [" ", " "], responsive: { 0: { items: 1 }, 600: { items: 1 }, 1000: { items: 3 } } });
+    $('[data-toggle="tooltip"]').tooltip();
+    $('[data-toggle="popover"]').popover();

@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0047)https://cwe.mitre.org/data/definitions/266.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" encoding="iso-8859-1"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="description" content="Common Weakness Enumeration (CWE) is a list of software weaknesses.">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<link rel="shortcut icon" href="https://cwe.mitre.org/favicon.ico">
+	<link href="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/main.css" rel="stylesheet" type="text/css">
+	<!--[if IE]>
+	<link rel="stylesheet" type="text/css" href="/css/ie.css?version=1.7" />
+	<![endif]-->
+	<link href="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/safari.css" rel="stylesheet" type="text/css">
+	<script src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/browserheight.js.download" language="JavaScript" type="text/javascript"></script>
+	<script src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/jquery.js.download" language="JavaScript" type="text/javascript"></script>               	
+    	<script src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/cwe_minimizer.js.download" language="JavaScript" type="text/javascript"></script>
+	<script src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/cookie.js.download" language="JavaScript" type="text/javascript"></script>               	
+	<script src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/includeglossarydef.js.download" language="JavaScript" type="text/javascript"></script>
+	<link href="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/print.css" rel="stylesheet" media="print" type="text/css">
+	
+	<noscript>
+	<style type="text/css">
+		#script { visibility:collapse; visibility:hidden; font-size:0px; height:0px; width:0px  }
+		#noscript { visibility:visible; font-size:inherit;  height:inherit; width:inherit}
+	</style>
+	</noscript>
+	<title>CWE -
+
+		CWE-266: Incorrect Privilege Assignment (4.6)                </title>
+<link rel="stylesheet" href="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/complete.css" type="text/css"></head>
+<body onload="onloadCookie()" style="" class="vsc-initialized">
+<a name="top" id="top"></a>
+	<div id="MastHead" style="width:100%">
+	
+	        <div style="width:70%;float:left;padding-top:15px;padding-left:10px;padding-bottom:2px;">
+	                <a href="https://cwe.mitre.org/index.html" style="color:#32498D; text-decoration:none">
+	                <img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/cwe_logo.jpg" width="153" height="55" style="float:left;border:0;margin-right:6px" alt="CWE">
+	                <h1 style="color:#314a8d;font-size:1.5em;font-family:&#39;Verdana&#39;,sans-serif;text-shadow: 2px 2px #eee;margin: .1em auto">Common Weakness Enumeration</h1>
+	                <p style="color:#314a8d;font-style:italic;font-family:&#39;Times New Roman&#39;;font-size:1em;text-shadow: 2px 2px #eee;margin:.1em auto 0 auto">A Community-Developed List of Software &amp; Hardware Weakness Types</p>
+	                </a>
+	        </div>
+	
+	</div><!--End Masthead div-->
+	
+	<div style="width:20%;float:right;padding-top:0px;text-align:right;padding-left:0px;padding-right:14px;padding-bottom:0px;"><a href="https://cwe.mitre.org/scoring/lists/2021_CWE_MIHW.html" title="2021 CWE Most Important Hardware Weaknesses"> <img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/mihw_2021_logo_simple.svg" width="90" border="0" alt="2021 CWE Most Important Hardware Weaknesses" style="vertical-align:bottom"></a> <div style="width:20%;float:right;padding-top:0px;text-align:right;padding-left:4px;padding-right:40px;padding-bottom:0px;"><a href="https://cwe.mitre.org/top25/" title="CWE Top 25"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/cwe_top_25_logo_simple.svg" width="90" border="0" alt="CWE Top 25 Most Dangerous Weaknesses" style="vertical-align:bottom"></a></div></div>	
+
+<div id="HeaderBar" class="noprint">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">  
+	<tbody><tr> 
+		<td width="100%" align="left" style="padding-left:10px; font-size:75%;"> 
+                <a href="https://cwe.mitre.org/">Home</a>  &gt;  <a href="https://cwe.mitre.org/data/index.html">CWE List</a>  &gt;  
+
+                CWE- Individual Dictionary Definition (4.6)                		&nbsp;
+		</td>
+		<td align="right" nowrap="nowrap" style="padding-right:12px">
+		<!-- Begin /includes/search_cwe_id.html -->
+<div class="noprint">
+  <form action="https://cwe.mitre.org/cgi-bin/jumpmenu.cgi" align="right" style="padding:0px; margin:0px">
+	ID <label for="id" style="padding-right:5px">Lookup:</label>
+    <input id="id" name="id" type="text" style="width:50px; font-size:80%" maxlength="10">
+	<input value="Go" style="padding: 0px; font-size:80%" type="submit">
+  </form>
+</div>
+<!-- End /includes/search_cwe_id.html --> 
+		</td>
+	</tr>
+</tbody></table>
+</div> <!--//HeaderBar-->
+<div class="yesprint">
+<hr width="100%" size="1" style="clear:both" color="#000000">
+</div>
+
+<div class="topnav">
+<ul>
+<li><a href="https://cwe.mitre.org/index.html">Home</a></li>
+<li>
+        <div class="dropdown">
+          <a href="https://cwe.mitre.org/about/index.html"><button class="dropbtn">About</button></a>
+          <div class="dropdown-content">
+            <a href="https://cwe.mitre.org/about/index.html">Overview</a>
+            <a href="https://cwe.mitre.org/about/board.html">Board</a>
+            <a target="_blank" href="https://www.mail-archive.com/cwe-capec-board-list@mitre.org/">Board Discussion Archive</a>
+            <a href="https://cwe.mitre.org/about/board_archive.html">Board Meetings Archive</a>            
+            <a href="https://cwe.mitre.org/documents/glossary/index.html">Glossary</a>
+            <a href="https://cwe.mitre.org/about/history.html">History</a>             
+            <a href="https://cwe.mitre.org/about/sources.html">Sources</a>
+            <a href="https://cwe.mitre.org/about/documents.html">Documents</a>
+            <a href="https://cwe.mitre.org/about/faq.html">FAQs</a>
+          </div>
+        </div>
+</li>
+<li>
+        <div class="dropdown">
+          <a href="https://cwe.mitre.org/data/index.html"><button class="dropbtn">CWE List</button></a>
+          <div class="dropdown-content">
+            <a href="https://cwe.mitre.org/data/index.html">Latest Version</a>
+            <a href="https://cwe.mitre.org/data/downloads.html">Downloads</a>
+            <a href="https://cwe.mitre.org/data/reports.html">Reports</a>
+            <a href="https://cwe.mitre.org/data/pdfs.html">Visualizations</a>
+            <a href="https://cwe.mitre.org/data/archive.html">Archive</a>
+          </div>
+        </div>
+</li>
+<li>
+        <div class="dropdown">
+          <a href="https://cwe.mitre.org/scoring/index.html"><button class="dropbtn">Scoring</button></a>
+          <div class="dropdown-content">
+            <a href="https://cwe.mitre.org/scoring/index.html">Methodologies</a>
+            <a href="https://cwe.mitre.org/community/swa/priority.html">Prioritizing Weaknesses</a>
+            <a href="https://cwe.mitre.org/cwss/cwss_v1.0.1.html">CWSS</a>
+            <a href="https://cwe.mitre.org/cwraf/index.html">CWRAF</a>
+            <a href="https://cwe.mitre.org/top25/index.html">Top 25</a>
+            <a href="https://cwe.mitre.org/scoring/lists/2021_CWE_MIHW.html">Top Hardware</a>            
+          </div>
+        </div>
+</li>
+<li>
+        <div class="dropdown">
+          <a href="https://cwe.mitre.org/documents/cwe_usage/guidance.html"><button class="dropbtn">Mapping Guidance</button></a>
+          <div class="dropdown-content">
+            <a href="https://cwe.mitre.org/documents/cwe_usage/guidance.html">CVE → CWE Mapping Guidance</a>
+            <a href="https://cwe.mitre.org/documents/cwe_usage/quick_tips.html">CVE → CWE Mapping Quick Tips</a>
+            <a href="https://cwe.mitre.org/documents/cwe_usage/mapping_examples.html">CVE → CWE Mapping Examples</a>
+            <a href="https://cwe.mitre.org/documents/cwe_usage/common_terms_cheatsheet.html">Common Terms Cheatsheet</a>
+          </div>
+        </div>
+</li>
+<li>
+        <div class="dropdown">
+          <a href="https://cwe.mitre.org/community/index.html"><button class="dropbtn">Community</button></a>
+          <div class="dropdown-content">
+            <a href="https://cwe.mitre.org/community/index.html">Community</a>
+            <a href="https://cwe.mitre.org/community/members.html">Members</a>
+            <a href="https://cwe.mitre.org/community/citations.html">Use &amp; Citations</a>
+            <a href="https://cwe.mitre.org/research/index.html">Research</a>
+            <a href="https://cwe.mitre.org/compatible/index.html">Compatibility</a>
+            <a href="https://cwe.mitre.org/community/registration.html">Discussion List</a>
+            <a target="_blank" href="https://www.mail-archive.com/cwe-research-list@mitre.org/">Discussion Archives</a>
+            <a href="https://cwe.mitre.org/community/submissions/guidelines.html">Content Submissions</a>
+          </div>
+        </div>
+</li>
+<li>
+        <div class="dropdown">
+          <a href="https://cwe.mitre.org/news/index.html"><button class="dropbtn">News</button></a>
+          <div class="dropdown-content">
+            <a href="https://cwe.mitre.org/news/index.html">Current News</a>
+            <a href="https://twitter.com/CweCapec" target="_blank" rel="noopener noreferrer">Twitter <img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/twitter_sm.png" width="14" height="14" style="position:relative; vertical-align:bottom; padding-left:3px; top:-1px" title="Twitter"></a>
+            <a href="https://www.linkedin.com/showcase/cve-cwe-capec" target="_blank" rel="noopener noreferrer">LinkedIn <img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/linkedin_sm.jpg" width="14" height="14" style="position:relative; vertical-align:bottom; padding-left:3px; top:-1px" title="LinkedIn"></a>
+			      <a href="https://www.youtube.com/channel/UCpY9VIpRmFK4ebD6orssifA" target="_blank" rel="noopener noreferrer">YouTube <img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/youtube.png" width="14" height="14" style="position:relative; vertical-align:bottom; padding-left:3px; top:-1px" alt="YouTube"></a>            
+			      <a href="https://medium.com/@CWE_CAPEC" target="_blank" rel="noopener noreferrer">Medium <img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/medium_sm.png" width="14" height="14" style="position:relative; vertical-align:bottom; padding-left:3px; top:-1px" alt="Medium"></a>
+            <a href="https://cwe.mitre.org/news/podcast.html">Podcast</a>             
+            <a href="https://cwe.mitre.org/news/newsletters.html">Free Newsletter</a>            
+            <a href="https://cwe.mitre.org/news/archives/index.html">News Archive</a>
+        </div> 
+</div></li>
+
+<li style="border-color:#aaaaaa"><a href="https://cwe.mitre.org/find/index.html">Search</a></li>
+</ul>
+
+</div>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" id="MainPane">
+  <tbody><tr>
+	<!-- begin left side menu -->
+    <td valign="top" rowspan="2" id="LeftPane">
+	<!--include virtual="/includes/leftsidemenu.html" Removed 11212016--> 
+	<script type="text/javascript">browserheight();</script><div style="height:625px; width:1px" id="PageSpacer" class="noprint"></div>
+	</td>
+	<!-- end left side menu -->
+    <td style="height:1px"></td>
+	<!-- begin right column -->
+	<td valign="top" align="center" rowspan="2" nowrap="nowrap" id="RightPane">
+
+                	</td>
+	<!-- end right side menu -->
+  </tr>
+  <tr>
+	<!-- begin content pane -->
+    <td valign="top" width="100%" id="Contentpane">
+	
+	<!--Glossary tags-->
+	
+<div id="styled_popup" name="styled_popup" style="display:none; position:fixed; top:300; height:auto; width:300px; z-index:1000">
+<table width="300" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #32498D;">
+<tbody><tr style="background-color:#32498D; color:#ffffff;">
+<td width="100%" style="padding:1px 5px 1px 5px; border-bottom:1px solid #000000"><div width="100%" style="font-weight:bold;">CWE Glossary Definition</div></td>
+<td nowrap="nowrap" style="padding:1px; border-bottom:1px solid #000000" valign="top"><a href="javascript:styledPopupClose();"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/close.gif" border="0" alt="x"></a></td>
+</tr>
+<tr><td colspan="2" style="background: url(/images/layout/ylgradient.jpg); background-repeat: repeat-x repeat-y; padding:5px; background-color:#FFFFCC; " valign="top">
+<div id="output" style="max-height:400px; overflow-y:auto"></div>
+</td></tr>
+</tbody></table>
+</div>
+
+                <script src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/nav.js.download" language="JavaScript" type="text/javascript"></script>
+                <noscript>
+                     <style>div.collapseblock { display:inline} </style>
+                </noscript>
+            
+            
+            <!-- Copyright (c) 2006-2021, The MITRE Corporation. CWE and the CWE logo are trademarks of The MITRE Corporation. -->            <a xmlns:xhtml="http://www.w3.org/1999/xhtml" name="266"></a><div style="overflow:auto;"><h2 style="display:inline; margin:0px 0px 2px 0px; vertical-align: text-bottom">CWE-266: Incorrect Privilege Assignment</h2><div style="text-align:right; margin:5px 0px 0px 5px; padding-bottom:1px; white-space:nowrap;"></div></div><div xmlns:xhtml="http://www.w3.org/1999/xhtml" id="CWEDefinition" class="Weakness"><div class="title"><div class="status"><table cellpadding="0" cellspacing="0" border="0" width="100%"><tbody><tr><td valign="top" align="left" width="33%" nowrap=""><div style="font-weight:bold">Weakness ID: 266</div><span style="font-size:80%"> Abstraction: <span style="font-weight:normal">Base</span><br>Structure: <span style="font-weight:normal">Simple</span></span></td><td valign="top" align="right" nowrap=""><div style="font-size:80%;"><b>Status: </b><span class="Draft"><span style="font-weight:normal">Draft</span></span></div></td></tr></tbody></table></div></div>
+							<div id="Filter_Menu" style="padding-bottom:10px;">
+							<div style="font-size:75%; color:#000066; font-style:italic; display:inline">Presentation Filter: </div>
+    <select id="SkinSelector" onchange="skinSelector();">
+    <option value="basic_summary">Basic</option>
+    <option value="complete" selected="">Complete</option>
+    <option value="high_level">High Level</option>
+    <option value="mapping_friendly">Mapping-Friendly</option>
+    </select> 
+
+							</div>
+						<div id="Description"><div class="heading"><span id="script"><a href="javascript:toggleblocksOC(&#39;266_Description&#39;);"><img id="ocimg_266_Description" src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/head_more.gif" border="0" alt="+"></a> </span>Description</div><div name="oc_266_Description" id="oc_266_Description" class="expandblock"><div class="detail"><div class="indent">A product incorrectly assigns a privilege to a particular actor, creating an unintended sphere of control for that actor. </div></div></div></div><div id="Relationships"><div class="heading"><span id="script"><a href="javascript:toggleblocksOC(&#39;266_Relationships&#39;);"><img id="ocimg_266_Relationships" src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/head_more.gif" border="0" alt="+"></a> </span>Relationships</div><div name="oc_266_Relationships" id="oc_266_Relationships" class="expandblock"><div class="detail"><div class="indent"><span class="section tool"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/dictionary.gif" alt="Section Help"><span class="tip">This table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.</span></span><div id="relevant_table"><div class="reltable"><span id="script"><a href="javascript:toggleblocksOC(&#39;266_1000_relevant_table&#39;);"><img id="ocimg_266_1000_relevant_table" src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/head_more.gif" border="0" alt="+"></a> </span>Relevant to the view "Research Concepts" (CWE-1000)<div name="oc_266_1000_relevant_table" id="oc_266_1000_relevant_table" class="expandblock"><div class="tabledetail"><div class="indent"><div xmlns:saxon="http://saxon.sf.net/" xmlns:xalan="http://xml.apache.org/xalan" class="tabledetail"><table width="98%" cellpadding="0" cellspacing="0" border="0" id="Detail"><tbody><tr><th valign="top" width="110px">Nature</th><th valign="top" width="40px">Type</th><th valign="top" width="50px">ID</th><th valign="top">Name</th></tr></tbody><tbody><tr class="primary Weakness"><td valign="top">ChildOf</td><td valign="top" nowrap="" class="right" align="center" style="padding-top:1px"><span class="tool"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/class.gif" alt="Class" class="icon"><span class="tip">Class - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.</span></span></td><td valign="top">269</td><td valign="top"><a href="https://cwe.mitre.org/data/definitions/269.html" target="_blank" rel="noopener noreferrer">Improper Privilege Management</a></td></tr><tr class="primary Weakness"><td valign="top">ParentOf</td><td valign="top" nowrap="" class="right" align="center" style="padding-top:1px"><span class="tool"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/variant.gif" alt="Variant" class="icon"><span class="tip">Variant - a weakness 
+that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.</span></span></td><td valign="top">9</td><td valign="top"><a href="https://cwe.mitre.org/data/definitions/9.html" target="_blank" rel="noopener noreferrer">J2EE Misconfiguration: Weak Access Permissions for EJB Methods</a></td></tr><tr class="primary Weakness"><td valign="top">ParentOf</td><td valign="top" nowrap="" class="right" align="center" style="padding-top:1px"><span class="tool"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/variant.gif" alt="Variant" class="icon"><span class="tip">Variant - a weakness 
+that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.</span></span></td><td valign="top">520</td><td valign="top"><a href="https://cwe.mitre.org/data/definitions/520.html" target="_blank" rel="noopener noreferrer">.NET Misconfiguration: Use of Impersonation</a></td></tr><tr class="primary Weakness"><td valign="top">ParentOf</td><td valign="top" nowrap="" class="right" align="center" style="padding-top:1px"><span class="tool"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/variant.gif" alt="Variant" class="icon"><span class="tip">Variant - a weakness 
+that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.</span></span></td><td valign="top">556</td><td valign="top"><a href="https://cwe.mitre.org/data/definitions/556.html" target="_blank" rel="noopener noreferrer">ASP.NET Misconfiguration: Use of Identity Impersonation</a></td></tr><tr class="primary Weakness"><td valign="top">ParentOf</td><td valign="top" nowrap="" class="right" align="center" style="padding-top:1px"><span class="tool"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/variant.gif" alt="Variant" class="icon"><span class="tip">Variant - a weakness 
+that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.</span></span></td><td valign="top">1022</td><td valign="top"><a href="https://cwe.mitre.org/data/definitions/1022.html" target="_blank" rel="noopener noreferrer">Use of Web Link to Untrusted Target with window.opener Access</a></td></tr><tr class="primary Weakness"><td valign="top">CanAlsoBe</td><td valign="top" nowrap="" class="right" align="center" style="padding-top:1px"><span class="tool"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/class.gif" alt="Class" class="icon"><span class="tip">Class - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.</span></span></td><td valign="top">286</td><td valign="top"><a href="https://cwe.mitre.org/data/definitions/286.html" target="_blank" rel="noopener noreferrer">Incorrect User Management</a></td></tr></tbody></table></div></div></div></div></div></div><span class="section tool"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/dictionary.gif" alt="Section Help"><span class="tip">This table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.</span></span><div id="relevant_table"><div class="reltable"><span id="script"><a href="javascript:toggleblocksOC(&#39;266_699_relevant_table&#39;);"><img id="ocimg_266_699_relevant_table" src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/head_more.gif" border="0" alt="+"></a> </span>Relevant to the view "Software Development" (CWE-699)<div name="oc_266_699_relevant_table" id="oc_266_699_relevant_table" class="expandblock"><div class="tabledetail"><div class="indent"><div xmlns:saxon="http://saxon.sf.net/" xmlns:xalan="http://xml.apache.org/xalan" class="tabledetail"><table width="98%" cellpadding="0" cellspacing="0" border="0" id="Detail"><tbody><tr><th valign="top" width="110px">Nature</th><th valign="top" width="40px">Type</th><th valign="top" width="50px">ID</th><th valign="top">Name</th></tr></tbody><tbody><tr class="primary Category"><td valign="top">MemberOf</td><td valign="top" nowrap="" class="right" align="center" style="padding-top:1px"><span class="tool"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/category.gif" alt="Category" class="icon"><span class="tip">Category - a CWE entry that contains a set of other entries that share a common characteristic.</span></span></td><td valign="top">265</td><td valign="top"><a href="https://cwe.mitre.org/data/definitions/265.html" target="_blank" rel="noopener noreferrer">Privilege Issues</a></td></tr></tbody></table></div></div></div></div></div></div><span class="section tool"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/dictionary.gif" alt="Section Help"><span class="tip">This table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.</span></span><div id="relevant_table"><div class="reltable"><span id="script"><a href="javascript:toggleblocksOC(&#39;266_1008_relevant_table&#39;);"><img id="ocimg_266_1008_relevant_table" src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/head_less.gif" border="0" alt="+"></a> </span>Relevant to the view "Architectural Concepts" (CWE-1008)<div name="oc_266_1008_relevant_table" id="oc_266_1008_relevant_table" class="collapseblock"><div class="tabledetail"><div class="indent"><div xmlns:saxon="http://saxon.sf.net/" xmlns:xalan="http://xml.apache.org/xalan" class="tabledetail"><table width="98%" cellpadding="0" cellspacing="0" border="0" id="Detail"><tbody><tr><th valign="top" width="110px">Nature</th><th valign="top" width="40px">Type</th><th valign="top" width="50px">ID</th><th valign="top">Name</th></tr></tbody><tbody><tr class="primary Category"><td valign="top">MemberOf</td><td valign="top" nowrap="" class="right" align="center" style="padding-top:1px"><span class="tool"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/category.gif" alt="Category" class="icon"><span class="tip">Category - a CWE entry that contains a set of other entries that share a common characteristic.</span></span></td><td valign="top">1011</td><td valign="top"><a href="https://cwe.mitre.org/data/definitions/1011.html" target="_blank" rel="noopener noreferrer">Authorize Actors</a></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div><div id="Modes_Of_Introduction"><div class="heading"><span id="script"><a href="javascript:toggleblocksOC(&#39;266_Modes_Of_Introduction&#39;);"><img id="ocimg_266_Modes_Of_Introduction" src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/head_more.gif" border="0" alt="+"></a> </span>Modes Of Introduction</div><div name="oc_266_Modes_Of_Introduction" id="oc_266_Modes_Of_Introduction" class="expandblock"><div class="tabledetail"><div class="indent"><span class="section tool"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/dictionary.gif" alt="Section Help"><span class="tip">The different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur, while the Note provides a typical scenario related to introduction during the given phase.</span></span><table width="98%" cellpadding="0" cellspacing="0" border="0" id="Detail"><tbody><tr><th valign="middle" width="110px">Phase</th><th valign="middle">Note</th></tr><tr><td valign="middle" nowrap="">Architecture and Design</td><td valign="middle" width="100%"></td></tr><tr><td valign="middle" nowrap="">Implementation</td><td valign="middle" width="100%">REALIZATION: This weakness is caused during implementation of an architectural security tactic. </td></tr></tbody></table></div></div></div></div><div id="Applicable_Platforms"><div class="heading"><span id="script"><a href="javascript:toggleblocksOC(&#39;266_Applicable_Platforms&#39;);"><img id="ocimg_266_Applicable_Platforms" src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/head_more.gif" border="0" alt="+"></a> </span>Applicable Platforms</div><div name="oc_266_Applicable_Platforms" id="oc_266_Applicable_Platforms" class="expandblock"><div class="detail"><div class="indent"><span class="section tool"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/dictionary.gif" alt="Section Help"><span class="tip">This listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.</span></span><p class="subheading">Languages</p><div class="indent"><p> Class: Language-Independent <span class="smaller" style="font-style:italic">(Undetermined Prevalence)</span></p></div></div></div></div></div><div id="Common_Consequences"><div class="heading"><span id="script"><a href="javascript:toggleblocksOC(&#39;266_Common_Consequences&#39;);"><img id="ocimg_266_Common_Consequences" src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/head_more.gif" border="0" alt="+"></a> </span>Common Consequences</div><div name="oc_266_Common_Consequences" id="oc_266_Common_Consequences" class="expandblock"><div class="tabledetail"><div class="indent"><span class="section tool"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/dictionary.gif" alt="Section Help"><span class="tip">This table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited to achieve a different impact.</span></span><table width="98%" cellpadding="0" cellspacing="0" border="0" id="Detail"><tbody><tr><th valign="middle" width="135px" nowrap="">Scope</th><th valign="middle">Impact</th><th valign="middle" width="100px" nowrap="">Likelihood</th></tr><tr><td valign="middle" nowrap="">Access Control<br></td><td valign="middle" width="100%"><div style="padding-top:5px"><p class="smaller" style="font-weight:normal"><span class="subheading">Technical Impact:</span><i> Gain Privileges or Assume Identity</i></p></div><div style="padding-top:5px">A user can access restricted functionality and/or sensitive information that may include administrative functionality and user accounts. </div></td><td valign="middle" nowrap=""></td></tr></tbody></table></div></div></div></div><div id="Demonstrative_Examples"><div class="heading"><span id="script"><a href="javascript:toggleblocksOC(&#39;266_Demonstrative_Examples&#39;);"><img id="ocimg_266_Demonstrative_Examples" src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/head_more.gif" border="0" alt="+"></a> </span>Demonstrative Examples</div><div name="oc_266_Demonstrative_Examples" id="oc_266_Demonstrative_Examples" class="expandblock"><div class="detail"><div class="indent"><p class="subheading">Example 1</p><p>The following example demonstrates the weakness.</p><div class="indent bad"><div id="ExampleCode" style="clear:both; padding-top:5px; padding-bottom:5px;"><div class="shadow"><div class="CodeHead"><div style="float:right; font-style:italic; font-size:10px; color:#98A9B7">(bad code)</div><div class="optheading smaller"><span style="font-weight:normal; font-style:italic">Example Language: </span>C&nbsp;</div></div><div class="top">
+                  <div>seteuid(0);<br>
+                     <i>/* do some stuff */</i>
+                     <br>
+                     <br>seteuid(getuid());</div>
+               </div></div></div></div><p class="subheading">Example 2</p><p>The following example demonstrates the weakness.</p><div class="indent bad"><div id="ExampleCode" style="clear:both; padding-top:5px; padding-bottom:5px;"><div class="shadow"><div class="CodeHead"><div style="float:right; font-style:italic; font-size:10px; color:#98A9B7">(bad code)</div><div class="optheading smaller"><span style="font-weight:normal; font-style:italic">Example Language: </span>Java&nbsp;</div></div><div class="top">
+                  <div>AccessController.doPrivileged(new PrivilegedAction() {<div style="margin-left:10px;">
+                        <div>public Object run() {<div style="margin-left:10px;">
+                                 <i>// privileged code goes here, for example:</i>
+                                 <br>System.loadLibrary("awt");<br>return null;<br>
+                                 <i>// nothing to return</i>
+                                 <br>
+                           </div>}</div>
+                     </div>
+                  </div>
+               </div></div></div></div><p class="subheading">Example 3</p><p>This application sends a special intent with a flag that allows the receiving application to read a data file for backup purposes.</p><div class="indent bad"><div id="ExampleCode" style="clear:both; padding-top:5px; padding-bottom:5px;"><div class="shadow"><div class="CodeHead"><div style="float:right; font-style:italic; font-size:10px; color:#98A9B7">(bad code)</div><div class="optheading smaller"><span style="font-weight:normal; font-style:italic">Example Language: </span>Java&nbsp;</div></div><div class="top">
+                  <div>Intent intent = new Intent();<br>intent.setAction("com.example.BackupUserData");<br>intent.setData(file_uri);<br>intent.addFlags(FLAG_GRANT_READ_URI_PERMISSION);<br>sendBroadcast(intent);</div>
+               </div></div></div></div><div class="indent attack"><div id="ExampleCode" style="clear:both; padding-top:5px; padding-bottom:5px;"><div class="shadow"><div class="CodeHead"><div style="float:right; font-style:italic; font-size:10px; color:#98A9B7">(attack code)</div><div class="optheading smaller"><span style="font-weight:normal; font-style:italic">Example Language: </span>Java&nbsp;</div></div><div class="top">
+                  <div>public class CallReceiver extends BroadcastReceiver {<div style="margin-left:10px;">@Override<br>public void onReceive(Context context, Intent intent) {<div style="margin-left:10px;">Uri userData = intent.getData();<br>stealUserData(userData);</div>}</div>}</div>
+               </div></div></div></div><p>Any malicious application can register to receive this intent. Because of the FLAG_GRANT_READ_URI_PERMISSION included with the intent, the malicious receiver code can read the user's data.</p></div></div></div></div><div id="Observed_Examples"><div class="heading"><span id="script"><a href="javascript:toggleblocksOC(&#39;266_Observed_Examples&#39;);"><img id="ocimg_266_Observed_Examples" src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/head_more.gif" border="0" alt="+"></a> </span>Observed Examples</div><div name="oc_266_Observed_Examples" id="oc_266_Observed_Examples" class="expandblock"><div class="tabledetail"><div class="indent"><div style="margin-top: 10px"><table width="98%" cellpadding="0" cellspacing="0" border="0" class="Detail"><tbody><tr><th valign="top" width="165px" nowrap="">Reference</th><th valign="top">Description</th></tr>
+            <tr><td valign="top"><div><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-1193" target="_blank" rel="noopener noreferrer">CVE-1999-1193</a></div></td><td valign="top"><div class="indent">untrusted user placed in unix "wheel" group </div></td></tr>
+            <tr><td valign="top"><div><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-2741" target="_blank" rel="noopener noreferrer">CVE-2005-2741</a></div></td><td valign="top"><div class="indent">Product allows users to grant themselves certain rights that can be used to escalate privileges. </div></td></tr>
+            <tr><td valign="top"><div><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-2496" target="_blank" rel="noopener noreferrer">CVE-2005-2496</a></div></td><td valign="top"><div class="indent">Product uses group ID of a user instead of the group, causing it to run with different privileges. This is resultant from some other unknown issue. </div></td></tr>
+            <tr><td valign="top"><div><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-0274" target="_blank" rel="noopener noreferrer">CVE-2004-0274</a></div></td><td valign="top"><div class="indent">Product mistakenly assigns a particular status to an entity, leading to increased privileges. </div></td></tr>
+         </tbody></table></div></div></div></div></div><div id="Potential_Mitigations"><div class="heading"><span id="script"><a href="javascript:toggleblocksOC(&#39;266_Potential_Mitigations&#39;);"><img id="ocimg_266_Potential_Mitigations" src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/head_more.gif" border="0" alt="+"></a> </span>Potential Mitigations</div><div name="oc_266_Potential_Mitigations" id="oc_266_Potential_Mitigations" class="expandblock"><div class="detail"><div class="indent"><div id="Grouped"><table width="98%" cellpadding="0" cellspacing="0" border="0" class="Detail">
+            <tbody><tr><td valign="top"><p class="subheading">Phases:  Architecture and Design; Operation</p><div class="indent">Very carefully manage the setting, management, and handling of privileges. Explicitly manage trust zones in the software. </div></td></tr>
+            <tr><td valign="top"><p class="subheading">Phases:  Architecture and Design; Operation</p><div class="indent"><p class="suboptheading">Strategy:  Environment Hardening</p></div><div class="indent">Run your code using the lowest privileges that are required to accomplish the necessary tasks [<a href="https://cwe.mitre.org/data/definitions/266.html#REF-76">REF-76</a>]. If possible, create isolated accounts with limited privileges that are only used for a single task. That way, a successful attack will not immediately give the attacker access to the rest of the software or its environment. For example, database applications rarely need to run as the database administrator, especially in day-to-day operations. </div></td></tr>
+         </tbody></table></div></div></div></div></div><div id="Weakness_Ordinalities"><div class="heading"><span id="script"><a href="javascript:toggleblocksOC(&#39;266_Weakness_Ordinalities&#39;);"><img id="ocimg_266_Weakness_Ordinalities" src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/head_more.gif" border="0" alt="+"></a> </span>Weakness Ordinalities</div><div name="oc_266_Weakness_Ordinalities" id="oc_266_Weakness_Ordinalities" class="expandblock"><div class="tabledetail"><div class="indent"><div style="margin-top: 10px"><table width="98%" cellpadding="0" cellspacing="0" border="0" class="Detail"><tbody><tr><th valign="top" nowrap="">Ordinality</th><th valign="top" width="100%">Description</th></tr>
+            <tr><td valign="top"><div style="font-size:90%;">Resultant</div></td><td valign="top"><div style="font-size:90%; font-style:italic; padding:5px;">(where the weakness is typically related to the presence of some other weaknesses)</div></td></tr>
+         </tbody></table></div></div></div></div></div><div id="Affected_Resources"><div class="heading"><span id="script"><a href="javascript:toggleblocksOC(&#39;266_Affected_Resources&#39;);"><img id="ocimg_266_Affected_Resources" src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/head_more.gif" border="0" alt="+"></a> </span>Affected Resources</div><div name="oc_266_Affected_Resources" id="oc_266_Affected_Resources" class="expandblock"><div class="detail"><div class="indent"><ul>
+            <li>System Process</li>
+         </ul></div></div></div></div><div id="Memberships"><div class="heading"><span id="script"><a href="javascript:toggleblocksOC(&#39;266_Memberships&#39;);"><img id="ocimg_266_Memberships" src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/head_more.gif" border="0" alt="+"></a> </span>Memberships</div><div name="oc_266_Memberships" id="oc_266_Memberships" class="expandblock"><div class="detail"><div class="indent"><span class="section tool"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/dictionary.gif" alt="Section Help"><span class="tip">This MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness fits within the context of external information sources.</span></span><div xmlns:saxon="http://saxon.sf.net/" xmlns:xalan="http://xml.apache.org/xalan" class="tabledetail" style="padding-top:10px"><table width="98%" cellpadding="0" cellspacing="0" border="0" id="Detail"><tbody><tr><th valign="top" width="110px">Nature</th><th valign="top" width="40px">Type</th><th valign="top" width="50px">ID</th><th valign="top">Name</th></tr></tbody><tbody><tr class="primary Category"><td valign="top">MemberOf</td><td valign="top" nowrap="" class="right" align="center" style="padding-top:1px"><span class="tool"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/category.gif" alt="Category" class="icon"><span class="tip">Category - a CWE entry that contains a set of other entries that share a common characteristic.</span></span></td><td valign="top">723</td><td valign="top"><a href="https://cwe.mitre.org/data/definitions/723.html" target="_blank" rel="noopener noreferrer">OWASP Top Ten 2004 Category A2 - Broken Access Control</a></td></tr><tr class="primary Category"><td valign="top">MemberOf</td><td valign="top" nowrap="" class="right" align="center" style="padding-top:1px"><span class="tool"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/category.gif" alt="Category" class="icon"><span class="tip">Category - a CWE entry that contains a set of other entries that share a common characteristic.</span></span></td><td valign="top">859</td><td valign="top"><a href="https://cwe.mitre.org/data/definitions/859.html" target="_blank" rel="noopener noreferrer">The CERT Oracle Secure Coding Standard for Java (2011) Chapter 16 - Platform Security (SEC)</a></td></tr><tr class="primary View"><td valign="top">MemberOf</td><td valign="top" nowrap="" class="right" align="center" style="padding-top:1px"><span class="tool"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/view.gif" alt="View" class="icon"><span class="tip">View - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries).</span></span></td><td valign="top">884</td><td valign="top"><a href="https://cwe.mitre.org/data/definitions/884.html" target="_blank" rel="noopener noreferrer">CWE Cross-section</a></td></tr><tr class="primary Category"><td valign="top">MemberOf</td><td valign="top" nowrap="" class="right" align="center" style="padding-top:1px"><span class="tool"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/category.gif" alt="Category" class="icon"><span class="tip">Category - a CWE entry that contains a set of other entries that share a common characteristic.</span></span></td><td valign="top">901</td><td valign="top"><a href="https://cwe.mitre.org/data/definitions/901.html" target="_blank" rel="noopener noreferrer">SFP Primary Cluster: Privilege</a></td></tr><tr class="primary Category"><td valign="top">MemberOf</td><td valign="top" nowrap="" class="right" align="center" style="padding-top:1px"><span class="tool"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/category.gif" alt="Category" class="icon"><span class="tip">Category - a CWE entry that contains a set of other entries that share a common characteristic.</span></span></td><td valign="top">1149</td><td valign="top"><a href="https://cwe.mitre.org/data/definitions/1149.html" target="_blank" rel="noopener noreferrer">SEI CERT Oracle Secure Coding Standard for Java - Guidelines 15. Platform Security (SEC)</a></td></tr><tr class="primary Category"><td valign="top">MemberOf</td><td valign="top" nowrap="" class="right" align="center" style="padding-top:1px"><span class="tool"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/category.gif" alt="Category" class="icon"><span class="tip">Category - a CWE entry that contains a set of other entries that share a common characteristic.</span></span></td><td valign="top">1348</td><td valign="top"><a href="https://cwe.mitre.org/data/definitions/1348.html" target="_blank" rel="noopener noreferrer">OWASP Top Ten 2021 Category A04:2021 - Insecure Design</a></td></tr></tbody></table></div></div></div></div></div><div id="Taxonomy_Mappings"><div class="heading"><span id="script"><a href="javascript:toggleblocksOC(&#39;266_Taxonomy_Mappings&#39;);"><img id="ocimg_266_Taxonomy_Mappings" src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/head_more.gif" border="0" alt="+"></a> </span>Taxonomy Mappings</div><div name="oc_266_Taxonomy_Mappings" id="oc_266_Taxonomy_Mappings" class="expandblock"><div class="tabledetail"><div class="indent"><div style="margin-top: 10px"><table width="98%" cellpadding="0" cellspacing="0" border="0" class="Detail"><tbody><tr><th valign="top" nowrap="" width="230px">Mapped Taxonomy Name</th><th valign="top" nowrap="" width="100px">Node ID</th><th valign="top" nowrap="">Fit</th><th valign="top">Mapped Node Name</th></tr>
+            <tr><td valign="top">PLOVER</td><td valign="top"></td><td valign="top"></td><td valign="top">Incorrect Privilege Assignment</td></tr>
+            <tr><td valign="top">The CERT Oracle Secure Coding Standard for Java (2011)</td><td valign="top">SEC00-J</td><td valign="top"></td><td valign="top">Do not allow privileged blocks to leak sensitive information across a trust boundary</td></tr>
+            <tr><td valign="top">The CERT Oracle Secure Coding Standard for Java (2011)</td><td valign="top">SEC01-J</td><td valign="top"></td><td valign="top">Do not allow tainted variables in privileged blocks</td></tr>
+         </tbody></table></div></div></div></div></div><div id="References"><div class="heading"><span id="script"><a href="javascript:toggleblocksOC(&#39;266_References&#39;);"><img id="ocimg_266_References" src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/head_more.gif" border="0" alt="+"></a> </span>References</div><div name="oc_266_References" id="oc_266_References" class="expandblock"><div class="detail"><div class="indent"><div id="Grouped"><table width="98%" cellpadding="0" cellspacing="0" border="0" class="Detail">
+            <tbody><tr><td valign="top"><div id="REF-76">[REF-76] Sean Barnum and
+								Michael Gegick. "Least Privilege". 2005-09-14. 
+				&lt;<a href="https://buildsecurityin.us-cert.gov/daisy/bsi/articles/knowledge/principles/351.html" target="_blank" rel="noopener noreferrer">https://buildsecurityin.us-cert.gov/daisy/bsi/articles/knowledge/principles/351.html</a>&gt;.</div></td></tr>
+         </tbody></table></div></div></div></div></div><div id="Content_History"><div class="heading"><span id="script"><a href="javascript:toggleblocksOC(&#39;266_Content_History&#39;);"><img id="ocimg_266_Content_History" src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/head_more.gif" border="0" alt="+"></a> </span>Content History</div><div name="oc_266_Content_History" id="oc_266_Content_History" class="expandblock"><div class="tabledetail"><div class="indent"><div style="margin-top: 10px"><table width="98%" cellpadding="0" cellspacing="0" border="0" class="Detail"><thead class="Submissions"><tr><th valign="top" colspan="3" class="title"><span id="script"><a href="javascript:toggleblocksOC(&#39;266_Submissions&#39;);"><img id="ocimg_266_Submissions" src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/head_more.gif" border="0" alt="+"></a> </span>Submissions</th></tr></thead><tbody id="oc_266_Submissions" class="expandblock"><tr><th valign="top">Submission Date</th><th valign="top" nowrap="">Submitter</th><th valign="top" nowrap="">Organization</th></tr><tr><td valign="top" nowrap="" rowspan="2" style="border-bottom:1px solid #BAC5E3">2006-07-19</td><td valign="top">PLOVER</td><td valign="top"></td></tr><tr><td valign="top" colspan="2" style="border-bottom:1px solid #BAC5E3; font-size:90%; background-color:#eeeeee"></td></tr></tbody><thead class="Modifications"><tr><th valign="top" colspan="3" class="title"><span id="script"><a href="javascript:toggleblocksOC(&#39;266_Modifications&#39;);"><img id="ocimg_266_Modifications" src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/head_less.gif" border="0" alt="+"></a> </span>Modifications</th></tr></thead><tbody id="oc_266_Modifications" class="collapseblock"><tr><th valign="top">Modification Date</th><th valign="top" nowrap="">Modifier</th><th valign="top" nowrap="">Organization</th></tr><tr><td valign="top" nowrap="" rowspan="2" style="border-bottom:1px solid #BAC5E3">2008-07-01</td><td valign="top">Eric Dalci</td><td valign="top">Cigital</td></tr><tr><td valign="top" colspan="2" style="border-bottom:1px solid #BAC5E3; font-size:90%; background-color:#eeeeee">updated Time_of_Introduction</td></tr><tr><td valign="top" nowrap="" rowspan="2" style="border-bottom:1px solid #BAC5E3">2008-09-08</td><td valign="top">CWE Content Team</td><td valign="top">MITRE</td></tr><tr><td valign="top" colspan="2" style="border-bottom:1px solid #BAC5E3; font-size:90%; background-color:#eeeeee">updated Description, Relationships, Taxonomy_Mappings, Weakness_Ordinalities</td></tr><tr><td valign="top" nowrap="" rowspan="2" style="border-bottom:1px solid #BAC5E3">2009-03-10</td><td valign="top">CWE Content Team</td><td valign="top">MITRE</td></tr><tr><td valign="top" colspan="2" style="border-bottom:1px solid #BAC5E3; font-size:90%; background-color:#eeeeee">updated Relationships</td></tr><tr><td valign="top" nowrap="" rowspan="2" style="border-bottom:1px solid #BAC5E3">2009-12-28</td><td valign="top">CWE Content Team</td><td valign="top">MITRE</td></tr><tr><td valign="top" colspan="2" style="border-bottom:1px solid #BAC5E3; font-size:90%; background-color:#eeeeee">updated Potential_Mitigations</td></tr><tr><td valign="top" nowrap="" rowspan="2" style="border-bottom:1px solid #BAC5E3">2010-06-21</td><td valign="top">CWE Content Team</td><td valign="top">MITRE</td></tr><tr><td valign="top" colspan="2" style="border-bottom:1px solid #BAC5E3; font-size:90%; background-color:#eeeeee">updated Potential_Mitigations</td></tr><tr><td valign="top" nowrap="" rowspan="2" style="border-bottom:1px solid #BAC5E3">2011-06-01</td><td valign="top">CWE Content Team</td><td valign="top">MITRE</td></tr><tr><td valign="top" colspan="2" style="border-bottom:1px solid #BAC5E3; font-size:90%; background-color:#eeeeee">updated Common_Consequences, Relationships, Taxonomy_Mappings</td></tr><tr><td valign="top" nowrap="" rowspan="2" style="border-bottom:1px solid #BAC5E3">2012-05-11</td><td valign="top">CWE Content Team</td><td valign="top">MITRE</td></tr><tr><td valign="top" colspan="2" style="border-bottom:1px solid #BAC5E3; font-size:90%; background-color:#eeeeee">updated Common_Consequences, Demonstrative_Examples, Relationships, Taxonomy_Mappings</td></tr><tr><td valign="top" nowrap="" rowspan="2" style="border-bottom:1px solid #BAC5E3">2012-10-30</td><td valign="top">CWE Content Team</td><td valign="top">MITRE</td></tr><tr><td valign="top" colspan="2" style="border-bottom:1px solid #BAC5E3; font-size:90%; background-color:#eeeeee">updated Potential_Mitigations, References</td></tr><tr><td valign="top" nowrap="" rowspan="2" style="border-bottom:1px solid #BAC5E3">2014-02-18</td><td valign="top">CWE Content Team</td><td valign="top">MITRE</td></tr><tr><td valign="top" colspan="2" style="border-bottom:1px solid #BAC5E3; font-size:90%; background-color:#eeeeee">updated Applicable_Platforms, Demonstrative_Examples</td></tr><tr><td valign="top" nowrap="" rowspan="2" style="border-bottom:1px solid #BAC5E3">2017-11-08</td><td valign="top">CWE Content Team</td><td valign="top">MITRE</td></tr><tr><td valign="top" colspan="2" style="border-bottom:1px solid #BAC5E3; font-size:90%; background-color:#eeeeee">updated Causal_Nature, Modes_of_Introduction, References, Relationships</td></tr><tr><td valign="top" nowrap="" rowspan="2" style="border-bottom:1px solid #BAC5E3">2019-01-03</td><td valign="top">CWE Content Team</td><td valign="top">MITRE</td></tr><tr><td valign="top" colspan="2" style="border-bottom:1px solid #BAC5E3; font-size:90%; background-color:#eeeeee">updated Relationships, Taxonomy_Mappings</td></tr><tr><td valign="top" nowrap="" rowspan="2" style="border-bottom:1px solid #BAC5E3">2020-02-24</td><td valign="top">CWE Content Team</td><td valign="top">MITRE</td></tr><tr><td valign="top" colspan="2" style="border-bottom:1px solid #BAC5E3; font-size:90%; background-color:#eeeeee">updated Relationships</td></tr><tr><td valign="top" nowrap="" rowspan="2" style="border-bottom:1px solid #BAC5E3">2021-03-15</td><td valign="top">CWE Content Team</td><td valign="top">MITRE</td></tr><tr><td valign="top" colspan="2" style="border-bottom:1px solid #BAC5E3; font-size:90%; background-color:#eeeeee">updated Demonstrative_Examples</td></tr></tbody></table></div></div></div></div></div></div>            	<div id="More_Message">
+<div style="background-color:#798795; padding:2px; color:#ffffff; font-size:95%; text-align:center">More information is available — Please select a different filter.</div></div>
+
+	</td>
+	<!-- end content pane -->
+  </tr>
+</tbody></table>
+<div id="FootPane" class="noprint">
+  <div id="footbar">
+    <b>Page Last Updated: </b>
+
+            October 26, 2021              </div>
+  <div class="Footer noprint">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="ltgreybackground" style="clear:both">
+      <tbody><tr>
+        <td colspan="3" id="line"><div class="line">&nbsp;</div></td>
+      </tr>
+      <tr>
+        <td valign="middle" nowrap="nowrap">
+          <div id="footerlinks" class="footlogo">
+            <a href="http://www.mitre.org/" target="_blank" rel="noopener noreferrer"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/mitre_logo.gif" height="36" border="0" alt="MITRE" title="MITRE"></a>
+          </div>
+        </td>
+        <td width="100%" valign="top" style="padding:6px 0px;">
+          <div id="footerlinks">
+            <a href="https://cwe.mitre.org/sitemap.html">Site Map</a> | 
+            <a href="https://cwe.mitre.org/about/termsofuse.html">Terms of Use</a> | 
+            <a href="https://cwe.mitre.org/about/privacy_policy.html">Privacy Policy</a> | 
+            <a href="mailto:cwe@mitre.org">Contact Us</a> | 
+            <a target="_blank" href="https://twitter.com/CweCapec"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/twitter.jpg" width="20" height="20" style="border:0;vertical-align:right;" alt="Twitter" title="Twitter"></a>
+            <a target="_blank" href="https://www.linkedin.com/showcase/cve-cwe-capec"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/linkedin_sm.jpg" width="20" height="20" style="border:0;vertical-align:right;" alt="LinkedIn" title="LinkedIn"></a>
+      <a target="_blank" href="https://www.youtube.com/channel/UCpY9VIpRmFK4ebD6orssifA"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/youtube.png" width="20" height="20" style="border:0;vertical-align:right;" alt="YouTube channel" title="YouTube"></a>  
+			<a target="_blank" href="https://medium.com/@CWE_CAPEC"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/medium.png" width="20" height="20" style="border:0;vertical-align:right;" alt="Medium blog" title="Medium"></a>   
+          </div>
+          <p>Use of the Common Weakness Enumeration (CWE) and the associated references from this website are subject to the <a href="https://cwe.mitre.org/about/termsofuse.html">Terms of Use</a>. CWE is sponsored by the <a target="_blank" rel="noopener noreferrer" href="https://www.dhs.gov/">U.S. Department of Homeland Security</a> (DHS) <a target="_blank" rel="noopener noreferrer" href="https://www.dhs.gov/cisa/cybersecurity-division">Cybersecurity and Infrastructure Security Agency</a> (CISA) and managed by the <a href="https://www.dhs.gov/science-and-technology/hssedi" target="_blank" rel="noopener noreferrer">Homeland Security Systems Engineering and Development Institute</a> (HSSEDI) which is operated by <a target="_blank" rel="noopener noreferrer" href="http://www.mitre.org/">The MITRE Corporation</a> (MITRE). Copyright © 2006-2021, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.</p>
+        </td>
+        <td valign="middle" nowrap="nowrap">
+          <div id="footerlinks" class="footlogo">
+            <a href="https://www.dhs.gov/science-and-technology/hssedi" target="_blank" rel="noopener noreferrer"><img src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/hssedi.png" height="36" border="0" alt="HSSEDI" title="HSSEDI"></a>
+          </div>
+        </td>
+      </tr>
+    </tbody></table>
+  </div>
+</div>
+<!-- Google Analytics Code -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./CWE - CWE-266_ Incorrect Privilege Assignment (4.6)_05.12.2021_11.50_files/ga.js.download" type="text/javascript"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5164081-1");
+pageTracker._trackPageview();
+</script>
+
+
+
+
+            
+            </body></html>

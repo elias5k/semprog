@@ -1,0 +1,35 @@
+(function (){
+  // Please include the email domains you would like to block in this list
+  var invalidDomains = ["@gmail.","@yahoo.","@hotmail.","@live.","@aol.","@outlook."];
+  MktoForms2.whenReady(function (form){
+   form.onSubmit(function() {
+        // Get the form field values
+        var values = form.vals();
+        if (values.Email) {
+            analytics.identify(values.Email, { email: values.Email });
+        }
+    });
+   form.onValidate(function(){
+   var email = form.vals().Email;
+   if(email){
+   if(!isEmailGood(email)) {
+   form.submitable(false);
+   var emailElem = form.getFormElem().find("#Email");
+   form.showErrorMessage("Must be Business email.", emailElem);
+  }else{
+   form.submitable(true);
+  }
+  }
+  });
+  });
+ 
+  function isEmailGood(email) {
+   for(var i=0; i < invalidDomains.length; i++) {
+   var domain = invalidDomains[i];
+   if (email.indexOf(domain) != -1) {
+   return false;
+  }
+  }
+   return true;
+  }
+})();

@@ -1,0 +1,9 @@
+GET http://localhost:3001/api/notes
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvY2hlbiIsImlkIjoiNjFhYzcwZjdkOTc5YjM0ZWVlNTVhY2UyIiwiaWF0IjoxNjM4ODczODE1fQ.TmShoJfwd_-3eUoCxbgmo5evakXCm9tNGSXX-nSIBww
+
+###
+
+GET http://localhost:3001/api/notes/4
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1heCIsImlkIjoiNjFkZjQ0ZDE3YmFmNGMwNmVmMDM1OTJlIiwiaWF0IjoxNjQyMTgxMDk3fQ.IFo80UlWfl3UjTAdkgwsp7wA_upRT3qZw_PmaXUqQbo
+
+###

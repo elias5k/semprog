@@ -1,0 +1,1 @@
+window.advBidxc.contextualcallback({"status":"OK","code":200,"notify_object":{"nid":"77227361-bad6-4057-8b76-b31ada2630c1","ttl":1800},"data":{"category":{"taxo":"IAB-2.0","ids":[52,80],"name":"Business and Finance/Economy"},"segments":[{"key":"Business_and_Finance"},{"key":"Economy"}],"bssegments":[{"key":"Spam_or_Harmful_Content"}],"bs":0,"bsst":"unsafe"}});
