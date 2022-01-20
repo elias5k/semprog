@@ -8,8 +8,6 @@ require('express-async-errors');
 /**
  * This route is used to register new users, which is a public feature,
  * so this does not need authentication or authorization.
- * 
- * TODO: this returns the user ID too, which it doesn't need to.
  */
 userRouter.post('/', async (request, response) => {
 
@@ -35,9 +33,14 @@ userRouter.post('/', async (request, response) => {
 		}
 	);
 
-	// ... then store it in the database and also return it as the http response:
+	// ... then store it in the database:
     const savedUser = await user.save();
-    response.json(savedUser);
+
+	// remove internal information and return object:
+	const userObject = savedUser.toJSON();
+	delete userObject.id;
+	delete userObject.role;
+    response.json(userObject);
 });
 
 
@@ -46,8 +49,6 @@ userRouter.post('/', async (request, response) => {
 /**
  * This route responds with a list of all registered users.
  * It is used by the admin dashboard, so this should ensure only admins can retrieve this data.
- * 
- * TODO: this uses the user id from the token, use username instead.
  */
 userRouter.get('/', async (request, response) => {
 	
@@ -57,10 +58,10 @@ userRouter.get('/', async (request, response) => {
         return response.status(401).send({ error: 'missing token or invalid syntax' });
     }
 	const token = authorization.substring(7); // remove the 'bearer ' part from the token, since we don't need it.
-	let userObject, user;
+	let userToken, user;
 	try {
-		userObject = jwt.verify(token, process.env.SECRET); // try to decode and verify token
-		user = await User.findById(userObject.id); // if it succeeds, search the user in the database
+		userToken = jwt.verify(token, process.env.SECRET); // try to decode and verify token
+		user = await User.findOne({ username: userToken.username }); // if it succeeds, search the user in the database
 	} catch (e) {
 		return response.status(401).send({ error: 'invalid token' }); // if it fails, return 401
 	} // authentication done :)
@@ -86,23 +87,42 @@ userRouter.get('/', async (request, response) => {
  * TODO: add role authorization!
  */
 userRouter.put('/:id', async (request, response) => {
+	// the authentication process starts here:
+	const authorization = request.get('authorization'); // get token and check syntax:
+    if (!authorization || !authorization.toLowerCase().startsWith('bearer ')) {
+        return response.status(401).send({ error: 'missing token or invalid syntax' });
+    }
+	const token = authorization.substring(7); // remove the 'bearer ' part from the token, since we don't need it.
+	let userToken, user;
+	try {
+		userToken = jwt.verify(token, process.env.SECRET); // try to decode and verify token
+		user = await User.findOne({ username: userToken.username }); // if it succeeds, search the user in the database
+	} catch (e) {
+		return response.status(401).send({ error: 'invalid token' }); // if it fails, return 401
+	} // authentication done :)
+
+	// this is the authorization check:
+	if (user.role !== 'admin') {
+		return response.status(403).send({ error: 'permission denied' });
+	}
+
 	
 	// get the user from the database and check if it actually exists:
-	const user = await User.findById(request.params.id);
-	if (!user) return response.status(404).send();
+	const promotedUser = await User.findById(request.params.id);
+	if (!promotedUser) return response.status(404).send();
 
 	// check if the request is a promotion or demotion, set the role of the user accordingly:
 	if (request.body.role === 'admin') {
-		user.role = 'admin';
+		promotedUser.role = 'admin';
 	} else if (request.body.role === 'user') {
-		user.role = 'user';
+		promotedUser.role = 'user';
 	} else {
 		return response.status(409).send({ error: 'invalid role provided' });
 	} 
 
 	// save the changes to the user and return the updated user object in the response:
-	await user.save();
-	response.json(user);
+	await promotedUser.save();
+	response.json(promotedUser);
 });
 
 

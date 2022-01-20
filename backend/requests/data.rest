@@ -3,8 +3,8 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvY
 
 ###
 
-GET http://localhost:3001/api/notes/4
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1heCIsImlkIjoiNjFkZjQ0ZDE3YmFmNGMwNmVmMDM1OTJlIiwiaWF0IjoxNjQyMTgxMDk3fQ.IFo80UlWfl3UjTAdkgwsp7wA_upRT3qZw_PmaXUqQbo
+GET http://localhost:3001/api/notes/8
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1heCIsImlhdCI6MTY0MjY3OTA4NX0.p9eqeW-JR39P8mJqoQ90a-j2eCqjREyc3XxsSsOjBDk
 
 ###
 
