@@ -1,44 +1,15 @@
+### Registering a user:
+
 POST http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-    "username": "Max2",
-    "name": "Max2 Mustermann",
+    "username": "Max",
+    "name": "Max Mustermann",
     "password": "password"
 }
 
-###
-
-POST http://localhost:3001/api/users/
-Content-Type: application/json
-
-{
-    "username": "Jochen",
-    "name": "Jochen Friedrich",
-    "password": "12345678"
-}
-
-###
-
-POST http://localhost:3001/api/users/
-Content-Type: application/json
-
-{
-    "username": "Torsten",
-    "name": "Torsten Kalle",
-    "password": "torsten"
-}
-
-###
-
-PUT http://localhost:3001/api/users/61e062c4b31230f2c66bcf48
-Content-Type: application/json
-
-{
-	"role": "admin"
-}
-
-###
+### Login:
 
 POST http://localhost:3001/api/login
 Content-Type: application/json
@@ -48,22 +19,11 @@ Content-Type: application/json
 	"password": "password"
 }
 
-###
+### Role update (admin only)
 
-POST http://localhost:3001/api/login
+PUT http://localhost:3001/api/users/61e062c4b31230f2c66bcf48
 Content-Type: application/json
 
 {
-	"username": "Jochen",
-	"password": "12345678"
+	"role": "admin"
 }
-
-###
-
-GET http://localhost:3001/api/data
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1heCIsImlkIjoiNjFhYjRmZWU2NjI3MzIzOWIzMmRjM2EyIiwiaWF0IjoxNjM4NjkwNTE3fQ.Hspjc5Tm54d3L95wCp091Yds_LjZ_Tz8Mkl8eWav-SE
-
-###
-
-GET http://localhost:3001/api/data
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvY2hlbiIsImlkIjoiNjFhYzcwZjdkOTc5YjM0ZWVlNTVhY2UyIiwiaWF0IjoxNjM4NjkxMDkwfQ.MvHDWVrX0fs9GjXcMQoBNVjUJemc_FMKmmVWSnPCEvo

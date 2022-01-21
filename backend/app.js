@@ -10,12 +10,8 @@ const noteRouter = require('./controllers/notes');
 // connecting to database:
 const config = require('./utils/config');
 mongoose.connect(config.MONGODB_URI)
-    .then(() => {
-        console.log('connected to MongoDB');
-    })
-    .catch((error) => {
-        console.log('error connecting to MongoDB:', error.message);
-    });
+    .then(() => { console.log('connected to MongoDB'); })
+    .catch((error) => { console.log('error connecting to MongoDB:', error.message); });
 
 // defining all of the used middleware and routers:
 app.use(cors()); // enables cross origin resource sharing
