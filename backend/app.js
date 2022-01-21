@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const userRouter = require('./controllers/users');
 const loginRouter = require('./controllers/login');
 const noteRouter = require('./controllers/notes');
+const middleware = require('./utils/middleware');
 
 // connecting to database:
 const config = require('./utils/config');
@@ -24,6 +25,6 @@ app.use(express.json()); // json parser for api requests
 // TODO: add authentication with middleware
 app.use('/api/users', userRouter);
 app.use('/api/login', loginRouter);
-app.use('/api/notes', noteRouter);
+app.use('/api/notes', middleware.authenticator, noteRouter);
 
 module.exports = app;
