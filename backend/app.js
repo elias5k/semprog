@@ -27,4 +27,6 @@ app.use('/api/login', loginRouter); // no authentication required
 app.use('/api/users', userRouter); // authentication added in router
 app.use('/api/notes', middleware.authenticator, noteRouter); // authentication added here
 
+app.use(middleware.errorHandler);
+
 module.exports = app;
