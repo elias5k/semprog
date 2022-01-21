@@ -23,8 +23,8 @@ app.use(cors()); // enables cross origin resource sharing
 app.use(express.json()); // json parser for api requests
 
 // TODO: add authentication with middleware
-app.use('/api/users', userRouter);
-app.use('/api/login', loginRouter);
-app.use('/api/notes', middleware.authenticator, noteRouter);
+app.use('/api/login', loginRouter); // no authentication required
+app.use('/api/users', userRouter); // authentication added in router
+app.use('/api/notes', middleware.authenticator, noteRouter); // authentication added here
 
 module.exports = app;

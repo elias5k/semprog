@@ -2,6 +2,7 @@ const userRouter = require('express').Router();
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const middleware = require('../utils/middleware');
 require('express-async-errors');
 
 
@@ -50,24 +51,10 @@ userRouter.post('/', async (request, response) => {
  * This route responds with a list of all registered users.
  * It is used by the admin dashboard, so this should ensure only admins can retrieve this data.
  */
-userRouter.get('/', async (request, response) => {
+userRouter.get('/', middleware.authenticator, async (request, response) => {
 	
-	// the authentication process starts here:
-	const authorization = request.get('authorization'); // get token and check syntax:
-    if (!authorization || !authorization.toLowerCase().startsWith('bearer ')) {
-        return response.status(401).send({ error: 'missing token or invalid syntax' });
-    }
-	const token = authorization.substring(7); // remove the 'bearer ' part from the token, since we don't need it.
-	let userToken, user;
-	try {
-		userToken = jwt.verify(token, process.env.SECRET); // try to decode and verify token
-		user = await User.findOne({ username: userToken.username }); // if it succeeds, search the user in the database
-	} catch (e) {
-		return response.status(401).send({ error: 'invalid token' }); // if it fails, return 401
-	} // authentication done :)
-
 	// this is the authorization check:
-	if (user.role !== 'admin') {
+	if (request.user.role !== 'admin') {
 		return response.status(403).send({ error: 'permission denied' });
 	}
 
@@ -86,26 +73,12 @@ userRouter.get('/', async (request, response) => {
  * 
  * TODO: add role authorization!
  */
-userRouter.put('/:id', async (request, response) => {
-	// the authentication process starts here:
-	const authorization = request.get('authorization'); // get token and check syntax:
-    if (!authorization || !authorization.toLowerCase().startsWith('bearer ')) {
-        return response.status(401).send({ error: 'missing token or invalid syntax' });
-    }
-	const token = authorization.substring(7); // remove the 'bearer ' part from the token, since we don't need it.
-	let userToken, user;
-	try {
-		userToken = jwt.verify(token, process.env.SECRET); // try to decode and verify token
-		user = await User.findOne({ username: userToken.username }); // if it succeeds, search the user in the database
-	} catch (e) {
-		return response.status(401).send({ error: 'invalid token' }); // if it fails, return 401
-	} // authentication done :)
-
+userRouter.put('/:id', middleware.authenticator, async (request, response) => {
+	
 	// this is the authorization check:
-	if (user.role !== 'admin') {
+	if (request.user.role !== 'admin') {
 		return response.status(403).send({ error: 'permission denied' });
 	}
-
 	
 	// get the user from the database and check if it actually exists:
 	const promotedUser = await User.findById(request.params.id);
