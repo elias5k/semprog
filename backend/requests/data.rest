@@ -1,12 +1,9 @@
+### Request to fetch all notes
+
 GET http://localhost:3001/api/notes
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvY2hlbiIsImlkIjoiNjFhYzcwZjdkOTc5YjM0ZWVlNTVhY2UyIiwiaWF0IjoxNjM4ODczODE1fQ.TmShoJfwd_-3eUoCxbgmo5evakXCm9tNGSXX-nSIBww
 
-###
+### Request to fetch a single note
 
-GET http://localhost:3001/api/notes/8
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1heCIsImlhdCI6MTY0MjY3OTA4NX0.p9eqeW-JR39P8mJqoQ90a-j2eCqjREyc3XxsSsOjBDk
-
-###
-
-DELETE http://localhost:3001/api/notes/4
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1heCIsImlkIjoiNjFhYjRmZWU2NjI3MzIzOWIzMmRjM2EyIiwiaWF0IjoxNjM4ODczMzk0fQ.0TeEMyZane_e4rfz0u4zLcOGR0KEgf23MykwkKUm_RQ
+GET http://localhost:3001/api/notes/4
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1heCIsImlkIjoiNjFkZjQ0ZDE3YmFmNGMwNmVmMDM1OTJlIiwiaWF0IjoxNjQyMTgxMDk3fQ.IFo80UlWfl3UjTAdkgwsp7wA_upRT3qZw_PmaXUqQbo
