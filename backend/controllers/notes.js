@@ -119,7 +119,7 @@ noteRouter.delete('/:id', async (request, response) => {
 	if (!deletedData) return response.status(404).send();
 
 	// do an authorization check:
-	if (deletedData.id !== userObject.id) 
+	if (deletedData.user !== userObject.id) 
 		return response.status(403).send({ error: 'permission denied' });
 	
 	// delete the data and return 204:
