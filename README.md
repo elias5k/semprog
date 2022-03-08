@@ -9,7 +9,5 @@ The safe2 branch goes a step further and tries to implement some of the good pra
 Check the READMEs in the other branches for more information on the specific fixes.
 
 A database configuration file is missing currently, so to run it
-one would need to configure a database connection manually. It's planned to add all of the configuration by default, with a connection to aa remote database,
-so anyone could clone the code and run it locally without needing to configure a local database.
-
-A list of required installations and a walk-through will be provided, in an attempt to make the setup easier.
+one would need to configure a database connection manually, which we unfortunately could not provide.
+The code - especially in the backend - can still be studied and the branches represent different security levels, with main being the most insecure one.
